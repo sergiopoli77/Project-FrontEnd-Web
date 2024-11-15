@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "./assets/css/SignUp.css";
+import "./assets/css/Hama.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
