@@ -1,0 +1,87 @@
+const Home = () => {
+  return (
+    <main>
+      <section className="hero-header">
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <h1>
+            Panduan Lengkap
+            <br />
+            Manfaat dan Perawatan Tomat
+          </h1>
+          <p>
+            Mulai dari kandungan antioksidan hingga vitamin, tomat memiliki
+            segudang manfaat. Ketahui juga cara merawatnya agar tanaman tomat
+            Anda tumbuh subur.
+          </p>
+          <a href="#about" className="btn btn-primary">
+            Pelajari Lebih Lanjut
+          </a>
+        </div>
+      </section>
+
+      <section className="about py-5">
+        <div className="container">
+          <div className="row g-5 align-items-center">
+            <div className="col-lg-6">
+              <div className="row g-3">
+                <div className="col-6 text-start">
+                  <img
+                    className="img-fluid rounded w-100"
+                    src="img/tomat1.jpg"
+                    alt="Tomat 1"
+                  />
+                </div>
+                <div className="col-6 text-start">
+                  <img
+                    className="img-fluid rounded w-75"
+                    src="img/tomat2.jpg"
+                    alt="Tomat 2"
+                    style={{ marginTop: "25%" }}
+                  />
+                </div>
+                <div className="col-6 text-end">
+                  <img
+                    className="img-fluid rounded w-75"
+                    src="img/tomat3.jpeg"
+                    alt="Tomat 3"
+                  />
+                </div>
+                <div className="col-6 text-end">
+                  <img
+                    className="img-fluid rounded w-100"
+                    src="img/tomat4.jpg"
+                    alt="Tomat 4"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <h5 className="about-section-title ff-secondary text-start text-primary fw-normal">
+                About Us
+              </h5>
+              <h1 className="mb-4">Welcome to Tomatik</h1>
+              <p className="mb-4">
+                Tomatik hadir untuk memberikan Anda informasi lengkap tentang
+                manfaat kesehatan dari tomat. Dari meningkatkan daya tahan tubuh
+                hingga mendukung kesehatan kulit, tomat adalah buah yang kaya
+                akan manfaat yang baik untuk kesehatan Anda.
+              </p>
+              <p className="mb-4">
+                Di sini, kami juga menyediakan panduan perawatan tomat yang
+                praktis dan mudah. Baik Anda seorang pemula ataupun penghobi
+                tanaman, panduan kami akan membantu Anda menumbuhkan tomat yang
+                sehat dan subur di rumah.
+              </p>
+              <a className="btn-readmore py-3 px-5 mt-2" href="#">
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default Home;
