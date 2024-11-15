@@ -1,15 +1,10 @@
 import React from "react";
-import Header from "./Strukturs/Header";
-import Footer from "./Strukturs/Footer";
+import SignUp from "./components/pages/SignUp";
 
 const App = () => {
   return (
     <div className="body-wrap">
-      <Header />
-
-      <main></main>
-
-      <Footer />
+      <SignUp></SignUp>
     </div>
   );
 };
