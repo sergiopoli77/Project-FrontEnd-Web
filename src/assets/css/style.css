@@ -7,7 +7,7 @@ header {
 
 .site-header {
   background-color: #fff; /* Background putih */
-  color: #000; /* Teks warna hitam */
+  color: hsl(0, 0%, 0%); /* Teks warna hitam */
   padding: 16px 0; /* Padding atas dan bawah header */
   box-shadow: none; /* Menghilangkan shadow jika ada */
   border: none; /* Menghilangkan border jika ada */
@@ -29,7 +29,7 @@ header {
 
 .brand h1 {
   font-size: 3em; /* Ukuran font lebih besar */
-  font-family: 'Garamond', serif;
+  font-family: "Garamond", serif;
   margin: 0; /* Menghilangkan margin default */
   color: rgb(255, 9, 9); /* Warna teks merah */
 }
