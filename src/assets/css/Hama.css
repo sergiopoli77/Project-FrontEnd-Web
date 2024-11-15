@@ -1,0 +1,108 @@
+/* Ensure the component fills the full screen */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* Soft greenish-white background */
+}
+
+/* Container styling */
+.pest-list {
+  width: 90%; /* Increased width to make it larger */
+  height: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  gap: 40px; /* Add spacing between items */
+  margin: auto;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  background-color: #f0f7f4;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #c4e3d5;
+}
+
+.back-button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2f5d62; /* Darker green for back button */
+  margin-right: 10px;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #2f5d62; /* Dark green title */
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Pest item styling */
+.pest-item {
+  display: flex;
+  align-items: center;
+  background-color: #eaf4f0; /* Lighter soft green for items */
+  border: 1px solid #c4e3d5;
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%; /* Make items fill the entire container width */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pest-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(47, 93, 98, 0.2); /* Soft shadow on hover */
+}
+
+/* Pest info styling */
+.pest-info {
+  flex: 1;
+  margin-right: 8px;
+}
+
+.pest-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2f5d62; /* Dark green for title */
+  margin: 0 0 4px;
+}
+
+.pest-description {
+  font-size: 14px;
+  color: #555; /* Neutral dark gray for description */
+  margin: 0;
+}
+
+/* Details button styling */
+.details-button {
+  font-size: 18px;
+  background-color: #f2dede; /* Soft red for button background */
+  color: #a94442; /* Darker red for button text */
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.details-button:hover {
+  background-color: #e4b9b8; /* Slightly darker red on hover */
+}
