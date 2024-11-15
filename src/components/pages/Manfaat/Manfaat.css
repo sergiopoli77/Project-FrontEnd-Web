@@ -1,0 +1,84 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7fafc; /* bg-gray-100 */
+}
+
+header {
+  background-color: #ff6347; /* red-500 */
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem; /* text-3xl */
+}
+
+nav {
+  background-color: #333; /* gray-800 */
+  color: white;
+  padding: 0.5rem 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* space-x-4 */
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem; /* text-lg */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsif */
+  gap: 1rem; /* gap-4 */
+}
+
+.benefit {
+  background-color: #fff5f5; /* bg-red-100 */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* shadow-md */
+  padding: 1rem; /* p-4 */
+}
+
+.benefit img {
+  width: 100%;
+  height: 200px; /* Mengubah tinggi gambar */
+  object-fit: cover; /* Menjaga proporsi gambar */
+  border-radius: 8px; /* rounded */
+}
+
+.benefit h2 {
+  margin-top: 0.5rem; /* mt-2 */
+  font-size: 1.25rem; /* text-xl */
+}
+
+.benefit p {
+  margin: 0.5rem 0; /* mt-2 mb-2 */
+  color: #4a5568; /* default text color */
+  line-height: 1.6; /* meningkatkan keterbacaan */
+}
+
+footer {
+  background-color: #333; /* gray-800 */
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
