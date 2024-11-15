@@ -1,13 +1,15 @@
-import React from "react";
-import Header from "./Strukturs/Header";
-import Footer from "./Strukturs/Footer";
+import Header from "./components/Strukturs/Header";
+import Footer from "./components/Strukturs/Footer";
+import Home from "./components/pages/Home";
 
 const App = () => {
   return (
     <div className="body-wrap">
       <Header />
 
-      <main></main>
+      <main>
+        <Home />
+      </main>
 
       <Footer />
     </div>
