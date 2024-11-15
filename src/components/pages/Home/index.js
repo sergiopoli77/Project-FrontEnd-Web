@@ -23,7 +23,39 @@ const Home = () => {
       <section className="about py-5">
         <div className="container">
           <div className="row g-5 align-items-center">
-            
+            <div className="col-lg-6">
+              <div className="row g-3">
+                <div className="col-6 text-start">
+                  <img
+                    className="img-fluid rounded w-100"
+                    src="img/tomat1.jpg"
+                    alt="Tomat 1"
+                  />
+                </div>
+                <div className="col-6 text-start">
+                  <img
+                    className="img-fluid rounded w-75"
+                    src="img/tomat2.jpg"
+                    alt="Tomat 2"
+                    style={{ marginTop: "25%" }}
+                  />
+                </div>
+                <div className="col-6 text-end">
+                  <img
+                    className="img-fluid rounded w-75"
+                    src="img/tomat3.jpeg"
+                    alt="Tomat 3"
+                  />
+                </div>
+                <div className="col-6 text-end">
+                  <img
+                    className="img-fluid rounded w-100"
+                    src="img/tomat4.jpg"
+                    alt="Tomat 4"
+                  />
+                </div>
+              </div>
+            </div>
             <div className="col-lg-6">
               <h5 className="about-section-title ff-secondary text-start text-primary fw-normal">
                 About Us
