@@ -1,13 +1,16 @@
 import React from "react";
-import Header from "./Strukturs/Header";
-import Footer from "./Strukturs/Footer";
+import Header from "./components/Strukturs/Header";
+import Footer from "./components/Strukturs/Footer";
+import Manfaat from "./components/pages/Manfaat";
 
 const App = () => {
   return (
     <div className="body-wrap">
       <Header />
 
-      <main></main>
+      <main>
+        <Manfaat />
+      </main>
 
       <Footer />
     </div>
