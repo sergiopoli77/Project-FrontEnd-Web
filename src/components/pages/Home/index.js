@@ -41,7 +41,9 @@ const Home = () => {
                 tanaman, panduan kami akan membantu Anda menumbuhkan tomat yang
                 sehat dan subur di rumah.
               </p>
-              
+              <a className="btn-readmore py-3 px-5 mt-2" href="#">
+                Read More
+              </a>
             </div>
           </div>
         </div>
