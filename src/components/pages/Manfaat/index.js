@@ -1,5 +1,5 @@
 import React from "react";
-import "./Manfaat.css"; // Mengimpor CSS yang dibuat sebelumnya
+
 
 const Manfaat = () => {
   return (
