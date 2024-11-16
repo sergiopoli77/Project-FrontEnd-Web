@@ -1,128 +1,75 @@
-/* Header styles */
-header {
-  border-top: none; /* Atur ini jika garis ada di bagian atas */
-  border-bottom: none; /* Atur ini jika garis ada di bagian bawah */
-}
-
+/* Struktur dasar Header */
 .site-header {
-  background-color: #fff; /* Background putih */
-  padding: 8px 0; /* Padding atas dan bawah header */
-  box-shadow: none; /* Menghilangkan shadow jika ada */
-  border: none; /* Menghilangkan border jika ada */
-  position: sticky; /* Membuat header sticky */
-  top: 0; /* Membuat header tetap di atas saat scroll */
-  z-index: 1000; /* Memastikan header berada di atas konten lain */
-  width: 100%; /* Agar header mengambil seluruh lebar */
-  transition: all 0.3s ease; /* Menambahkan transisi untuk efek smooth */
-}
-
-.site-header .container {
-  max-width: 1200px; /* Lebar maksimum kontainer */
-  margin: 0 auto; /* Membuat kontainer center-align */
-  padding: 0 20px; /* Memberikan padding kiri dan kanan */
-  border: none !important; /* Menghapus border pada header */
-  box-shadow: none !important; /* Menghilangkan bayangan jika ada */
+  background-color: #fff;
+  padding: 8px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Tambahkan shadow untuk perbedaan */
 }
 
 .site-header-inner {
-  display: flex; /* Menggunakan flexbox untuk layout */
-  justify-content: space-between; /* Menyebar elemen header secara merata */
-  align-items: center; /* Vertikal align elemen di tengah */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .brand h1 {
-  font-size: 3em; /* Ukuran font lebih besar */
+  font-size: 2em;
+  color: rgb(255, 9, 9);
   font-family: "Garamond", serif;
-  margin: 0; /* Menghilangkan margin default */
-  color: rgb(255, 9, 9); /* Warna teks merah */
+  margin: 0;
 }
 
-.brand h1 a:hover {
-  border: none;
+.brand a {
   text-decoration: none;
+  color: inherit;
 }
 
-a:hover {
-  text-decoration: underline; /* Hapus ini jika ada */
+.brand a:hover {
+  text-decoration: none;
+  color: #f00;
 }
 
-.brand h1 a {
-  border: none; /* Menghilangkan border */
-  outline: none !important; /* Menghapus outline */
-  color: #f00; /* Warna merah untuk "Tomatik" */
-  text-decoration: none !important; /* Menghilangkan garis bawah */
+/* Navigation Bar */
+.header-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Navbar toggle */
-.header-nav-toggle {
-  background: none; /* Menghilangkan latar belakang */
-  border: none; /* Menghilangkan border */
-  display: flex; /* Menggunakan flexbox untuk tombol hamburger */
-  align-items: center; /* Vertikal align icon hamburger */
+.header-nav li {
+  margin-left: 20px;
 }
 
-.hamburger {
-  width: 30px; /* Lebar ikon hamburger */
-  height: 20px; /* Tinggi ikon hamburger */
-  position: relative; /* Posisi relative untuk ikon */
+.header-nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2em;
+  transition: color 0.3s;
 }
 
-.hamburger-inner {
-  position: absolute; /* Posisi absolute agar lebih mudah diposisikan */
-  top: 50%; /* Menempatkan di tengah vertikal */
-  left: 0;
-  width: 100%; /* Lebar penuh hamburger */
-  height: 2px; /* Ketebalan garis hamburger */
-  background: #ffffff !important; /* Warna garis */
-  transition: all 0.3s ease; /* Efek transisi ketika toggle */
+.header-nav a:hover {
+  color: #f00;
 }
 
-/* Navbar styles */
-.header-nav {
-  display: flex; /* Menggunakan flexbox untuk menu navigasi */
-  list-style: none; /* Menghilangkan bullet points pada list */
-  margin: 0; /* Menghilangkan margin di navbar */
-  padding: 0; /* Menghilangkan padding di navbar */
+/* Button for Signup */
+.button {
+  background-color: #4caf50;
+  color: #ffffff !important;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.header-nav .header-nav-right {
-  display: flex; /* Flexbox untuk daftar menu di kanan */
-  margin-left: auto; /* Memindahkan menu ke kanan */
-  background-color: #ffffff;
-}
-
-.header-nav-right li {
-  margin-left: 35px !important; /* Memberikan jarak antar menu */
-  list-style-type: none; /* Menghilangkan bullet points pada list item */
-  margin-top: 15px; /* Menambahkan jarak sedikit pada tiap item menu */
-}
-
-.header-nav-right a {
-  color: #000000; /* Warna teks menu */
-  text-decoration: none !important; /* Menghilangkan garis bawah pada link */
-  font-size: 1.2em; /* Ukuran font menu */
-  padding-bottom: 5px; /* Menambahkan padding bawah untuk efek hover */
-  border-radius: 0; /* Menghilangkan border-radius pada menu */
-  transition: color 0.3s, border-bottom 0.3s; /* Efek transisi untuk warna dan border */
-}
-
-.header-nav-right a:hover {
-  color: #f00; /* Warna teks merah saat hover */
-  border-bottom: 2px solid #f00; /* Garis bawah merah saat hover */
-}
-
-/* Tombol Sign Up dengan border-radius bulat dan teks merah */
-.button-signup {
-  background-color: #4caf50; /* Background hijau */
-  color: #f1f1f1 !important; /* Teks berwarna merah */
-  padding: 10px 20px !important; /* Padding tombol */
-  border-radius: 50px !important; /* Membuat sudut tombol membulat (border-radius bulat) */
-  font-size: 1.1em !important; /* Ukuran font tombol */
-  text-decoration: none; /* Menghilangkan garis bawah pada tombol */
-  transition: background-color 0.3s, color 0.3s; /* Efek transisi */
-}
-
-.button-signup:hover {
-  background-color: #f00; /* Background merah saat hover */
-  color: #fff; /* Teks menjadi putih saat hover */
+.button:hover {
+  background-color: #f00;
+  color: #fff;
 }
