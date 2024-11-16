@@ -6,9 +6,8 @@ import "./assets/css/Footer.css";
 import "./assets/css/SignUp.css";
 import "./assets/css/bootstrap.min.css";
 import "./assets/css/Home.css";
-import "./assets/css/Manfaat.css";
 import "./assets/css/Hama.css";
-import "./assets/css/Merawat.css";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
