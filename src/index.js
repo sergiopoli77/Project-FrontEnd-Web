@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import "./assets/css/style.css";
+import "./assets/css/Header.css";
+import "./assets/css/Footer.css";
 import "./assets/css/SignUp.css";
 import "./assets/css/bootstrap.min.css";
-import "./components/pages/Home/Home.css";
-import "./components/pages/Manfaat/Manfaat.css";
-import "./Components/pages/Merawat/styles.css";
+import "./assets/css/Home.css";
+import "./assets/css/Manfaat.css";
 import "./assets/css/Hama.css";
+import "./assets/css/Merawat.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
