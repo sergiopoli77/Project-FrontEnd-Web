@@ -1,13 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import "./assets/css/Header.css";
 import "./assets/css/Footer.css";
-import "./assets/css/SignUp.css";
-import "./assets/css/bootstrap.min.css";
-import "./assets/css/Home.css";
-import "./assets/css/Hama.css";
-
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
