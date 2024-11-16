@@ -61,7 +61,7 @@
 /* Button for Signup */
 .button {
   background-color: #4caf50;
-  color: #fff;
+  color: #ffffff !important;
   padding: 10px 20px;
   border-radius: 20px;
   font-size: 1em;
