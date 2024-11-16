@@ -5,17 +5,20 @@ const Manfaat = () => {
     {
       title: "Kaya Akan Nutrisi",
       description:
-        "Tomat mengandung banyak vitamin dan mineral penting seperti vitamin C, vitamin K, kalium, dan folat. Nutrisi ini penting untuk menjaga kesehatan tubuh secara keseluruhan.",
+        "Tomat mengandung banyak vitamin dan mineral penting seperti vitamin C, vitamin K, kalium, dan folat.",
+      image: "/img/gambar1.jpg", // Path gambar dari folder public/img
     },
     {
       title: "Antioksidan Tinggi",
       description:
-        "Tomat kaya akan antioksidan seperti likopen, yang dapat membantu melindungi sel-sel tubuh dari kerusakan akibat radikal bebas dan mengurangi risiko penyakit kronis.",
+        "Tomat kaya akan antioksidan seperti likopen, yang dapat membantu melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
+      image: "/img/gambar2.jpg", // Path gambar dari folder public/img
     },
     {
       title: "Menjaga Kesehatan Jantung",
       description:
-        "Konsumsi tomat secara teratur dapat membantu menurunkan kadar kolesterol dan tekanan darah, yang berkontribusi pada kesehatan jantung yang lebih baik.",
+        "Konsumsi tomat secara teratur dapat membantu menurunkan kadar kolesterol dan tekanan darah.",
+      image: "/img/gambar3.jpg", // Path gambar dari folder public/img
     },
     {
       title: "Meningkatkan Kesehatan Kulit",
@@ -40,6 +43,11 @@ const Manfaat = () => {
       <div className="grid">
         {benefitData.map((benefit, index) => (
           <div className="card" key={index}>
+            <img
+              src={benefit.image}
+              alt={benefit.title}
+              className="card-image"
+            />
             <h2>{benefit.title}</h2>
             <p>{benefit.description}</p>
           </div>
@@ -73,6 +81,14 @@ const Manfaat = () => {
           border-radius: 8px;
           padding: 20px;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          text-align: center;
+        }
+
+        .card-image {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+          margin-bottom: 15px;
         }
 
         .card h2 {
