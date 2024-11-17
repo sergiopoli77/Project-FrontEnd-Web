@@ -69,7 +69,6 @@ const Home = () => {
   return (
     <main>
       <section className="hero-header">
-        <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1>
             Panduan Lengkap
@@ -137,7 +136,7 @@ const Home = () => {
             </div>
             <div className="col-lg-6">
               <h5 className="about-section-title ff-secondary text-start text-primary fw-normal">
-                About Us
+                Tentang Kami
               </h5>
               <h1 className="mb-4">Welcome to Tomatik</h1>
               <p className="mb-4">
@@ -157,6 +156,94 @@ const Home = () => {
               >
                 Read More
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="gallery py-5" id="gallery">
+        <div className="container">
+          <h2 className="text-center mb-4">Galeri Tomat Dunia</h2>
+          <div className="row g-4">
+            <div className="col-md-4">
+              <img
+                src="img/tomat5.jpg"
+                alt="Tomat 5"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">Tomat Roma (Italia)</h5>
+              <p className="text-center">
+                Tomat Roma, terkenal di Italia, sering digunakan untuk membuat
+                saus dan pasta.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <img
+                src="img/tomat6.jpg"
+                alt="Tomat 6"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">
+                Tomat Beefsteak (Amerika Serikat)
+              </h5>
+              <p className="text-center">
+                Tomat Beefsteak, asal Amerika Serikat, dikenal dengan ukurannya
+                yang besar dan dagingnya yang padat.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <img
+                src="img/tomat7.jpg"
+                alt="Tomat 7"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">Tomat Ceri (Jepang)</h5>
+              <p className="text-center">
+                Tomat ceri, populer di Jepang, memiliki rasa manis dan sering
+                digunakan dalam salad atau sebagai camilan.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <img
+                src="img/tomat8.jpg"
+                alt="Tomat 8"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">Tomat San Marzano (Italia)</h5>
+              <p className="text-center">
+                Tomat San Marzano, berasal dari Italia, terkenal dengan rasa
+                manis dan rendah keasamannya, cocok untuk saus tomat.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <img
+                src="img/tomat9.jpg"
+                alt="Tomat 9"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">Tomat Cherry (Prancis)</h5>
+              <p className="text-center">
+                Tomat cherry, yang banyak ditemukan di Prancis, sangat manis dan
+                sering digunakan dalam salad segar.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <img
+                src="img/tomat10.jpg"
+                alt="Tomat 10"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">Tomat Kumato (Spanyol)</h5>
+              <p className="text-center">
+                Tomat Kumato, khas dari Spanyol, memiliki warna coklat gelap
+                dengan rasa yang lebih manis dan kaya.
+              </p>
             </div>
           </div>
         </div>
@@ -195,14 +282,7 @@ const Home = () => {
           color: #ffffff;
           text-align: center;
         }
-        .hero-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(0, 0, 0, 0.3);
-        }
+
         .hero-content {
           position: relative;
           z-index: 2;
@@ -271,6 +351,67 @@ const Home = () => {
           background-color: #45a049;
           color: white;
         }
+
+        .gallery {
+          background-color: #f9f9f9;
+          padding: 40px 0;
+        }
+
+        .gallery h2 {
+          font-size: 2.5em;
+          color: #45a049;
+          text-align: center;
+          margin-bottom: 40px;
+          font-weight: bold;
+        }
+
+        .gallery .row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+        }
+
+        .gallery .col-md-4 {
+          width: 100%;
+          max-width: 350px;
+          margin: 0 auto;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery .img-fluid {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .gallery .col-md-4:hover .img-fluid {
+          transform: scale(1.1);
+          filter: brightness(1.1);
+        }
+
+        .gallery .col-md-4:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+          .gallery .col-md-4 {
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+
+        @media (min-width: 769px) {
+          .gallery .col-md-4 {
+            width: 32%;
+          }
+        }
+
         .slideInLeft {
           opacity: 0;
           transform: translateX(-100%);
