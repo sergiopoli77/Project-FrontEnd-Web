@@ -46,12 +46,7 @@ const Merawat = () => {
     {
       title: "8. Panen",
       description: "Panen saat tomat berwarna cerah dan terasa kenyal.",
-      image: "/img/gambar8.jpg",
-    },
-    {
-      title: "9. Pasca Panen",
-      description: "Simpan tomat di tempat yang sejuk dan kering.",
-      image: "/img/gambar9.jpg",
+      image: "/img/panen.jfif",
     },
   ];
 
