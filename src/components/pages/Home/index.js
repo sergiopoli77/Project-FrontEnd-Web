@@ -180,7 +180,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/beefsteaktomat.jpeg"
+                src="img/tomatbeefsteak.jpeg"
                 alt="BeefSteak tomat"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -195,7 +195,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomat7.jpg"
+                src="img/tomatjepang.jpeg"
                 alt="Tomat 7"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -208,7 +208,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomat8.jpg"
+                src="img/tomatmarzano.jpeg"
                 alt="Tomat 8"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -338,7 +338,7 @@ const Home = () => {
           margin-top: 20px;
         }
         .btn-readmore {
-          background-color: #ff2600;  
+          background-color: #ff2600;
           color: white;
           border: none;
           padding: 10px 20px;
