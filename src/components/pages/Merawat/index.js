@@ -29,7 +29,7 @@ const Manfaat = () => {
       title: "5. Pemupukan",
       description:
         "Berikan pupuk dasar saat penanaman dan pupuk tambahan saat berbunga.",
-      image: "/img/gambar5.jpg", // Ganti dengan gambar yang sesuai
+      image: "/img/pemupukan.jfif", // Ganti dengan gambar yang sesuai
     },
     {
       title: "6. Penyangga Tanaman",
