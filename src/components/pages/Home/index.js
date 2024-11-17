@@ -163,7 +163,7 @@ const Home = () => {
 
       <section className="gallery py-5" id="gallery">
         <div className="container">
-          <h2 className="text-center mb-4">Galeri Tomat Dunia</h2>
+          <h2 className="text-center mb-4">Tomat Populer di Setiap Negara</h2>
           <div className="row g-4">
             <div className="col-md-4">
               <img
