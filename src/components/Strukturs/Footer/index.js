@@ -24,7 +24,7 @@ const Footer = () => {
               </ul>
             </nav>
             <div className="footer-copyright">
-              © Tomatik, all rights reserved
+              © Tomatik, Semua hak dilindungi.
             </div>
           </div>
         </div>

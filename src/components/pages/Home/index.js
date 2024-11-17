@@ -70,7 +70,7 @@ const Home = () => {
                 akan manfaat yang baik untuk kesehatan Anda.
               </p>
               <p className="mb-4">
-                Di sini, kami juga menyediakan panduan perawatan tomat yang
+                Menyediakan panduan perawatan tomat yang
                 praktis dan mudah. Baik Anda seorang pemula ataupun penghobi
                 tanaman, panduan kami akan membantu Anda menumbuhkan tomat yang
                 sehat dan subur di rumah.
