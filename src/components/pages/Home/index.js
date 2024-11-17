@@ -221,7 +221,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomat9.jpg"
+                src="img/tomatceryprancis.jpeg"
                 alt="Tomat 9"
                 className="img-fluid rounded"
                 loading="lazy"
