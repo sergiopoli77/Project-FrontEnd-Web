@@ -35,7 +35,7 @@ const Merawat = () => {
       title: "6. Penyangga Tanaman",
       description:
         "Gunakan tiang atau ajir untuk menopang tanaman agar tidak roboh.",
-      image: "/img/gambar6.jpg",
+      image: "/img/penyangga.jfif",
     },
     {
       title: "7. Pengendalian Hama dan Penyakit",
@@ -63,7 +63,10 @@ const Merawat = () => {
       </div>
       <div className="list">
         {benefitData.map((benefit, index) => (
-          <div className="card-horizontal" key={index}>
+          <div
+            className={`card-horizontal ${index % 2 === 0 ? "left" : "right"}`}
+            key={index}
+          >
             <img
               src={benefit.image}
               alt={benefit.title}
@@ -115,15 +118,13 @@ const Merawat = () => {
 
         .list {
           display: grid;
-          grid-template-columns: 1fr; /* Menampilkan satu kolom */
-          gap: 40px; /* Jarak antar card diperbesar */
+          gap: 40px;
         }
 
         .card-horizontal {
           background: rgba(255, 255, 255, 0.95);
           border-radius: 20px;
           display: flex;
-          flex-direction: row;
           align-items: center;
           overflow: hidden;
           padding: 20px;
@@ -132,25 +133,39 @@ const Merawat = () => {
         }
 
         .card-horizontal:hover {
-          transform: scale(1.05); /* Efek membesar saat hover */
+          transform: scale(1.05);
           box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
         }
 
+        .card-horizontal.left {
+          flex-direction: row; /* Gambar di kiri, teks di kanan */
+        }
+
+        .card-horizontal.right {
+          flex-direction: row-reverse; /* Gambar di kanan, teks di kiri */
+        }
+
         .card-image {
-          width: 180px; /* Gambar diperbesar */
-          height: 180px; /* Gambar diperbesar */
+          width: 180px;
+          height: 180px;
           object-fit: cover;
           margin-right: 20px;
           border-radius: 15px;
           transition: transform 0.3s ease;
         }
 
+        /* Hapus margin-left pada .card-horizontal.right .card-image */
+        .card-horizontal.right .card-image {
+          margin-right: 0;
+        }
+
         .card-horizontal:hover .card-image {
-          transform: scale(1.1); /* Efek zoom gambar saat hover */
+          transform: scale(1.1);
         }
 
         .card-content {
           padding: 10px;
+          text-align: left; /* Teks selalu rata kiri */
         }
 
         .card-content h2 {
@@ -174,6 +189,10 @@ const Merawat = () => {
             font-size: 1.2rem;
           }
 
+          .card-content {
+            text-align: center !important; /* Selalu di tengah pada layar kecil */
+          }
+
           .card-content h2 {
             font-size: 1.5rem;
           }
@@ -183,15 +202,15 @@ const Merawat = () => {
           }
 
           .card-horizontal {
-            flex-direction: column; /* Gambar dan konten ditumpuk */
+            flex-direction: column;
             align-items: center;
-            text-align: center;
           }
 
           .card-image {
             width: 100%;
-            height: auto; /* Gambar responsif di layar kecil */
+            height: auto;
             margin-bottom: 15px;
+            margin-left: 0 !important; /* Atasi margin untuk mode mobile */
           }
         }
       `}</style>
