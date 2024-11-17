@@ -167,8 +167,8 @@ const Home = () => {
           <div className="row g-4">
             <div className="col-md-4">
               <img
-                src="img/tomat5.jpg"
-                alt="Tomat 5"
+                src="img/tomatroma.jpeg"
+                alt="Tomat Roma"
                 className="img-fluid rounded"
                 loading="lazy"
               />
@@ -338,7 +338,7 @@ const Home = () => {
           margin-top: 20px;
         }
         .btn-readmore {
-          background-color: #ff2600;
+          background-color: #ff2600;  
           color: white;
           border: none;
           padding: 10px 20px;
