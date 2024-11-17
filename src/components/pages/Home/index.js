@@ -296,6 +296,7 @@ const Home = () => {
           color: #b22222;
           text-shadow: 2px 2px 4px black;
         }
+
         .hero-header p {
           font-size: 1.2em;
           margin-bottom: 20px;

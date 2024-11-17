@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Strukturs/Header";
-import Footer from "./components/Strukturs/Footer";
-import Home from "./components/pages/Home";
-import Manfaat from "./components/pages/Manfaat";
-import Merawat from "./components/pages/Merawat";
-import Penyakit from "./components/pages/Penyakit";
-import Hama from "./components/pages/Hama";
-
+import Header from "./Components/Strukturs/Header";
+import Footer from "./Components/Strukturs/Footer";
+import Home from "./Components/pages/Home";
+import Manfaat from "./Components/pages/Manfaat";
+import Merawat from "./Components/pages/Merawat";
+import Penyakit from "./Components/pages/Penyakit";
+import Hama from "./Components/pages/Hama";
 
 const App = () => {
   return (
@@ -20,7 +19,7 @@ const App = () => {
             <Route path="/manfaat" element={<Manfaat />} />
             <Route path="/merawat" element={<Merawat />} />
             <Route path="/penyakit" element={<Penyakit />} />
-            <Route path="/hama" element={<Hama />} />
+            <Route path="/Hama" element={<Hama />} />
           </Routes>
         </main>
         <Footer />
