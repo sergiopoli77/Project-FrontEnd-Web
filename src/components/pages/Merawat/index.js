@@ -41,7 +41,7 @@ const Merawat = () => {
       title: "7. Pengendalian Hama dan Penyakit",
       description:
         "Periksa tanaman secara rutin dan gunakan insektisida alami untuk mengatasi hama.",
-      image: "/img/gambar7.jpg",
+      image: "/img/obat.jfif",
     },
     {
       title: "8. Panen",
