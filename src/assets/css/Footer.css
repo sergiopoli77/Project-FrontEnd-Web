@@ -1,0 +1,88 @@
+/* Footer styles */
+.site-footer {
+  background-color: #4caf50;
+  padding: 20px 0; /* Mengurangi padding atas dan bawah footer */
+  color: #fff;
+  font-family: "Arial", sans-serif;
+}
+
+.site-footer .container {
+  max-width: 1000px; /* Lebar maksimum kontainer lebih kecil */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.site-footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* Mengurangi jarak antar elemen */
+  margin-bottom: 10px; /* Margin bawah lebih kecil */
+  background-color: #4caf50;
+}
+
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* Mengurangi jarak antar link */
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav {
+  background-color: transparent; /* Pastikan latar belakang transparan */
+  border: none; /* Hilangkan garis tepi */
+  outline: none; /* Hilangkan outline */
+  padding: 0; /* Hilangkan padding tambahan */
+  margin: 0; /* Hilangkan margin tambahan */
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85em; /* Ukuran font lebih kecil */
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #ffcc00;
+}
+
+/* Social media icons */
+.social-icons {
+  display: flex;
+  gap: 10px; /* Jarak antar ikon lebih kecil */
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1em; /* Ukuran ikon lebih kecil */
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffcc00;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  padding-top: 10px; /* Padding atas lebih kecil */
+  margin-top: 10px;
+}
+
+.footer-bottom p {
+  font-size: 0.75em; /* Ukuran font hak cipta lebih kecil */
+  color: #ddd;
+}
