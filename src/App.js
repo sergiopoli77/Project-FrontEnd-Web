@@ -8,7 +8,6 @@ import Merawat from "./components/pages/Merawat";
 import Penyakit from "./components/pages/Penyakit";
 import Hama from "./components/pages/Hama";
 
-
 const App = () => {
   return (
     <Router>
@@ -20,7 +19,7 @@ const App = () => {
             <Route path="/manfaat" element={<Manfaat />} />
             <Route path="/merawat" element={<Merawat />} />
             <Route path="/penyakit" element={<Penyakit />} />
-            <Route path="/hama" element={<Hama />} />
+            <Route path="/Hama" element={<Hama />} />
           </Routes>
         </main>
         <Footer />

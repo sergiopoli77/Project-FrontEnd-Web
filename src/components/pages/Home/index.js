@@ -69,7 +69,6 @@ const Home = () => {
   return (
     <main>
       <section className="hero-header">
-        <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1>
             Panduan Lengkap
@@ -137,7 +136,7 @@ const Home = () => {
             </div>
             <div className="col-lg-6">
               <h5 className="about-section-title ff-secondary text-start text-primary fw-normal">
-                About Us
+                Tentang Kami
               </h5>
               <h1 className="mb-4">Welcome to Tomatik</h1>
               <p className="mb-4">
@@ -157,6 +156,94 @@ const Home = () => {
               >
                 Read More
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="gallery py-5" id="gallery">
+        <div className="container">
+          <h2 className="text-center mb-4">Tomat Populer di Setiap Negara</h2>
+          <div className="row g-4">
+            <div className="col-md-4">
+              <img
+                src="img/tomatroma.jpeg"
+                alt="Tomat Roma"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">Tomat Roma (Italia)</h5>
+              <p className="text-center">
+                Tomat Roma, terkenal di Italia, sering digunakan untuk membuat
+                saus dan pasta.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <img
+                src="img/tomatbeefsteak.jpeg"
+                alt="BeefSteak tomat"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">
+                Tomat Beefsteak (Amerika Serikat)
+              </h5>
+              <p className="text-center">
+                Tomat Beefsteak, asal Amerika Serikat, dikenal dengan ukurannya
+                yang besar dan dagingnya yang padat.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <img
+                src="img/tomatjepang.jpeg"
+                alt="Tomat Cerry Jepang"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">Tomat Ceri (Jepang)</h5>
+              <p className="text-center">
+                Tomat ceri, populer di Jepang, memiliki rasa manis dan sering
+                digunakan dalam salad atau sebagai camilan.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <img
+                src="img/tomatmarzano.jpeg"
+                alt="Tomat Marzano"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">Tomat San Marzano (Italia)</h5>
+              <p className="text-center">
+                Tomat San Marzano, berasal dari Italia, terkenal dengan rasa
+                manis dan rendah keasamannya, cocok untuk saus tomat.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <img
+                src="img/tomatceryprancis.jpeg"
+                alt="Tomat Cerry Prancis"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">Tomat Cherry (Prancis)</h5>
+              <p className="text-center">
+                Tomat cherry, yang banyak ditemukan di Prancis, sangat manis dan
+                sering digunakan dalam salad segar.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <img
+                src="img/tomatkumato.jpeg"
+                alt="Tomat Kumato"
+                className="img-fluid rounded"
+                loading="lazy"
+              />
+              <h5 className="text-center mt-2">Tomat Kumato (Spanyol)</h5>
+              <p className="text-center">
+                Tomat Kumato, khas dari Spanyol, memiliki warna coklat gelap
+                dengan rasa yang lebih manis dan kaya.
+              </p>
             </div>
           </div>
         </div>
@@ -194,14 +281,6 @@ const Home = () => {
           justify-content: center;
           color: #ffffff;
           text-align: center;
-        }
-        .hero-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(0, 0, 0, 0.3);
         }
         .hero-content {
           position: relative;
@@ -271,6 +350,114 @@ const Home = () => {
           background-color: #45a049;
           color: white;
         }
+
+        .gallery {
+          background-color: #f3f4f6;
+          padding: 50px 0;
+        }
+
+        .gallery h2 {
+          font-size: 2.8em;
+          color: #b22222;
+          text-align: center;
+          margin-bottom: 40px;
+          font-weight: bold;
+          letter-spacing: 2px;
+        }
+
+        .gallery .row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+        }
+
+        .gallery .col-md-4 {
+          position: relative;
+          width: 100%;
+          max-width: 250px; /* Kurangi ukuran maksimal elemen */
+          margin: 10px; /* Sesuaikan jarak antar elemen */
+          overflow: hidden;
+          border-radius: 10px; /* Buat sudut lebih kecil */
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Lebih halus */
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery .img-fluid {
+          width: 100%;
+          height: auto;
+          border-radius: 10px; /* Samakan dengan elemen container */
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .gallery .col-md-4:hover .img-fluid {
+          transform: scale(1.05); /* Skala sedikit lebih kecil */
+          filter: brightness(1.1) contrast(1.05);
+        }
+
+        .gallery .col-md-4:hover {
+          transform: translateY(-5px); /* Kurangi efek hover */
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery .col-md-4 .text-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.3)
+          );
+          color: white;
+          text-align: center;
+          padding: 20px;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .gallery .col-md-4:hover .text-overlay {
+          opacity: 1;
+        }
+
+        .gallery .text-overlay h5 {
+          font-size: 1.4em;
+          margin-bottom: 10px;
+          color: #ffdf00;
+        }
+
+        .gallery p {
+          font-size: 0.9em; /* Kurangi ukuran font */
+          line-height: 1.4; /* Jarak antar baris tetap */
+          color: #555;
+          text-align: center;
+        }
+
+        .gallery .text-overlay p {
+          font-size: 0.9em;
+          line-height: 1.4;
+          color: #ffffff;
+        }
+
+        .gallery h5 {
+          font-size: 1em; /* Kurangi ukuran font */
+          margin-top: 10px; /* Sesuaikan jarak atas */
+          color: #b22222;
+        }
+
+        @media (max-width: 768px) {
+          .gallery .col-md-4 {
+            max-width: 180px; /* Lebih kecil di layar kecil */
+          }
+        }
+
+        @media (min-width: 769px) {
+          .gallery .col-md-4 {
+            width: 25%; /* Kurangi lebar default untuk layar besar */
+          }
+        }
+
         .slideInLeft {
           opacity: 0;
           transform: translateX(-100%);
