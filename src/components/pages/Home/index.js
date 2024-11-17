@@ -1,6 +1,71 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Home = () => {
+  const [inView, setInView] = useState(false);
+  const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const aboutSectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+          } else {
+            setInView(false);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (aboutSectionRef.current) {
+      observer.observe(aboutSectionRef.current);
+    }
+
+    // Scroll to top visibility
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setScrollToTopVisible(true);
+      } else {
+        setScrollToTopVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (aboutSectionRef.current) {
+        observer.unobserve(aboutSectionRef.current);
+      }
+    };
+  }, []);
+
+  // Handle smooth scroll
+  useEffect(() => {
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: "smooth",
+        });
+      });
+    });
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <main>
       <section className="hero-header">
@@ -22,38 +87,50 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="about py-5" id="about">
+      <section className="about py-5" id="about" ref={aboutSectionRef}>
         <div className="container">
           <div className="row g-5 align-items-center">
             <div className="col-lg-6">
               <div className="row g-3">
                 <div className="col-6 text-start">
                   <img
-                    className="img-fluid rounded w-100"
+                    className={`img-fluid rounded w-100 ${
+                      inView ? "slideInLeft" : ""
+                    }`}
                     src="img/tomat1.jpg"
                     alt="Tomat 1"
+                    loading="lazy"
                   />
                 </div>
                 <div className="col-6 text-start">
                   <img
-                    className="img-fluid rounded w-75"
+                    className={`img-fluid rounded w-75 ${
+                      inView ? "slideInLeft" : ""
+                    }`}
                     src="img/tomat2.jpg"
                     alt="Tomat 2"
                     style={{ marginTop: "25%" }}
+                    loading="lazy"
                   />
                 </div>
                 <div className="col-6 text-end">
                   <img
-                    className="img-fluid rounded w-75"
+                    className={`img-fluid rounded w-75 ${
+                      inView ? "slideInRight" : ""
+                    }`}
                     src="img/tomat3.jpeg"
                     alt="Tomat 3"
+                    loading="lazy"
                   />
                 </div>
                 <div className="col-6 text-end">
                   <img
-                    className="img-fluid rounded w-100"
+                    className={`img-fluid rounded w-100 ${
+                      inView ? "slideInRight" : ""
+                    }`}
                     src="img/tomat4.jpg"
                     alt="Tomat 4"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -70,55 +147,68 @@ const Home = () => {
                 akan manfaat yang baik untuk kesehatan Anda.
               </p>
               <p className="mb-4">
-                Di sini, kami juga menyediakan panduan perawatan tomat yang
-                praktis dan mudah. Baik Anda seorang pemula ataupun penghobi
-                tanaman, panduan kami akan membantu Anda menumbuhkan tomat yang
-                sehat dan subur di rumah.
+                Menyediakan panduan perawatan tomat yang praktis dan mudah. Baik
+                Anda seorang pemula ataupun penghobi tanaman, panduan kami akan
+                membantu Anda menumbuhkan tomat yang sehat dan subur di rumah.
               </p>
-              <a className="btn-readmore py-3 px-5 mt-2" href="#">
+              <button
+                className="btn-readmore py-3 px-5 mt-2"
+                onClick={openModal} // Perbaikan di sini
+              >
                 Read More
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>
+              &times;
+            </span>
+            <h2>More Info About Tomatoes</h2>
+            <p>Here is some detailed information...</p>
+          </div>
+        </div>
+      )}
+
+      {scrollToTopVisible && (
+        <button onClick={scrollToTop} className="scroll-to-top">
+          ↑
+        </button>
+      )}
+
       <style jsx>{`
-        /* =========================== HERO SECTION ============================= */
-        /* Hero section dengan gambar latar belakang */
         .hero-header {
           position: relative;
-          height: 100vh; /* Tinggi penuh viewport */
+          height: 100vh;
           background: linear-gradient(
               rgba(174, 185, 212, 0),
               rgba(195, 65, 65, 0.443)
             ),
-            url(./img/bg1.jpg) no-repeat center center/cover; /* Gambar latar belakang */
+            url(./img/bg1.jpg) no-repeat center center/cover;
           display: flex;
-          align-items: center; /* Vertikal tengah */
-          justify-content: center; /* Horizontal tengah */
-          color: #ffffff; /* Warna teks putih */
+          align-items: center;
+          justify-content: center;
+          color: #ffffff;
           text-align: center;
         }
-
-        /* Overlay gelap untuk meningkatkan kontras teks */
-        .hero-header .hero-overlay {
+        .hero-overlay {
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background: ;
+          background: rgba(0, 0, 0, 0.3);
         }
-
-        /* Konten Hero di atas overlay */
-        .hero-header .hero-content {
+        .hero-content {
           position: relative;
-          z-index: 2; /* Menempatkan konten di atas overlay */
+          z-index: 2;
           max-width: 800px;
           padding: 20px;
         }
-
         .hero-header h1 {
           font-size: 3em;
           font-weight: bold;
@@ -126,8 +216,6 @@ const Home = () => {
           color: #b22222;
           text-shadow: 2px 2px 4px black;
         }
-
-        
         .hero-header p {
           font-size: 1.2em;
           margin-bottom: 20px;
@@ -135,8 +223,7 @@ const Home = () => {
           padding: 5px;
           text-shadow: 1px 1px 1px white;
         }
-
-        .hero-header .btn {
+        .btn {
           background-color: #ff2222;
           color: #ffffff;
           padding: 12px 30px;
@@ -144,66 +231,110 @@ const Home = () => {
           text-decoration: none;
           transition: all 0.15s ease;
         }
-
-        .hero-header .btn:hover {
+        .btn:hover {
           background-color: #1a9728;
         }
-
-        /* =========================== About Section ============================ */
-
-        /* Gaya untuk judul bagian "About Us" */
         .about-section-title {
-          font-size: 1.8em; /* Ukuran font untuk judul */
-          font-weight: bold; /* Memberikan ketebalan pada font */
-          color: #ff0000 !important; /* Warna teks (merah) */
-          text-transform: uppercase; /* Mengubah teks menjadi huruf kapital */
-          letter-spacing: 2px; /* Jarak antar huruf */
-          text-align: left; /* Penyelarasan teks ke kiri */
-          margin-bottom: 20px; /* Menambahkan jarak di bawah judul */
+          font-size: 1.8em;
+          font-weight: bold;
+          color: #ff0000 !important;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          text-align: left;
+          margin-bottom: 20px;
         }
-
-        /* Menambahkan gaya untuk elemen "text-primary" */
-        .about-section-title.text-primary {
-          color: #3b7a57; /* Warna hijau yang lebih lembut untuk kelas text-primary */
-        }
-
         .about {
           padding: 50px 0;
           background-color: #f4f4f4;
         }
-
         .about h1 {
           font-size: 2.5em;
           color: #45a049;
         }
-
         .about p {
           font-size: 1.1em;
           line-height: 1.6;
           color: #666666;
           margin-top: 20px;
         }
-
-        /* Gaya untuk tombol Read More */
         .btn-readmore {
-          background-color: #ff2600; /* Warna latar belakang tombol */
-          color: white; /* Warna teks tombol */
-          border: none; /* Menghapus border */
-          padding: 10px 20px; /* Padding untuk ukuran tombol */
-          font-size: 1rem; /* Ukuran font tombol */
-          border-radius: 5px; /* Membuat sudut tombol melengkung */
-          text-align: center; /* Menyelaraskan teks tombol */
-          transition: background-color 0.3s ease; /* Efek transisi saat hover */
+          background-color: #ff2600;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          font-size: 1rem;
+          border-radius: 5px;
+          text-align: center;
+          transition: background-color 0.3s ease;
         }
-
         .btn-readmore:hover {
-          background-color: #45a049; /* Warna latar belakang tombol saat hover */
-          color: white; /* Warna teks saat hover */
-          text-decoration: none; /* Menghilangkan garis bawah saat hover */
+          background-color: #45a049;
+          color: white;
         }
-
-        .btn-readmore:focus {
-          outline: none; /* Menghapus outline saat tombol difokuskan */
+        .slideInLeft {
+          opacity: 0;
+          transform: translateX(-100%);
+          animation: slideInLeft 2.5s forwards;
+        }
+        .slideInRight {
+          opacity: 0;
+          transform: translateX(100%);
+          animation: slideInRight 2.5s forwards;
+        }
+        @keyframes slideInLeft {
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        @keyframes slideInRight {
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        .scroll-to-top {
+          position: fixed;
+          bottom: 50px;
+          right: 20px;
+          background-color: #45a049;
+          color: white;
+          border: none;
+          border-radius: 50%;
+          padding: 15px;
+          font-size: 20px;
+          cursor: pointer;
+          z-index: 1000;
+        }
+        .scroll-to-top:hover {
+          background-color: #ff2600;
+        }
+        .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .modal-content {
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          width: 60%;
+          max-width: 600px;
+          text-align: center;
+        }
+        .close {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          font-size: 2rem;
+          color: #000;
+          cursor: pointer;
         }
       `}</style>
     </main>
