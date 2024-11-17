@@ -1,6 +1,6 @@
 import React from "react";
 
-const Manfaat = () => {
+const Merawat = () => {
   const benefitData = [
     {
       title: "1. Pemilihan Lokasi",
@@ -15,48 +15,48 @@ const Manfaat = () => {
       image: "/img/persiapan.jfif",
     },
     {
-      title: "3. Penanaman",
+      title: "3. Pemilihan bibit",
       description:
         "Pilih bibit tomat yang sehat dan tanam pada kedalaman yang sesuai.",
-      image: "/img/biji.jfif", // Ganti dengan gambar yang sesuai
+      image: "/img/biji.jfif",
     },
     {
       title: "4. Penyiraman",
       description: "Siram tanaman secara teratur, terutama pada musim panas.",
-      image: "/img/siram.jfif", // Ganti dengan gambar yang sesuai
+      image: "/img/siram.jfif",
     },
     {
       title: "5. Pemupukan",
       description:
         "Berikan pupuk dasar saat penanaman dan pupuk tambahan saat berbunga.",
-      image: "/img/pemupukan.jfif", // Ganti dengan gambar yang sesuai
+      image: "/img/pemupukan.jfif",
     },
     {
       title: "6. Penyangga Tanaman",
       description:
         "Gunakan tiang atau ajir untuk menopang tanaman agar tidak roboh.",
-      image: "/img/gambar6.jpg", // Ganti dengan gambar yang sesuai
+      image: "/img/gambar6.jpg",
     },
     {
       title: "7. Pengendalian Hama dan Penyakit",
       description:
         "Periksa tanaman secara rutin dan gunakan insektisida alami untuk mengatasi hama.",
-      image: "/img/gambar7.jpg", // Ganti dengan gambar yang sesuai
+      image: "/img/gambar7.jpg",
     },
     {
       title: "8. Panen",
       description: "Panen saat tomat berwarna cerah dan terasa kenyal.",
-      image: "/img/gambar8.jpg", // Ganti dengan gambar yang sesuai
+      image: "/img/gambar8.jpg",
     },
     {
       title: "9. Pasca Panen",
       description: "Simpan tomat di tempat yang sejuk dan kering.",
-      image: "/img/gambar9.jpg", // Ganti dengan gambar yang sesuai
+      image: "/img/gambar9.jpg",
     },
   ];
 
   return (
-    <div className="manfaat-container">
+    <div className="merawat-container">
       <div className="header">
         <h1 className="subjudul">Merawat Tomat</h1>
         <p className="tagline">Cara merawat Tomat anda agar subur!</p>
@@ -78,29 +78,7 @@ const Manfaat = () => {
       </div>
 
       <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .manfaat-container {
+        .merawat-container {
           background: linear-gradient(
               to bottom,
               rgba(255, 105, 135, 0.8),
@@ -113,13 +91,11 @@ const Manfaat = () => {
           color: #ffffff;
           font-family: "Roboto", sans-serif;
           padding: 40px 10%;
-          animation: fadeIn 1.5s ease-out;
         }
 
         .header {
           text-align: center;
           margin-bottom: 40px;
-          animation: fadeIn 2s ease-out;
         }
 
         .subjudul {
@@ -139,50 +115,54 @@ const Manfaat = () => {
 
         .list {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 30px;
-          animation: slideUp 1.5s ease-in;
+          grid-template-columns: 1fr; /* Menampilkan satu kolom */
+          gap: 40px; /* Jarak antar card diperbesar */
         }
 
         .card-horizontal {
-          background: rgba(255, 255, 255, 0.9);
-          border-radius: 100px;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 20px;
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
+          align-items: center;
           overflow: hidden;
-          transition: transform 0.3s ease, box-shadow 0.3s ease,
-            rotate 0.3s ease;
+          padding: 20px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
         }
-        x .card-image {
-          width: 100%;
-          height: 250px;
+
+        .card-horizontal:hover {
+          transform: scale(1.05); /* Efek membesar saat hover */
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-image {
+          width: 180px; /* Gambar diperbesar */
+          height: 180px; /* Gambar diperbesar */
           object-fit: cover;
-          transition: transform 0.4s ease, filter 0.4s ease;
-          filter: brightness(0.9);
+          margin-right: 20px;
+          border-radius: 15px;
+          transition: transform 0.3s ease;
         }
 
         .card-horizontal:hover .card-image {
-          transform: scale(1.1);
-          filter: brightness(1.1);
+          transform: scale(1.1); /* Efek zoom gambar saat hover */
         }
 
         .card-content {
-          padding: 20px;
-          text-align: center;
+          padding: 10px;
         }
 
         .card-content h2 {
-          font-size: 2rem;
+          font-size: 1.8rem;
           color: #ff6347;
           margin-bottom: 10px;
-          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
         }
 
         .card-content p {
           color: #666666;
           font-size: 1.2rem;
-          line-height: 1.6;
-          margin-bottom: 20px;
+          line-height: 1.5;
         }
 
         @media (max-width: 768px) {
@@ -201,10 +181,22 @@ const Manfaat = () => {
           .card-content p {
             font-size: 1rem;
           }
+
+          .card-horizontal {
+            flex-direction: column; /* Gambar dan konten ditumpuk */
+            align-items: center;
+            text-align: center;
+          }
+
+          .card-image {
+            width: 100%;
+            height: auto; /* Gambar responsif di layar kecil */
+            margin-bottom: 15px;
+          }
         }
       `}</style>
     </div>
   );
 };
 
-export default Manfaat;
+export default Merawat;
