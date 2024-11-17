@@ -180,8 +180,8 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomat6.jpg"
-                alt="Tomat 6"
+                src="img/beefsteaktomat.jpeg"
+                alt="BeefSteak tomat"
                 className="img-fluid rounded"
                 loading="lazy"
               />
