@@ -196,7 +196,7 @@ const Home = () => {
             <div className="col-md-4">
               <img
                 src="img/tomatjepang.jpeg"
-                alt="Tomat 7"
+                alt="Tomat Cerry Jepang"
                 className="img-fluid rounded"
                 loading="lazy"
               />
@@ -209,7 +209,7 @@ const Home = () => {
             <div className="col-md-4">
               <img
                 src="img/tomatmarzano.jpeg"
-                alt="Tomat 8"
+                alt="Tomat Marzano"
                 className="img-fluid rounded"
                 loading="lazy"
               />
@@ -222,7 +222,7 @@ const Home = () => {
             <div className="col-md-4">
               <img
                 src="img/tomatceryprancis.jpeg"
-                alt="Tomat 9"
+                alt="Tomat Cerry Prancis"
                 className="img-fluid rounded"
                 loading="lazy"
               />
@@ -234,8 +234,8 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomat10.jpg"
-                alt="Tomat 10"
+                src="img/tomatkumato.jpeg"
+                alt="Tomat Kumato"
                 className="img-fluid rounded"
                 loading="lazy"
               />
@@ -353,16 +353,17 @@ const Home = () => {
         }
 
         .gallery {
-          background-color: #f9f9f9;
-          padding: 40px 0;
+          background-color: #f3f4f6;
+          padding: 50px 0;
         }
 
         .gallery h2 {
-          font-size: 2.5em;
-          color: #45a049;
+          font-size: 2.8em;
+          color: #b22222;
           text-align: center;
           margin-bottom: 40px;
           font-weight: bold;
+          letter-spacing: 2px;
         }
 
         .gallery .row {
@@ -373,42 +374,75 @@ const Home = () => {
         }
 
         .gallery .col-md-4 {
+          position: relative;
           width: 100%;
           max-width: 350px;
           margin: 0 auto;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-          border-radius: 10px;
           overflow: hidden;
+          border-radius: 15px;
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery .img-fluid {
           width: 100%;
           height: auto;
-          border-radius: 10px;
+          border-radius: 15px;
           transition: transform 0.3s ease, filter 0.3s ease;
         }
 
         .gallery .col-md-4:hover .img-fluid {
           transform: scale(1.1);
-          filter: brightness(1.1);
+          filter: brightness(1.2) contrast(1.1);
         }
 
         .gallery .col-md-4:hover {
           transform: translateY(-10px);
-          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery .col-md-4 .text-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.3)
+          );
+          color: white;
+          text-align: center;
+          padding: 20px;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .gallery .col-md-4:hover .text-overlay {
+          opacity: 1;
+        }
+
+        .gallery .text-overlay h5 {
+          font-size: 1.4em;
+          margin-bottom: 10px;
+          color: #ffdf00;
+        }
+
+        .gallery .text-overlay p {
+          font-size: 0.9em;
+          line-height: 1.4;
+          color: #ffffff;
         }
 
         @media (max-width: 768px) {
           .gallery .col-md-4 {
             width: 100%;
-            max-width: 100%;
           }
         }
 
         @media (min-width: 769px) {
           .gallery .col-md-4 {
-            width: 32%;
+            width: 30%;
           }
         }
 
