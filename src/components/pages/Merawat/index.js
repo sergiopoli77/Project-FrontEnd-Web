@@ -4,7 +4,6 @@ const Merawat = () => {
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
 
   useEffect(() => {
-    // Scroll to top visibility
     const handleScroll = () => {
       if (window.scrollY > 300) {
         setScrollToTopVisible(true);
@@ -20,7 +19,6 @@ const Merawat = () => {
     };
   }, []);
 
-  // Handle smooth scroll
   useEffect(() => {
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach((link) => {
@@ -98,16 +96,13 @@ const Merawat = () => {
             Dapatkan panduan langkah demi langkah untuk merawat tanaman tomat
             hingga panen yang sempurna.
           </p>
-          <a href="#benefits" className="btn btn-primary">
-            Pelajari Lebih Lanjut
-          </a>
         </div>
       </section>
 
       <section className="benefits-section py-5" id="benefits">
         <div className="container">
           <h2 className="text-center mb-5">Langkah-Langkah Merawat Tomat</h2>
-          <div className="row g-5">
+          <div className="row g-4">
             {benefitData.map((benefit, index) => (
               <div className="col-md-6" key={index}>
                 <div className="card-horizontal">
@@ -128,6 +123,44 @@ const Merawat = () => {
         </div>
       </section>
 
+      {/* Tambahan Section Tips & Informasi Perawatan */}
+      <section className="tips-section py-5" id="tips">
+        <div className="container">
+          <h2 className="text-center mb-5">
+            Tips Tambahan dalam Merawat Tomat
+          </h2>
+          <div className="row">
+            <div className="col-md-6">
+              <div className="card">
+                <div className="card-body">
+                  <h3 className="card-title">Mengatasi Penyakit Tanaman</h3>
+                  <p className="card-text">
+                    Tomat rentan terhadap beberapa penyakit seperti jamur dan
+                    bakteri. Gunakan fungisida organik dan lakukan rotasi
+                    tanaman untuk menghindari penyakit berulang. Pastikan juga
+                    untuk membersihkan daun yang terinfeksi.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-6">
+              <div className="card">
+                <div className="card-body">
+                  <h3 className="card-title">Menjaga Kelembapan Tanah</h3>
+                  <p className="card-text">
+                    Tanaman tomat membutuhkan kelembapan yang stabil. Pastikan
+                    tanah selalu lembap, namun tidak tergenang air. Gunakan
+                    mulsa untuk menjaga kelembapan dan mencegah pertumbuhan
+                    gulma.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {scrollToTopVisible && (
         <button onClick={scrollToTop} className="scroll-to-top">
           ↑
@@ -139,7 +172,7 @@ const Merawat = () => {
           position: relative;
           height: 100vh;
           background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-            url(./img/bg2.jpg) no-repeat center center/cover;
+            url(./img/kumpulan.jfif) no-repeat center center/cover;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -152,23 +185,11 @@ const Merawat = () => {
         .hero-header h1 {
           font-size: 3em;
           font-weight: bold;
-          color: #ffdf00;
+          color: white;
         }
         .hero-header p {
           font-size: 1.2em;
           margin-top: 20px;
-        }
-        .btn {
-          margin-top: 20px;
-          background-color: #ff4500;
-          color: white;
-          padding: 10px 25px;
-          border-radius: 5px;
-          text-decoration: none;
-          transition: background-color 0.3s ease;
-        }
-        .btn:hover {
-          background-color: #45a049;
         }
         .benefits-section {
           background-color: #f4f4f4;
@@ -185,11 +206,22 @@ const Merawat = () => {
           padding: 20px;
           border-radius: 10px;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          margin-bottom: 20px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-horizontal:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .card-image {
-          width: 100px;
+          width: 150px;
           height: auto;
           border-radius: 10px;
+          transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .card-image:hover {
+          transform: scale(1.1);
+          opacity: 0.8;
         }
         .card-content h3 {
           font-size: 1.2em;
@@ -197,6 +229,33 @@ const Merawat = () => {
           color: #333;
         }
         .card-content p {
+          font-size: 1em;
+          color: #555;
+        }
+        .tips-section {
+          background-color: #f8f8f8;
+        }
+        .tips-section h2 {
+          font-size: 2.5em;
+          font-weight: bold;
+          color: #b22222;
+        }
+        .card {
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          margin-bottom: 20px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-title {
+          font-size: 1.5em;
+          color: #b22222;
+        }
+        .card-text {
           font-size: 1em;
           color: #555;
         }
@@ -211,9 +270,11 @@ const Merawat = () => {
           border-radius: 50%;
           cursor: pointer;
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .scroll-to-top:hover {
           background-color: #45a049;
+          transform: scale(1.1);
         }
       `}</style>
     </main>
