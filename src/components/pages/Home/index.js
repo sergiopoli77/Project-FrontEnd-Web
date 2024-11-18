@@ -288,20 +288,20 @@ const Home = () => {
         </div>
 
         <div class="col-md-6">
-          <h5>Contact Information</h5>
+          <h5>Informasi Kontak</h5>
           <p>
             <strong>Email Support:</strong>{" "}
-            <a href="mailto:support@tomatik.com">support@tomatik.com</a>
+            <a href="email:support@tomatik.com">support@tomatik.com</a>
           </p>
           <p>
-            <strong>Phone Support:</strong> +123 456 7890
+            <strong>Telepon:</strong> +62 811 2345
           </p>
           <p>
-            <strong>Live Chat:</strong> Available 9 AM - 6 PM (Mon-Fri)
+            <strong>Obrolan Langsung:</strong> Tersediam 9 AM - 6 PM (Senin-FriJumat)
           </p>
           <p>
             <strong>
-              For urgent issues, please reach out to our{" "}
+              Untuk masalah mendesak, silahkan lihat {" "}
               <a href="#faq" class="btn-link">
                 FAQ section
               </a>
