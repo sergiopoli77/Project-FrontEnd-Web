@@ -297,11 +297,12 @@ const Home = () => {
             <strong>Telepon:</strong> +62 811 2345
           </p>
           <p>
-            <strong>Obrolan Langsung:</strong> Tersediam 9 AM - 6 PM (Senin-FriJumat)
+            <strong>Obrolan Langsung:</strong> Tersedia 9 AM - 6 PM
+            (Senin-Jumat)
           </p>
           <p>
             <strong>
-              Untuk masalah mendesak, silahkan lihat {" "}
+              Untuk masalah mendesak, silahkan lihat{" "}
               <a href="#faq" class="btn-link">
                 FAQ section
               </a>
@@ -645,7 +646,6 @@ const Home = () => {
 
         .support-section {
           background-color: #f9f9f9;
-          border-top: 2px solid #4caf50;
           margin-top: 40px;
         }
 
