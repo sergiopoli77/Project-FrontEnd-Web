@@ -109,6 +109,229 @@ const Manfaat = () => {
         </div>
       </section>
 
+      <section className="gallery py-5" id="gallery">
+        <div className="container">
+          <h2 className="text-center mb-4">Kaya Akan Nutrisi</h2>
+          <h3 className="text-center mb-4">
+            Informasi penting tentang kandungan nutrisi tomat
+          </h3>
+          <div className="row g-4">
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Vitamin C</h5>
+              <p className="text-center">
+                Berfungsi sebagai antioksidan kuat untuk melawan radikal bebas,
+                meningkatkan sistem kekebalan tubuh, dan membantu penyerapan zat
+                besi dalam tubuh.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Vitamin K</h5>
+              <p className="text-center">
+                Penting untuk pembekuan darah dan mendukung kesehatan tulang
+                dengan membantu tubuh menyerap kalsium.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Kalium</h5>
+              <p className="text-center">
+                Berperan dalam menjaga tekanan darah tetap stabil, membantu
+                fungsi saraf, dan kontraksi otot.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="gallery py-5" id="gallery">
+        <div className="container">
+          <h2 className="text-center mb-4">Antioksidan Tinggi</h2>
+          <h3 className="text-center mb-4">
+            Manfaat Antioksidan Tinggi dari Tomat
+          </h3>
+          <div className="row g-4">
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Kaya akan Likopen</h5>
+              <p className="text-center">
+                Tomat merupakan sumber utama likopen, antioksidan yang
+                memberikan warna merah pada tomat dan dapat melindungi sel tubuh
+                dari kerusakan oksidatif.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">
+                Manfaat untuk Kesehatan Jantung
+              </h5>
+              <p className="text-center">
+                Likopen dalam tomat dapat membantu mengurangi risiko penyakit
+                jantung dengan melawan peradangan dan mencegah kerusakan
+                pembuluh darah.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Mencegah Kanker</h5>
+              <p className="text-center">
+                Likopen juga dikaitkan dengan penurunan risiko beberapa jenis
+                kanker, termasuk kanker prostat, dengan melawan radikal bebas
+                yang berpotensi merusak DNA.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="gallery py-5" id="gallery">
+        <div className="container">
+          <h2 className="text-center mb-4">Menjaga Kesehatan Jantung</h2>
+          <h3 className="text-center mb-4">
+            Manfaat Tomat untuk Kesehatan Jantung
+          </h3>
+          <div className="row g-4">
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Menurunkan Kadar Kolesterol</h5>
+              <p className="text-center">
+                Tomat mengandung lycopene, antioksidan yang dapat membantu
+                menurunkan kadar kolesterol LDL (kolesterol jahat). Dengan
+                konsumsi rutin, lycopene membantu mengurangi pembentukan plak di
+                arteri, yang berpotensi mengurangi risiko penyakit jantung.
+              </p>
+            </div>
+
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Mengatur Tekanan Darah</h5>
+              <p className="text-center">
+                Kandungan kalium dalam tomat berfungsi untuk menyeimbangkan
+                tekanan darah. Kalium membantu melebarkan pembuluh darah, yang
+                dapat membantu mengurangi tekanan darah tinggi dan mengurangi
+                beban pada jantung.
+              </p>
+            </div>
+
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">
+                Anti-Inflamasi untuk Kesehatan Jantung
+              </h5>
+              <p className="text-center">
+                Tomat memiliki sifat anti-inflamasi yang membantu mengurangi
+                peradangan dalam pembuluh darah. Peradangan kronis pada pembuluh
+                darah dapat memperburuk kondisi jantung, dan dengan konsumsi
+                tomat, peradangan ini dapat diminimalisir, mendukung kesehatan
+                jantung secara keseluruhan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="skin-health py-5" id="skin-health">
+        <div className="container">
+          <h2 className="text-center mb-4">Meningkatkan Kesehatan Kulit</h2>
+          <h3 className="text-center mb-4">
+            Manfaat Tomat untuk Kesehatan Kulit
+          </h3>
+          <div className="row g-4">
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Mencegah Penuaan Dini</h5>
+              <p className="text-center">
+                Vitamin C dalam tomat berperan penting dalam produksi kolagen,
+                yang menjaga kekuatan dan elastisitas kulit. Dengan kolagen yang
+                cukup, keriput dan tanda-tanda penuaan dini dapat dicegah.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">
+                Melindungi Kulit dari Sinar Matahari
+              </h5>
+              <p className="text-center">
+                Tomat mengandung likopen, antioksidan yang efektif melindungi
+                kulit dari kerusakan akibat paparan sinar UV. Konsumsi tomat
+                secara teratur dapat membantu mengurangi dampak buruk sinar
+                matahari.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Meningkatkan Kesehatan Kulit</h5>
+              <p className="text-center">
+                Vitamin C membantu memperbaiki kerusakan kulit yang disebabkan
+                oleh polusi dan faktor eksternal. Selain itu, sifat
+                antiinflamasi vitamin C dapat menenangkan kulit yang teriritasi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="vision-health py-5" id="vision-health">
+        <div className="container">
+          <h2 className="text-center mb-4">Meningkatkan Penglihatan</h2>
+          <h3 className="text-center mb-4">
+            Manfaat Tomat untuk Kesehatan Mata
+          </h3>
+          <div className="row g-4">
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Kaya akan Vitamin A</h5>
+              <p className="text-center">
+                Tomat mengandung vitamin A dalam bentuk provitamin A
+                (karotenoid), yang penting untuk menjaga kesehatan mata dan
+                mendukung fungsi penglihatan.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Menjaga Fungsi Retina</h5>
+              <p className="text-center">
+                Vitamin A berperan dalam pembentukan rhodopsin, pigmen yang
+                diperlukan retina untuk mendeteksi cahaya, sehingga membantu
+                penglihatan dalam kondisi cahaya rendah.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Mencegah Degenerasi Makula</h5>
+              <p className="text-center">
+                Asupan vitamin A yang cukup dapat membantu melindungi mata dari
+                degenerasi makula terkait usia, yang merupakan salah satu
+                penyebab utama kebutaan pada orang tua.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="digestion-health py-5" id="digestion-health">
+        <div className="container">
+          <h2 className="text-center mb-4">Membantu Pencernaan</h2>
+          <h3 className="text-center mb-4">
+            Manfaat Tomat untuk Kesehatan Pencernaan
+          </h3>
+          <div className="row g-4">
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Meningkatkan Gerakan Usus</h5>
+              <p className="text-center">
+                Tomat kaya akan serat, yang membantu memperlancar proses
+                pencernaan dengan meningkatkan gerakan usus dan mengurangi
+                risiko sembelit.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">Detoksifikasi Tubuh</h5>
+              <p className="text-center">
+                Kandungan air dalam tomat membantu menjaga hidrasi tubuh dan
+                mendukung proses detoksifikasi dengan memfasilitasi pengeluaran
+                racun melalui urin.
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h5 className="text-center mt-2">
+                Menjaga Keseimbangan Bakteri Usus
+              </h5>
+              <p className="text-center">
+                Tomat mengandung prebiotik alami yang dapat mendukung
+                pertumbuhan bakteri baik dalam saluran pencernaan, membantu
+                menjaga keseimbangan mikrobiota usus yang sehat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Styles */}
       <style jsx>{`
         @keyframes fadeIn {
@@ -212,6 +435,171 @@ const Manfaat = () => {
         .card-content p {
           color: #555;
           font-size: 1.2rem;
+        }
+
+        /* Reset styling */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: "Arial", sans-serif;
+          background-color: #f9f9f9;
+        }
+
+        /* Section styling */
+        section {
+          padding: 60px 0;
+          background-color: #fff;
+        }
+
+        /* Title styling */
+        h2 {
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: #2c3e50;
+          margin-bottom: 20px;
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          font-weight: 300;
+          color: #7f8c8d;
+          margin-bottom: 40px;
+        }
+
+        /* Container styling */
+        .container {
+          width: 85%;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        /* Row styling */
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 30px;
+        }
+
+        /* Column styling */
+        .col-md-4 {
+          flex: 1 1 30%;
+          padding: 15px;
+          background-color: #ecf0f1;
+          border-radius: 10px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .col-md-4:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Text styling */
+        .text-center {
+          text-align: center;
+        }
+
+        .mt-2 {
+          margin-top: 20px;
+        }
+
+        .mb-4 {
+          margin-bottom: 40px;
+        }
+
+        /* Card headers */
+        h5 {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: #34495e;
+          margin-bottom: 15px;
+        }
+
+        /* Paragraph styling */
+        p {
+          font-size: 1rem;
+          color: #7f8c8d;
+          line-height: 1.6;
+        }
+
+        /* Gallery section specific styling */
+        .gallery {
+          background-color: #f7f7f7;
+        }
+
+        .gallery h2 {
+          color: #e74c3c;
+        }
+
+        .gallery h3 {
+          color: #16a085;
+        }
+
+        /* Skin health section specific styling */
+        .skin-health {
+          background-color: #f0f3f4;
+        }
+
+        .skin-health h2 {
+          color: #8e44ad;
+        }
+
+        .skin-health h3 {
+          color: #2980b9;
+        }
+
+        /* Vision health section specific styling */
+        .vision-health {
+          background-color: #fff3e6;
+        }
+
+        .vision-health h2 {
+          color: #f39c12;
+        }
+
+        .vision-health h3 {
+          color: #c0392b;
+        }
+
+        /* Digestion health section specific styling */
+        .digestion-health {
+          background-color: #d5f0e7;
+        }
+
+        .digestion-health h2 {
+          color: #27ae60;
+        }
+
+        .digestion-health h3 {
+          color: #2ecc71;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+          .col-md-4 {
+            flex: 1 1 100%;
+          }
+
+          .container {
+            width: 90%;
+          }
+
+          h2 {
+            font-size: 2rem;
+          }
+
+          h3 {
+            font-size: 1.1rem;
+          }
+
+          p {
+            font-size: 0.95rem;
+          }
         }
       `}</style>
     </main>
