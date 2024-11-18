@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom"; // Menggunakan NavLink untuk routing selain Sign Up
 
 const Header = () => {
   return (
@@ -8,29 +8,55 @@ const Header = () => {
         <div className="site-header-inner">
           <div className="brand">
             <h1 className="m-0">
-              <Link to="/" className="brand-link">
+              <NavLink to="/" className="brand-link">
                 Tomatik
-              </Link>
+              </NavLink>
             </h1>
           </div>
 
           <nav className="header-nav">
             <ul className="list-reset">
               <li>
-                <Link to="/">Home</Link>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
-                <Link to="/manfaat">Manfaat</Link>
+                <NavLink
+                  to="/manfaat"
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                >
+                  Manfaat
+                </NavLink>
               </li>
               <li>
-                <Link to="/merawat">Merawat</Link>
+                <NavLink
+                  to="/merawat"
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                >
+                  Merawat
+                </NavLink>
               </li>
               <li>
-                <Link to="/penyakit">Penyakit</Link>
+                <NavLink
+                  to="/penyakit"
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                >
+                  Penyakit
+                </NavLink>
               </li>
               <li>
-                <Link to="/hama">Hama</Link>
+                <NavLink
+                  to="/hama"
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                >
+                  Hama
+                </NavLink>
               </li>
+              {/* Tombol Sign Up tetap menggunakan Link */}
               <li>
                 <Link to="/signup" className="button">
                   Sign up

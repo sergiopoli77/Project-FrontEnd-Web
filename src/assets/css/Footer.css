@@ -8,8 +8,8 @@
 
 .site-footer .container {
   max-width: 1000px; /* Lebar maksimum kontainer lebih kecil */
-  margin: 0 auto;
-  padding: 0 15px;
+
+  padding: 0px 15px;
 }
 
 .site-footer-inner {
