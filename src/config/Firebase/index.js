@@ -14,9 +14,11 @@ const firebaseConfig = {
   messagingSenderId: "992946643485",
   appId: "1:992946643485:web:f5111ed0b5817217539cf4",
   measurementId: "G-TGEQKSG38G",
-  databaseURL: "https://tomatik-b83a7-default-rtdb.firebaseio.com/"
+  databaseURL: "https://tomatik-b83a7-default-rtdb.firebaseio.com/",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+
+export { app, database };

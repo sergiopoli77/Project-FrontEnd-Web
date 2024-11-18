@@ -56,12 +56,6 @@ const Header = () => {
                   Hama
                 </NavLink>
               </li>
-              {/* Tombol Sign Up tetap menggunakan Link */}
-              <li>
-                <Link to="/signup" className="button">
-                  Sign up
-                </Link>
-              </li>
             </ul>
           </nav>
         </div>

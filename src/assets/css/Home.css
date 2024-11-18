@@ -3,7 +3,7 @@
 .hero-header {
   position: relative;
   height: 100vh; /* Tinggi penuh viewport */
-  background: linear-gradient(rgba(174, 185, 212, 0), rgba(195, 65, 65, 0.443)),
+  background: linear-gradient(rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.616)
     url() no-repeat center center/cover; /* Gambar latar belakang */
   display: flex;
   align-items: center; /* Vertikal tengah */

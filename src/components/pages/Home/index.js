@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
+
 const Home = () => {
   const [inView, setInView] = useState(false);
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
@@ -80,9 +81,6 @@ const Home = () => {
             segudang manfaat. Ketahui juga cara merawatnya agar tanaman tomat
             Anda tumbuh subur.
           </p>
-          <a href="#about" className="btn btn-primary">
-            Pelajari Lebih Lanjut
-          </a>
         </div>
       </section>
 
@@ -165,7 +163,7 @@ const Home = () => {
         <div className="container">
           <h2 className="text-center mb-4">Gallery Tomat</h2>
           <h3 className="text-center mb-4">
-            Tomat yang populer di berbagaia negara
+            Tomat yang populer di berbagai negara
           </h3>
           <div className="row g-4">
             <div className="col-md-4">
@@ -275,15 +273,15 @@ const Home = () => {
           position: relative;
           height: 100vh;
           background: linear-gradient(
-              rgba(174, 185, 212, 0),
-              rgba(195, 65, 65, 0.443)
+              rgba(0, 0, 0, 0.603),
+              rgba(0, 0, 0, 0.616)
             ),
             url(./img/bg1.jpg) no-repeat center center/cover;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: left;
           color: #ffffff;
-          text-align: center;
+          text-align: left important;
         }
         .hero-content {
           position: relative;
@@ -295,15 +293,14 @@ const Home = () => {
           font-size: 3em;
           font-weight: bold;
           margin-bottom: 15px;
-          color: #b22222;
+          color: #fofofo;
           text-shadow: 2px 2px 4px black;
         }
         .hero-header p {
           font-size: 1.2em;
           margin-bottom: 20px;
-          color: #000000;
+          color: #f0f0f0;
           padding: 5px;
-          text-shadow: 1px 1px 1px white;
         }
         .btn {
           background-color: #ff2222;
@@ -366,6 +363,7 @@ const Home = () => {
           margin-bottom: 40px;
           font-weight: bold;
           letter-spacing: 2px;
+          position: relative;
         }
 
         .gallery .row {
@@ -373,6 +371,22 @@ const Home = () => {
           flex-wrap: wrap;
           gap: 20px;
           justify-content: center;
+        }
+
+        /* Deskripsi gambar di galeri */
+        .gallery p {
+          font-size: 1em;
+          line-height: 1.6;
+          color: #555;
+          text-align: center;
+          margin-top: 10px;
+        }
+
+        .gallery h5 {
+          font-size: 1.2em;
+          font-weight: bold;
+          margin-top: 10px;
+          color: #b22222;
         }
 
         .gallery .col-md-4 {
@@ -384,6 +398,25 @@ const Home = () => {
           border-radius: 10px; /* Buat sudut lebih kecil */
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Lebih halus */
           transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery h2::before,
+        .gallery h2::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          width: 50px;
+          height: 3px;
+          background-color: #b22222;
+          transform: translateY(-50%);
+        }
+
+        .gallery h2::before {
+          left: 320px;
+        }
+
+        .gallery h2::after {
+          right: 320px;
         }
 
         .gallery .img-fluid {
@@ -401,6 +434,15 @@ const Home = () => {
         .gallery .col-md-4:hover {
           transform: translateY(-5px); /* Kurangi efek hover */
           box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery .col-md-4 {
+          position: relative;
+          max-width: 300px; /* Ukuran optimal */
+          margin: 15px;
+          border-radius: 15px;
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery .col-md-4 .text-overlay {

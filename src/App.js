@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./Components/Strukturs/Header";
-import Footer from "./Components/Strukturs/Footer";
-import Manfaat from "./Components/pages/Manfaat";
-import Merawat from "./Components/pages/Merawat";
-import Penyakit from "./Components/pages/Penyakit";
-import Hama from "./Components/pages/Hama";
-import Home from "./Components/pages/Home";
+
+import Header from "./components/Strukturs/Header";
+import Footer from "./components/Strukturs/Footer";
+import Home from "./components/pages/Home";
+import Manfaat from "./components/pages/Manfaat";
+import Merawat from "./components/pages/Merawat";
+import Hama from "./components/pages/Hama";
+import Penyakit from "./components/pages/Penyakit";
 
 const App = () => {
   return (
