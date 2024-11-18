@@ -8,10 +8,10 @@ const Footer = () => {
             <nav className="footer-nav">
               <ul>
                 <li>
-                  <a href="#">Contact</a>
+                  <a href="#">Tentang Kami</a>
                 </li>
                 <li>
-                  <a href="#">About Us</a>
+                  <a href="#">Gallery</a>
                 </li>
                 <li>
                   <a href="#">FAQ's</a>

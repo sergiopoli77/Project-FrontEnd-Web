@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-
-
 const Home = () => {
   const [inView, setInView] = useState(false);
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
@@ -25,7 +23,6 @@ const Home = () => {
       observer.observe(aboutSectionRef.current);
     }
 
-    // Scroll to top visibility
     const handleScroll = () => {
       if (window.scrollY > 300) {
         setScrollToTopVisible(true);
@@ -43,8 +40,7 @@ const Home = () => {
       }
     };
   }, []);
-
-  // Handle smooth scroll
+  
   useEffect(() => {
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach((link) => {
@@ -351,156 +347,172 @@ const Home = () => {
           color: white;
         }
 
+        /* Galeri utama */
         .gallery {
-          background-color: #f3f4f6;
-          padding: 50px 0;
+          background-color: #f5f5f5; /* Latar belakang netral yang lembut */
+          padding: 120px 0; /* Memberikan lebih banyak ruang vertikal */
+          border-top: 3px solid #ff6347; /* Border atas lebih tegas dan mencolok dengan warna tomat */
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Bayangan halus untuk kedalaman */
+          border-radius: 20px; /* Sudut yang lebih halus dan elegan */
+          overflow: hidden; /* Menghindari konten keluar dari batas */
         }
 
+        /* Heading utama galeri */
         .gallery h2 {
-          font-size: 2.8em;
-          color: #b22222;
+          font-size: 4em; /* Ukuran font yang sangat besar untuk kesan dominan */
+          color: #b22222; /* Warna merah tua untuk menarik perhatian */
           text-align: center;
-          margin-bottom: 40px;
-          font-weight: bold;
-          letter-spacing: 2px;
+          margin-bottom: 60px; /* Jarak lebih besar antara heading dan galeri */
+          font-weight: 700;
+          letter-spacing: 4px; /* Spasi huruf lebih lebar untuk tampilan lebih mewah */
+          text-transform: uppercase;
           position: relative;
+          font-family: "Playfair Display", serif; /* Font serif elegan */
+          transition: color 0.5s ease-in-out, letter-spacing 0.3s ease; /* Transisi halus pada warna dan spasi */
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Efek bayangan untuk teks */
         }
 
-        .gallery .row {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 20px;
-          justify-content: center;
+        /* Efek hover untuk judul */
+        .gallery h2:hover {
+          color: #ff6347; /* Warna merah cerah yang lebih mencolok saat hover */
+          letter-spacing: 6px; /* Lebih renggang untuk efek dramatis */
+          text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Bayangan lebih kuat saat hover */
         }
 
-        /* Deskripsi gambar di galeri */
-        .gallery p {
-          font-size: 1em;
-          line-height: 1.6;
-          color: #555;
-          text-align: center;
-          margin-top: 10px;
-        }
-
-        .gallery h5 {
-          font-size: 1.2em;
-          font-weight: bold;
-          margin-top: 10px;
-          color: #b22222;
-        }
-
-        .gallery .col-md-4 {
-          position: relative;
-          width: 100%;
-          max-width: 250px; /* Kurangi ukuran maksimal elemen */
-          margin: 10px; /* Sesuaikan jarak antar elemen */
-          overflow: hidden;
-          border-radius: 10px; /* Buat sudut lebih kecil */
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Lebih halus */
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
+        /* Garis bawah pada judul */
         .gallery h2::before,
         .gallery h2::after {
           content: "";
           position: absolute;
           top: 50%;
-          width: 50px;
-          height: 3px;
-          background-color: #b22222;
+          width: 140px;
+          height: 6px;
+          background-color: #ff6347;
           transform: translateY(-50%);
+          border-radius: 10px; /* Sudut lebih lembut */
         }
 
         .gallery h2::before {
-          left: 320px;
+          left: 60px;
         }
 
         .gallery h2::after {
-          right: 320px;
+          right: 60px;
         }
 
+        /* Penataan baris dan elemen galeri */
+        .gallery .row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 40px;
+          justify-content: center;
+        }
+
+        /* Elemen gambar galeri */
+        .gallery .col-md-4 {
+          position: relative;
+          width: 100%;
+          max-width: 340px; /* Ukuran gambar lebih proporsional dan tidak terlalu besar */
+          margin: 25px;
+          border-radius: 20px;
+          overflow: hidden;
+          background: #fff;
+          box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12); /* Bayangan lembut */
+          transition: transform 0.5s ease, box-shadow 0.4s ease,
+            border 0.3s ease;
+          cursor: pointer;
+          border: 1px solid #ddd;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* Efek hover untuk elemen galeri */
+        .gallery .col-md-4:hover {
+          box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar dan dramatis */
+          border-color: #ff6347; /* Menambahkan border berwarna tomat saat hover */
+        }
+
+        /* Efek gambar saat hover */
         .gallery .img-fluid {
           width: 100%;
           height: auto;
-          border-radius: 10px; /* Samakan dengan elemen container */
-          transition: transform 0.3s ease, filter 0.3s ease;
+          border-radius: 20px;
+          transition: transform 0.5s ease, filter 0.5s ease;
         }
 
         .gallery .col-md-4:hover .img-fluid {
-          transform: scale(1.05); /* Skala sedikit lebih kecil */
-          filter: brightness(1.1) contrast(1.05);
+          transform: scale(1.1); /* Memperbesar gambar secara halus */
+          filter: brightness(1.1) contrast(1.2); /* Menambah kecerahan dan kontras untuk efek visual */
         }
 
-        .gallery .col-md-4:hover {
-          transform: translateY(-5px); /* Kurangi efek hover */
-          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery .col-md-4 {
-          position: relative;
-          max-width: 300px; /* Ukuran optimal */
-          margin: 15px;
-          border-radius: 15px;
-          overflow: hidden;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gallery .col-md-4 .text-overlay {
+        /* Overlay teks pada gambar */
+        .gallery .text-overlay {
           position: absolute;
           bottom: 0;
           left: 0;
           right: 0;
           background: linear-gradient(
             to top,
-            rgba(0, 0, 0, 0.8),
-            rgba(0, 0, 0, 0.3)
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.5)
           );
           color: white;
           text-align: center;
-          padding: 20px;
+          padding: 35px;
           opacity: 0;
-          transition: opacity 0.3s ease;
+          transition: opacity 0.4s ease-in-out, transform 0.3s ease;
+          transform: translateY(
+            20px
+          ); /* Menggeser sedikit ke bawah untuk efek */
+          border-radius: 0 0 20px 20px;
         }
 
+        /* Menampilkan overlay teks saat hover */
         .gallery .col-md-4:hover .text-overlay {
           opacity: 1;
+          transform: translateY(0); /* Efek muncul halus */
         }
 
+        /* Penataan teks di overlay */
         .gallery .text-overlay h5 {
-          font-size: 1.4em;
-          margin-bottom: 10px;
+          font-size: 1.8em;
+          margin-bottom: 15px;
           color: #ffdf00;
-        }
-
-        .gallery p {
-          font-size: 0.9em; /* Kurangi ukuran font */
-          line-height: 1.4; /* Jarak antar baris tetap */
-          color: #555;
-          text-align: center;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-family: "Roboto", sans-serif;
         }
 
         .gallery .text-overlay p {
-          font-size: 0.9em;
-          line-height: 1.4;
-          color: #ffffff;
+          font-size: 1.2em;
+          line-height: 1.8;
+          color: #fff;
+          margin-bottom: 20px;
+          font-weight: 400;
+          font-family: "Lora", serif;
         }
 
+        /* Penataan heading setiap gambar */
         .gallery h5 {
-          font-size: 1em; /* Kurangi ukuran font */
-          margin-top: 10px; /* Sesuaikan jarak atas */
+          font-size: 1.4em;
+          font-weight: bold;
+          margin-top: 20px;
           color: #b22222;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-family: "Roboto", sans-serif;
         }
 
-        @media (max-width: 768px) {
-          .gallery .col-md-4 {
-            max-width: 180px; /* Lebih kecil di layar kecil */
-          }
-        }
-
-        @media (min-width: 769px) {
-          .gallery .col-md-4 {
-            width: 25%; /* Kurangi lebar default untuk layar besar */
-          }
+        /* Penataan deskripsi gambar */
+        .gallery p {
+          font-size: 1.1em;
+          line-height: 1.7;
+          color: #555;
+          text-align: center;
+          margin-top: 10px;
+          text-align: justify;
+          font-family: "Lora", serif;
         }
 
         .slideInLeft {
