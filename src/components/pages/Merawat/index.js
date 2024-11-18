@@ -54,14 +54,11 @@ const Merawat = () => {
     <div className="merawat-container">
       <div className="header">
         <h1 className="subjudul">Merawat Tomat</h1>
-        <p className="tagline">Cara merawat Tomat anda agar subur!</p>
+        <p className="tagline">Proses budidaya tanaman tomat hingga panen</p>
       </div>
       <div className="list">
         {benefitData.map((benefit, index) => (
-          <div
-            className={`card-horizontal ${index % 2 === 0 ? "left" : "right"}`}
-            key={index}
-          >
+          <div className="card-horizontal" key={index}>
             <img
               src={benefit.image}
               alt={benefit.title}
@@ -76,6 +73,28 @@ const Merawat = () => {
       </div>
 
       <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
         .merawat-container {
           background: linear-gradient(
               to bottom,
@@ -89,11 +108,13 @@ const Merawat = () => {
           color: #ffffff;
           font-family: "Roboto", sans-serif;
           padding: 40px 10%;
+          animation: fadeIn 1.5s ease-out;
         }
 
         .header {
           text-align: center;
           margin-bottom: 40px;
+          animation: fadeIn 2s ease-out;
         }
 
         .subjudul {
@@ -113,13 +134,16 @@ const Merawat = () => {
 
         .list {
           display: grid;
+          grid-template-columns: 1fr;
           gap: 40px;
+          animation: slideUp 1.5s ease-in;
         }
 
         .card-horizontal {
           background: rgba(255, 255, 255, 0.95);
           border-radius: 20px;
           display: flex;
+          flex-direction: row;
           align-items: center;
           overflow: hidden;
           padding: 20px;
@@ -132,14 +156,6 @@ const Merawat = () => {
           box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .card-horizontal.left {
-          flex-direction: row; /* Gambar di kiri, teks di kanan */
-        }
-
-        .card-horizontal.right {
-          flex-direction: row-reverse; /* Gambar di kanan, teks di kiri */
-        }
-
         .card-image {
           width: 180px;
           height: 180px;
@@ -149,18 +165,12 @@ const Merawat = () => {
           transition: transform 0.3s ease;
         }
 
-        /* Hapus margin-left pada .card-horizontal.right .card-image */
-        .card-horizontal.right .card-image {
-          margin-right: 0;
-        }
-
         .card-horizontal:hover .card-image {
           transform: scale(1.1);
         }
 
         .card-content {
           padding: 10px;
-          text-align: left; /* Teks selalu rata kiri */
         }
 
         .card-content h2 {
@@ -184,10 +194,6 @@ const Merawat = () => {
             font-size: 1.2rem;
           }
 
-          .card-content {
-            text-align: center !important; /* Selalu di tengah pada layar kecil */
-          }
-
           .card-content h2 {
             font-size: 1.5rem;
           }
@@ -199,13 +205,13 @@ const Merawat = () => {
           .card-horizontal {
             flex-direction: column;
             align-items: center;
+            text-align: center;
           }
 
           .card-image {
             width: 100%;
             height: auto;
             margin-bottom: 15px;
-            margin-left: 0 !important; /* Atasi margin untuk mode mobile */
           }
         }
       `}</style>
