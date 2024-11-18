@@ -3,7 +3,26 @@ const Home = () => {
   const [inView, setInView] = useState(false);
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState("");
   const aboutSectionRef = useRef(null);
+
+  const faqs = [
+    {
+      question: "Apa manfaat utama dari tomat?",
+      answer:
+        "Tomat kaya akan vitamin C, likopen, dan antioksidan yang dapat membantu meningkatkan kekebalan tubuh dan menjaga kesehatan kulit.",
+    },
+    {
+      question: "Bagaimana cara merawat tanaman tomat?",
+      answer:
+        "Tanaman tomat membutuhkan cahaya matahari yang cukup, penyiraman yang teratur, dan pemupukan organik untuk hasil terbaik.",
+    },
+    {
+      question: "Kapan waktu terbaik untuk memanen tomat?",
+      answer:
+        "Tomat sebaiknya dipanen ketika sudah matang sempurna dengan warna yang merata, tergantung pada varietasnya.",
+    },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,7 +59,7 @@ const Home = () => {
       }
     };
   }, []);
-  
+
   useEffect(() => {
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach((link) => {
@@ -60,8 +79,15 @@ const Home = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openModal = (content) => {
+    setModalContent(content); // Set isi modal dengan konten
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalContent("");
+  };
 
   return (
     <main>
@@ -144,12 +170,6 @@ const Home = () => {
                 Anda seorang pemula ataupun penghobi tanaman, panduan kami akan
                 membantu Anda menumbuhkan tomat yang sehat dan subur di rumah.
               </p>
-              <button
-                className="btn-readmore py-3 px-5 mt-2"
-                onClick={openModal} // Perbaikan di sini
-              >
-                Read More
-              </button>
             </div>
           </div>
         </div>
@@ -246,14 +266,29 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="faq-section py-5">
+        <div className="container">
+          <h2 className="text-center mb-4">FAQ's</h2>
+          <div className="faq-list">
+            {faqs.map((faq, index) => (
+              <div className="faq-item" key={index}>
+                <button onClick={() => openModal(faq.answer)}>
+                  {faq.question}
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={closeModal}>
               &times;
             </span>
-            <h2>More Info About Tomatoes</h2>
-            <p>Here is some detailed information...</p>
+            <h2>Jawaban</h2>
+            <p>{modalContent}</p>
           </div>
         </div>
       )}
@@ -332,26 +367,12 @@ const Home = () => {
           color: #666666;
           margin-top: 20px;
         }
-        .btn-readmore {
-          background-color: #ff2600;
-          color: white;
-          border: none;
-          padding: 10px 20px;
-          font-size: 1rem;
-          border-radius: 5px;
-          text-align: center;
-          transition: background-color 0.3s ease;
-        }
-        .btn-readmore:hover {
-          background-color: #45a049;
-          color: white;
-        }
 
         /* Galeri utama */
         .gallery {
           background-color: #f5f5f5; /* Latar belakang netral yang lembut */
           padding: 120px 0; /* Memberikan lebih banyak ruang vertikal */
-          border-top: 3px solid #ff6347; /* Border atas lebih tegas dan mencolok dengan warna tomat */
+          border-top: 2px solid #ff6347; /* Border atas lebih tegas dan mencolok dengan warna tomat */
           box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Bayangan halus untuk kedalaman */
           border-radius: 20px; /* Sudut yang lebih halus dan elegan */
           overflow: hidden; /* Menghindari konten keluar dari batas */
@@ -515,6 +536,81 @@ const Home = () => {
           font-family: "Lora", serif;
         }
 
+        .faq-section {
+          background-color: #f7f9fc;
+          padding: 3rem 0;
+          border-top: 2px solid #ff6347; /* Border atas lebih tegas dan mencolok dengan warna tomat */
+          border-radius: 20px; /* Sudut yang lebih halus dan elegan */
+        }
+        .faq-list {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 1rem;
+        }
+        .faq-item {
+          margin-bottom: 1.5rem;
+        }
+        .faq-item button {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: #fff;
+          border: 2px solid #007bff;
+          border-radius: 10px;
+          padding: 1.2rem 2rem;
+          width: 100%;
+          font-size: 1.1rem;
+          color: #333;
+          cursor: pointer;
+          transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .faq-item button:hover {
+          background: #f0f8ff;
+          transform: translateY(-3px);
+        }
+        .faq-item button:focus {
+          outline: none;
+        }
+        .faq-item button .question-text {
+          font-weight: 500;
+        }
+        .faq-item button i {
+          font-size: 1.3rem;
+          color: #007bff;
+          transition: transform 0.3s ease;
+        }
+        .faq-item button:hover i {
+          transform: rotate(180deg);
+        }
+        .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.6);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 999;
+        }
+        .modal-content {
+          background: #fff;
+          padding: 2rem 3rem;
+          border-radius: 12px;
+          max-width: 600px;
+          width: 100%;
+        }
+        .modal-content .close {
+          font-size: 1.8rem;
+          font-weight: bold;
+          color: #333;
+          cursor: pointer;
+        }
+        .modal-content .close:hover {
+          color: #ff0000;
+        }
+
         .slideInLeft {
           opacity: 0;
           transform: translateX(-100%);
@@ -552,33 +648,6 @@ const Home = () => {
         }
         .scroll-to-top:hover {
           background-color: #ff2600;
-        }
-        .modal {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: rgba(0, 0, 0, 0.5);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .modal-content {
-          background-color: #fff;
-          padding: 20px;
-          border-radius: 10px;
-          width: 60%;
-          max-width: 600px;
-          text-align: center;
-        }
-        .close {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          font-size: 2rem;
-          color: #000;
-          cursor: pointer;
         }
       `}</style>
     </main>
