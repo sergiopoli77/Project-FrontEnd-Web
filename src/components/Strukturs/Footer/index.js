@@ -17,7 +17,7 @@ const Footer = () => {
                   <a href="#">FAQ's</a>
                 </li>
                 <li>
-                  <a href="#">Support</a>
+                  <a href="#">Dukungan</a>
                 </li>
               </ul>
             </nav>

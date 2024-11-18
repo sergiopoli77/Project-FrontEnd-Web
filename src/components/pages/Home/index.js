@@ -281,6 +281,36 @@ const Home = () => {
         </div>
       </section>
 
+      <section id="support" class="support-section py-5">
+        <div class="container">
+          <h3 class="text-center mb-4">Dukungan</h3>
+          <h4 class="text-center mb-4">Kami disini untuk membantu anda!</h4>
+        </div>
+
+        <div class="col-md-6">
+          <h5>Contact Information</h5>
+          <p>
+            <strong>Email Support:</strong>{" "}
+            <a href="mailto:support@tomatik.com">support@tomatik.com</a>
+          </p>
+          <p>
+            <strong>Phone Support:</strong> +123 456 7890
+          </p>
+          <p>
+            <strong>Live Chat:</strong> Available 9 AM - 6 PM (Mon-Fri)
+          </p>
+          <p>
+            <strong>
+              For urgent issues, please reach out to our{" "}
+              <a href="#faq" class="btn-link">
+                FAQ section
+              </a>
+              .
+            </strong>
+          </p>
+        </div>
+      </section>
+
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
@@ -609,6 +639,63 @@ const Home = () => {
         }
         .modal-content .close:hover {
           color: #ff0000;
+        }
+
+        /* Section Support Styling */
+
+        .support-section {
+          background-color: #f9f9f9;
+          border-top: 2px solid #4caf50;
+          margin-top: 40px;
+        }
+
+        /* Header Styling */
+        .support-section h3,
+        .support-section h4 {
+          font-family: "Arial", sans-serif;
+          font-weight: 600;
+          color: #333;
+          text-align: left !important;
+        }
+
+        /* Contact Information Styling */
+        .support-section .col-md-6 {
+          background-color: #ffffff;
+          padding: 30px;
+          margin-top: 30px;
+          text-align: left !important;
+          margin-left: 50px !important;
+        }
+
+        .support-section p {
+          font-size: 1.1rem;
+          color: #555;
+          line-height: 1.8;
+          margin-bottom: 15px;
+          text-align: left !important;
+          margin-left: 50px !important;
+        }
+
+        .support-section p strong {
+          color: #4caf50;
+          font-weight: 600;
+        }
+
+        .support-section a {
+          color: #007bff;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.3s ease;
+        }
+
+        .support-section a:hover {
+          color: #0056b3;
+          text-decoration: underline;
+        }
+
+        .support-section .btn-link {
+          font-weight: 500;
+          color: #007bff;
         }
 
         .slideInLeft {
