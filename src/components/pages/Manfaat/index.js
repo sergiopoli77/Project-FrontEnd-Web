@@ -1,11 +1,60 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Manfaat = () => {
+  const [inView, setInView] = useState(false);
+  const [activeImage, setActiveImage] = useState(null);
+  const aboutSectionRef = useRef(null);
+
   const benefitData = [
     {
       title: "Kaya Akan Nutrisi",
-      description:
-        "Tomat mengandung banyak vitamin dan mineral penting seperti vitamin C, vitamin K, kalium, dan folat.",
+      description: (
+        <>
+          <p>
+            Tomat mengandung berbagai jenis vitamin dan mineral yang sangat
+            penting untuk kesehatan tubuh. Mari kita bahas beberapa nutrisi
+            utama yang terkandung dalam tomat:
+          </p>
+          <ul>
+            <li>
+              <strong>Vitamin C:</strong> Vitamin C adalah antioksidan kuat yang
+              membantu memperkuat sistem imun tubuh, mencegah infeksi, serta
+              mempercepat proses penyembuhan luka. Selain itu, vitamin ini juga
+              berperan penting dalam produksi kolagen untuk kulit yang sehat dan
+              elastis.
+            </li>
+            <li>
+              <strong>Vitamin K:</strong> Vitamin K memiliki peran penting dalam
+              proses pembekuan darah dan menjaga kesehatan tulang. Konsumsi
+              tomat secara rutin dapat membantu mencegah pengeroposan tulang,
+              serta meningkatkan penyerapan kalsium dalam tubuh.
+            </li>
+            <li>
+              <strong>Kalium (Potassium):</strong> Kalium berfungsi untuk
+              mengatur tekanan darah dan keseimbangan cairan dalam tubuh. Ini
+              juga penting untuk fungsi otot dan saraf. Kalium dapat membantu
+              mengurangi risiko hipertensi dan stroke.
+            </li>
+            <li>
+              <strong>Folat (Vitamin B9):</strong> Folat atau Vitamin B9 sangat
+              penting untuk pembentukan sel darah merah dan DNA. Mengonsumsi
+              folat secara cukup sangat penting, terutama bagi ibu hamil, untuk
+              mendukung perkembangan janin dan mencegah cacat lahir.
+            </li>
+            <li>
+              <strong>Lycopene (Antioksidan):</strong> Likopen adalah salah satu
+              antioksidan kuat yang ditemukan dalam tomat, yang dikenal dapat
+              membantu mengurangi risiko kanker dan penyakit jantung. Lycopene
+              juga melindungi kulit dari kerusakan akibat paparan sinar UV.
+            </li>
+          </ul>
+          <p>
+            Tomat, dengan berbagai kandungan nutrisinya, dapat mendukung
+            kesehatan tubuh secara keseluruhan, mulai dari meningkatkan sistem
+            kekebalan tubuh hingga mendukung kesehatan jantung dan kulit.
+          </p>
+        </>
+      ),
       image: "/img/gambar1.jpg",
     },
     {
@@ -14,61 +63,70 @@ const Manfaat = () => {
         "Tomat kaya akan antioksidan seperti likopen, yang dapat membantu melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
       image: "/img/gambar2.jpg",
     },
-    {
-      title: "Menjaga Kesehatan Jantung",
-      description:
-        "Konsumsi tomat secara teratur dapat membantu menurunkan kadar kolesterol dan tekanan darah.",
-      image: "/img/gambar3.jpg",
-    },
-    {
-      title: "Meningkatkan Kesehatan Kulit",
-      description:
-        "Kandungan vitamin C dan antioksidan dalam tomat dapat membantu menjaga kulit tetap sehat, mencegah penuaan dini, dan melindungi kulit dari kerusakan akibat sinar matahari.",
-      image: "/img/gambar4.jpg",
-    },
-    {
-      title: "Meningkatkan Penglihatan",
-      description:
-        "Tomat kaya akan vitamin A, yang penting untuk menjaga kesehatan mata dan penglihatan yang baik.",
-      image: "/img/gambar5.jpg",
-    },
-    {
-      title: "Membantu Pencernaan",
-      description:
-        "Tomat tinggi serat, yang dapat membantu mempromosikan pencernaan yang sehat dan mencegah sembelit.",
-      image: "/img/gambar6.jpg",
-    },
+    // Add other benefits as needed...
   ];
 
-  return (
-    <div className="manfaat-container">
-      <div className="header">
-        <h1 className="subjudul">Manfaat Tomat</h1>
-        <p className="tagline">
-          Rasakan manfaat sehat dari tomat untuk tubuh Anda!
-        </p>
-      </div>
-      <div className="list">
-        {benefitData.map((benefit, index) => (
-          <div className="card-horizontal" key={index}>
-            <img
-              src={benefit.image}
-              alt={benefit.title}
-              className="card-image"
-            />
-            <div className="card-content">
-              <h2>{benefit.title}</h2>
-              <p>{benefit.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => setInView(entry.isIntersecting));
+      },
+      { threshold: 0.5 }
+    );
 
+    if (aboutSectionRef.current) {
+      observer.observe(aboutSectionRef.current);
+    }
+
+    return () => {
+      if (aboutSectionRef.current) {
+        observer.unobserve(aboutSectionRef.current);
+      }
+    };
+  }, []);
+
+  const handleImageClick = (index) => {
+    setActiveImage(index);
+    setTimeout(() => setActiveImage(null), 300);
+  };
+
+  return (
+    <main>
+      <section className="about py-5" id="about" ref={aboutSectionRef}>
+        <div className="container">
+          <h1 className="about-section-title">Manfaat Tomat</h1>
+          <div className="list">
+            {benefitData.map((benefit, index) => (
+              <div
+                className={`card-horizontal ${inView ? "fadeIn" : ""}`}
+                key={index}
+              >
+                <div className="card-visual">
+                  <img
+                    src={benefit.image}
+                    alt={benefit.title}
+                    className={`card-image ${
+                      activeImage === index ? "clicked" : ""
+                    }`}
+                    onClick={() => handleImageClick(index)}
+                  />
+                </div>
+                <div className="card-content">
+                  <h2 className="card-title">{benefit.title}</h2>
+                  <div className="card-description">{benefit.description}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Styles */}
       <style jsx>{`
         @keyframes fadeIn {
           from {
             opacity: 0;
-            transform: translateY(-20px);
+            transform: translateY(20px);
           }
           to {
             opacity: 1;
@@ -76,128 +134,133 @@ const Manfaat = () => {
           }
         }
 
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(50px);
+        @keyframes clickEffect {
+          0% {
+            transform: scale(1);
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
           }
         }
 
-        .manfaat-container {
-          background: linear-gradient(
-              to bottom,
-              rgba(255, 105, 135, 0.8),
-              rgba(255, 247, 247, 0.9)
-            ),
-            url("/img/bgmanfaat1.jpg");
-          background-size: cover;
-          background-attachment: fixed;
-          background-position: center;
-          color: #ffffff;
-          font-family: "Roboto", sans-serif;
-          padding: 40px 10%;
-          animation: fadeIn 1.5s ease-out;
+        .about {
+          background-color: #f9f9f9;
+          padding: 60px 0;
         }
 
-        .header {
+        .about-section-title {
           text-align: center;
+          font-size: 2.5rem;
+          color: #333;
           margin-bottom: 40px;
-          animation: fadeIn 2s ease-out;
-        }
-
-        .subjudul {
-          font-size: 3.5rem;
-          font-weight: bold;
-          margin-bottom: 10px;
-          color: #ffffff;
-          text-shadow: 4px 6px 10px rgba(0, 0, 0, 0.6);
-        }
-
-        .tagline {
-          font-size: 1.8rem;
-          color: #ffddcc;
-          font-weight: 400;
-          margin-bottom: 20px;
+          font-family: "Arial", sans-serif;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          animation: fadeIn 1s ease-in-out;
         }
 
         .list {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           gap: 30px;
-          animation: slideUp 1.5s ease-in;
+          padding: 0 15px;
         }
 
         .card-horizontal {
-          background: rgba(255, 255, 255, 0.9);
-          border-radius: 16px;
           display: flex;
           flex-direction: column;
+          background: #fff;
+          border-radius: 15px;
           overflow: hidden;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-          transition: transform 0.3s ease, box-shadow 0.3s ease,
-            rotate 0.3s ease;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          transform: translateY(20px);
+          opacity: 0;
+          transition: transform 0.4s ease, opacity 0.4s ease;
         }
 
         .card-horizontal:hover {
-          transform: translateY(-10px) scale(1.05) rotate(-1deg);
-          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+          transform: translateY(0);
+          box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-horizontal.fadeIn {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .card-visual {
+          position: relative;
+          overflow: hidden;
+          height: 250px;
         }
 
         .card-image {
           width: 100%;
-          height: 250px;
+          height: 100%;
           object-fit: cover;
-          transition: transform 0.4s ease, filter 0.4s ease;
-          filter: brightness(0.9);
+          transition: transform 0.3s ease-in-out;
         }
 
-        .card-horizontal:hover .card-image {
-          transform: scale(1.1);
-          filter: brightness(1.1);
+        .card-image.clicked {
+          animation: clickEffect 0.3s ease-in-out;
         }
 
         .card-content {
           padding: 20px;
-          text-align: center;
+          background-color: #fff;
+          flex: 1;
         }
 
-        .card-content h2 {
-          font-size: 2rem;
-          color: #ff6347;
+        .card-title {
+          font-size: 1.6rem;
+          font-weight: bold;
+          color: #333;
           margin-bottom: 10px;
-          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
         }
 
-        .card-content p {
-          color: #666666;
-          font-size: 1.2rem;
-          line-height: 1.6;
-          margin-bottom: 20px;
+        .card-description {
+          font-size: 1rem;
+          color: #555;
+          line-height: 1.5;
+          text-align: justify;
         }
 
-        @media (max-width: 768px) {
-          .subjudul {
-            font-size: 2.5rem;
-          }
+        ul {
+          list-style-type: disc;
+          padding-left: 20px;
+        }
 
-          .tagline {
-            font-size: 1.2rem;
-          }
+        li {
+          margin-bottom: 10px;
+        }
 
-          .card-content h2 {
-            font-size: 1.5rem;
-          }
+        li strong {
+          color: #007bff;
+        }
 
-          .card-content p {
-            font-size: 1rem;
-          }
+        /* Hover effect on cards */
+        .card-horizontal:hover .card-image {
+          transform: scale(1.05);
+        }
+
+        /* Add background gradient on hover */
+        .card-horizontal:hover {
+          background: linear-gradient(
+            135deg,
+            rgba(255, 192, 203, 0.3),
+            rgba(135, 206, 250, 0.3)
+          );
+        }
+
+        /* Add subtle shadow effect when hovering on cards */
+        .card-horizontal:hover {
+          box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
         }
       `}</style>
-    </div>
+    </main>
   );
 };
 
