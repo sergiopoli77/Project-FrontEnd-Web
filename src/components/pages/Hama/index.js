@@ -6,35 +6,35 @@ const Hama = [
     title: "Kutu Daun Thrips Tomat",
     description:
       "Ciri-ciri kutu daun thrips adalah panjangnya 1 mm dan berwarna hitam. Kutu daun thrips ini menyerang...",
-    image: "https://via.placeholder.com/300x200?text=Kutu+Daun",
+    image: "/img/kutudaunthrips.jpeg",
   },
   {
     id: 2,
     title: "Ulat Buah Tomat",
     description:
       "Umumnya ulat buah tomat ini menyerang daun, bunga dan buah tanaman tomat. Ciri-ciri hama ulat...",
-    image: "https://via.placeholder.com/300x200?text=Ulat+Buah",
+    image: "img/ulat.jpeg",
   },
   {
     id: 3,
     title: "Kutu Daun Aphis Hijau Pada Tomat",
     description:
       "Aphis hijau lebih sering disebut kutu daun hijau. Ciri-ciri aphis hijau adalah...",
-    image: "https://via.placeholder.com/300x200?text=Kutu+Aphis",
+    image: "img/kutudaunapis.jpeg",
   },
   {
     id: 4,
     title: "Cacing Tanah",
     description:
       "Serangan hama ini pada tanaman tomat ditandai dengan terpotongnya tanaman pada pangkal...",
-    image: "https://via.placeholder.com/300x200?text=Cacing+Tanah",
+    image: "img/cacing.jpeg",
   },
   {
     id: 5,
     title: "Lalat Buah",
     description:
       "Ukuran hama ini sekitar 8 mm dengan warna tubuh hitam kehijauan dan sayap transparan...",
-    image: "https://via.placeholder.com/300x200?text=Lalat+Buah",
+    image: "img/lalat.jpeg",
   },
   {
     id: 6,
@@ -48,9 +48,9 @@ const Hama = [
 const HamaComponent = () => {
   return (
     <div className="container">
-      {/* Header Section */}
       <div className="main-header">
         <h1 className="title">HAMA PADA TUMBUHAN TOMAT</h1>
+       
       </div>
 
       {/* Introduction Section */}
@@ -63,7 +63,6 @@ const HamaComponent = () => {
         </p>
       </section>
 
-      {/* Card Grid */}
       <div className="card-grid">
         {Hama.map((pest) => (
           <div key={pest.id} className="card">
@@ -94,7 +93,7 @@ const HamaComponent = () => {
         /* Main Header */
         .main-header {
           height: 500px;
-          background-image: url("https://via.placeholder.com/1920x300"); /* Ganti dengan gambar Anda */
+          background-image: image("img/gambarhama.jpg"); /* Ganti dengan gambar Anda */
           background-size: 100% 100%; /* Mengisi lebar dan tinggi dengan gambar */
           background-position: center center; /* Gambar tetap terpusat */
           background-repeat: no-repeat; /* Gambar tidak terulang */
