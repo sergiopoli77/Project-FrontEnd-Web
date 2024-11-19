@@ -1,7 +1,20 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom"; // Menggunakan NavLink untuk routing selain Sign Up
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect, useState, CSSProperties } from "react";
 
 const Header = () => {
+  const [header, setHeader] = useState({});
+
+  useEffect(() => {
+    const db = getDatabase();
+    const headerRef = ref(db, "header");
+    onValue(headerRef, (snapshot) => {
+      const data = snapshot.val();
+      setHeader(data);
+    });
+  }, []);
+
   return (
     <header className="site-header">
       <div className="container">
@@ -9,7 +22,7 @@ const Header = () => {
           <div className="brand">
             <h1 className="m-0">
               <NavLink to="/" className="brand-link">
-                Tomatik
+                {header.title}
               </NavLink>
             </h1>
           </div>

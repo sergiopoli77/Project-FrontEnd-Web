@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+
 const Home = () => {
   const [inView, setInView] = useState(false);
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
@@ -99,9 +100,9 @@ const Home = () => {
             Manfaat dan Perawatan Tomat
           </h1>
           <p>
-            Mulai dari kandungan antioksidan hingga vitamin, tomat memiliki
-            segudang manfaat. Ketahui juga cara merawatnya agar tanaman tomat
-            Anda tumbuh subur.
+            Mulai dari kandungan antioksidan hingga vitamin, tomat segudang
+            manfaat. Ketahui juga cara merawatnya agar tanaman Anda tumbuh
+            subur.
           </p>
         </div>
       </section>
