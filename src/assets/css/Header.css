@@ -1,0 +1,96 @@
+/* Struktur dasar Header */
+.site-header {
+  background-color: #fff;
+  padding: 8px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Tambahkan shadow untuk perbedaan */
+}
+
+.site-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.brand h1 {
+  font-size: 2em;
+  color: rgb(255, 9, 9); /* Warna merah untuk brand */
+  font-family: "Garamond", serif;
+  margin: 0;
+}
+
+.brand a {
+  text-decoration: none;
+  color: inherit; /* Menggunakan warna teks yang diturunkan */
+}
+
+.brand a:hover {
+  text-decoration: none;
+  color: #f00; /* Warna merah terang saat hover */
+}
+
+/* Navigation Bar */
+.header-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav li {
+  margin-left: 20px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #000; /* Warna teks untuk tautan */
+  font-size: 1.2em;
+  padding: 10px 15px;
+  transition: color 0.3s, text-decoration 0.3s; /* Menambah transisi */
+}
+
+.header-nav a:hover {
+  color: #f00; /* Warna merah saat hover */
+  text-decoration: underline; /* Menambahkan garis bawah saat hover */
+}
+
+/* Styling untuk tautan normal (tidak aktif) */
+nav ul li a {
+  text-decoration: none; /* Menghilangkan garis bawah default */
+  padding: 10px 15px;
+  color: #4caf50; /* Warna teks normal hijau */
+}
+
+/* Styling untuk tautan yang aktif */
+.active-link {
+  font-weight: bold !important; /* Menebalkan teks jika diinginkan */
+  color: rgb(255, 5, 5) !important; /* Menyesuaikan warna teks agar lebih jelas saat aktif */
+}
+
+/* Button for Signup */
+.button {
+  background-color: #4caf50; /* Warna latar belakang hijau */
+  color: #ffffff !important; /* Warna teks putih */
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s; /* Transisi untuk perubahan warna */
+}
+
+.button:hover {
+  background-color: #f00; /* Latar belakang merah saat hover */
+  color: #fff; /* Teks tetap putih saat hover */
+  text-decoration: none !important;
+}
+
+/* Optional: Hover effect untuk brand link */
+.brand a:hover {
+  color: #f00; /* Mengubah warna teks menjadi merah saat hover */
+}
