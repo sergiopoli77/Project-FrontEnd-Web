@@ -1,6 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect, useState, CSSProperties, useRef } from "react";
 
 const Manfaat = () => {
+  const [manfaat, setManfaat] = useState({});
+
+  useEffect(() => {
+    const db = getDatabase();
+    const manfaatRef = ref(db, "manfaat");
+    onValue(manfaatRef, (snapshot) => {
+      const data = snapshot.val();
+      setManfaat(data);
+    });
+  }, []);
   const [inView, setInView] = useState(false);
   const aboutSectionRef = useRef(null);
 
@@ -68,24 +79,21 @@ const Manfaat = () => {
       <section className="hero-header">
         <div className="hero-content">
           <h1>
-            Panduan Lengkap
+            {manfaat.title}
             <br />
-            Manfaat Tomat
+            {manfaat.title2}
           </h1>
-          <p>
-            Mulai dari kandungan antioksidan hingga vitamin, tomat memiliki
-            segudang manfaat untuk kesehatan Anda.
-          </p>
+          <p>{manfaat.subtitle}</p>
         </div>
         <a href="#about" className="btn btn-primary">
-          Pelajari Lebih Lanjut
+          {manfaat.pelajari}
         </a>
       </section>
 
       {/* About Section */}
       <section className="about py-5" id="about" ref={aboutSectionRef}>
         <div className="container">
-          <h1 className="about-section-title">Manfaat Tomat</h1>
+          <h1 className="about-section-title">{manfaat.abouttitle}</h1>
           <div className="list">
             {benefitData.map((benefit, index) => (
               <div
@@ -111,32 +119,20 @@ const Manfaat = () => {
 
       <section className="gallery py-5" id="gallery">
         <div className="container">
-          <h2 className="text-center mb-4">Kaya Akan Nutrisi</h2>
-          <h3 className="text-center mb-4">
-            Informasi penting tentang kandungan nutrisi tomat
-          </h3>
+          <h2 className="text-center mb-4">{manfaat.galerytitle1}</h2>
+          <h3 className="text-center mb-4">{manfaat.galerysub}</h3>
           <div className="row g-4">
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Vitamin C</h5>
-              <p className="text-center">
-                Berfungsi sebagai antioksidan kuat untuk melawan radikal bebas,
-                meningkatkan sistem kekebalan tubuh, dan membantu penyerapan zat
-                besi dalam tubuh.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g1title}</h5>
+              <p className="text-center">{manfaat.g1sub}</p>
             </div>
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Vitamin K</h5>
-              <p className="text-center">
-                Penting untuk pembekuan darah dan mendukung kesehatan tulang
-                dengan membantu tubuh menyerap kalsium.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g2title}</h5>
+              <p className="text-center">{manfaat.g2sub}</p>
             </div>
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Kalium</h5>
-              <p className="text-center">
-                Berperan dalam menjaga tekanan darah tetap stabil, membantu
-                fungsi saraf, dan kontraksi otot.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g3title}</h5>
+              <p className="text-center">{manfaat.g3sub}</p>
             </div>
           </div>
         </div>
@@ -144,36 +140,20 @@ const Manfaat = () => {
 
       <section className="gallery py-5" id="gallery">
         <div className="container">
-          <h2 className="text-center mb-4">Antioksidan Tinggi</h2>
-          <h3 className="text-center mb-4">
-            Manfaat Antioksidan Tinggi dari Tomat
-          </h3>
+          <h2 className="text-center mb-4">{manfaat.galerytitle2}</h2>
+          <h3 className="text-center mb-4">{manfaat.galerysub2}</h3>
           <div className="row g-4">
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Kaya akan Likopen</h5>
-              <p className="text-center">
-                Tomat merupakan sumber utama likopen, antioksidan yang
-                memberikan warna merah pada tomat dan dapat melindungi sel tubuh
-                dari kerusakan oksidatif.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g4title}</h5>
+              <p className="text-center">{manfaat.g4sub}</p>
             </div>
             <div className="col-md-4">
-              <h5 className="text-center mt-2">
-                Manfaat untuk Kesehatan Jantung
-              </h5>
-              <p className="text-center">
-                Likopen dalam tomat dapat membantu mengurangi risiko penyakit
-                jantung dengan melawan peradangan dan mencegah kerusakan
-                pembuluh darah.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g5title}</h5>
+              <p className="text-center">{manfaat.g5sub}</p>
             </div>
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Mencegah Kanker</h5>
-              <p className="text-center">
-                Likopen juga dikaitkan dengan penurunan risiko beberapa jenis
-                kanker, termasuk kanker prostat, dengan melawan radikal bebas
-                yang berpotensi merusak DNA.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g6title}</h5>
+              <p className="text-center">{manfaat.g6sub}</p>
             </div>
           </div>
         </div>
@@ -181,42 +161,22 @@ const Manfaat = () => {
 
       <section className="gallery py-5" id="gallery">
         <div className="container">
-          <h2 className="text-center mb-4">Menjaga Kesehatan Jantung</h2>
-          <h3 className="text-center mb-4">
-            Manfaat Tomat untuk Kesehatan Jantung
-          </h3>
+          <h2 className="text-center mb-4">{manfaat.galerytitle3}</h2>
+          <h3 className="text-center mb-4">{manfaat.galerysub3}</h3>
           <div className="row g-4">
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Menurunkan Kadar Kolesterol</h5>
-              <p className="text-center">
-                Tomat mengandung lycopene, antioksidan yang dapat membantu
-                menurunkan kadar kolesterol LDL (kolesterol jahat). Dengan
-                konsumsi rutin, lycopene membantu mengurangi pembentukan plak di
-                arteri, yang berpotensi mengurangi risiko penyakit jantung.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g7title}</h5>
+              <p className="text-center">{manfaat.g7sub}</p>
             </div>
 
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Mengatur Tekanan Darah</h5>
-              <p className="text-center">
-                Kandungan kalium dalam tomat berfungsi untuk menyeimbangkan
-                tekanan darah. Kalium membantu melebarkan pembuluh darah, yang
-                dapat membantu mengurangi tekanan darah tinggi dan mengurangi
-                beban pada jantung.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g8title}</h5>
+              <p className="text-center">{manfaat.g8sub}</p>
             </div>
 
             <div className="col-md-4">
-              <h5 className="text-center mt-2">
-                Anti-Inflamasi untuk Kesehatan Jantung
-              </h5>
-              <p className="text-center">
-                Tomat memiliki sifat anti-inflamasi yang membantu mengurangi
-                peradangan dalam pembuluh darah. Peradangan kronis pada pembuluh
-                darah dapat memperburuk kondisi jantung, dan dengan konsumsi
-                tomat, peradangan ini dapat diminimalisir, mendukung kesehatan
-                jantung secara keseluruhan.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g9title}</h5>
+              <p className="text-center">{manfaat.g9sub}</p>
             </div>
           </div>
         </div>
@@ -224,37 +184,20 @@ const Manfaat = () => {
 
       <section className="skin-health py-5" id="skin-health">
         <div className="container">
-          <h2 className="text-center mb-4">Meningkatkan Kesehatan Kulit</h2>
-          <h3 className="text-center mb-4">
-            Manfaat Tomat untuk Kesehatan Kulit
-          </h3>
+          <h2 className="text-center mb-4">{manfaat.galerytitle4}</h2>
+          <h3 className="text-center mb-4">{manfaat.galerysub4}</h3>
           <div className="row g-4">
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Mencegah Penuaan Dini</h5>
-              <p className="text-center">
-                Vitamin C dalam tomat berperan penting dalam produksi kolagen,
-                yang menjaga kekuatan dan elastisitas kulit. Dengan kolagen yang
-                cukup, keriput dan tanda-tanda penuaan dini dapat dicegah.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g10title}</h5>
+              <p className="text-center">{manfaat.g10sub}</p>
             </div>
             <div className="col-md-4">
-              <h5 className="text-center mt-2">
-                Melindungi Kulit dari Sinar Matahari
-              </h5>
-              <p className="text-center">
-                Tomat mengandung likopen, antioksidan yang efektif melindungi
-                kulit dari kerusakan akibat paparan sinar UV. Konsumsi tomat
-                secara teratur dapat membantu mengurangi dampak buruk sinar
-                matahari.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g11title}</h5>
+              <p className="text-center">{manfaat.g11sub}</p>
             </div>
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Meningkatkan Kesehatan Kulit</h5>
-              <p className="text-center">
-                Vitamin C membantu memperbaiki kerusakan kulit yang disebabkan
-                oleh polusi dan faktor eksternal. Selain itu, sifat
-                antiinflamasi vitamin C dapat menenangkan kulit yang teriritasi.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g12title}</h5>
+              <p className="text-center">{manfaat.g12sub}</p>
             </div>
           </div>
         </div>
@@ -262,34 +205,20 @@ const Manfaat = () => {
 
       <section className="vision-health py-5" id="vision-health">
         <div className="container">
-          <h2 className="text-center mb-4">Meningkatkan Penglihatan</h2>
-          <h3 className="text-center mb-4">
-            Manfaat Tomat untuk Kesehatan Mata
-          </h3>
+          <h2 className="text-center mb-4">{manfaat.galerytitle5}</h2>
+          <h3 className="text-center mb-4">{manfaat.galerysib5}</h3>
           <div className="row g-4">
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Kaya akan Vitamin A</h5>
-              <p className="text-center">
-                Tomat mengandung vitamin A dalam bentuk provitamin A
-                (karotenoid), yang penting untuk menjaga kesehatan mata dan
-                mendukung fungsi penglihatan.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g13title}</h5>
+              <p className="text-center">{manfaat.g13sub}</p>
             </div>
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Menjaga Fungsi Retina</h5>
-              <p className="text-center">
-                Vitamin A berperan dalam pembentukan rhodopsin, pigmen yang
-                diperlukan retina untuk mendeteksi cahaya, sehingga membantu
-                penglihatan dalam kondisi cahaya rendah.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g14title}</h5>
+              <p className="text-center">{manfaat.g14sub}</p>
             </div>
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Mencegah Degenerasi Makula</h5>
-              <p className="text-center">
-                Asupan vitamin A yang cukup dapat membantu melindungi mata dari
-                degenerasi makula terkait usia, yang merupakan salah satu
-                penyebab utama kebutaan pada orang tua.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g15title}</h5>
+              <p className="text-center">{manfaat.g15sub}</p>
             </div>
           </div>
         </div>
@@ -297,36 +226,20 @@ const Manfaat = () => {
 
       <section className="digestion-health py-5" id="digestion-health">
         <div className="container">
-          <h2 className="text-center mb-4">Membantu Pencernaan</h2>
-          <h3 className="text-center mb-4">
-            Manfaat Tomat untuk Kesehatan Pencernaan
-          </h3>
+          <h2 className="text-center mb-4">{manfaat.galerytitle6}</h2>
+          <h3 className="text-center mb-4">{manfaat.galerysub6}</h3>
           <div className="row g-4">
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Meningkatkan Gerakan Usus</h5>
-              <p className="text-center">
-                Tomat kaya akan serat, yang membantu memperlancar proses
-                pencernaan dengan meningkatkan gerakan usus dan mengurangi
-                risiko sembelit.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g16title}</h5>
+              <p className="text-center">{manfaat.g16sub}</p>
             </div>
             <div className="col-md-4">
-              <h5 className="text-center mt-2">Detoksifikasi Tubuh</h5>
-              <p className="text-center">
-                Kandungan air dalam tomat membantu menjaga hidrasi tubuh dan
-                mendukung proses detoksifikasi dengan memfasilitasi pengeluaran
-                racun melalui urin.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g17title}</h5>
+              <p className="text-center">{manfaat.g17sub}</p>
             </div>
             <div className="col-md-4">
-              <h5 className="text-center mt-2">
-                Menjaga Keseimbangan Bakteri Usus
-              </h5>
-              <p className="text-center">
-                Tomat mengandung prebiotik alami yang dapat mendukung
-                pertumbuhan bakteri baik dalam saluran pencernaan, membantu
-                menjaga keseimbangan mikrobiota usus yang sehat.
-              </p>
+              <h5 className="text-center mt-2">{manfaat.g18title}</h5>
+              <p className="text-center">{manfaat.g18sub}</p>
             </div>
           </div>
         </div>
