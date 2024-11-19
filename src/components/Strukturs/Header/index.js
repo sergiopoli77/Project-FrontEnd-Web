@@ -34,7 +34,7 @@ const Header = () => {
                   to="/"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
-                  Home
+                  {header.nav1}
                 </NavLink>
               </li>
               <li>
@@ -42,7 +42,7 @@ const Header = () => {
                   to="/manfaat"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
-                  Manfaat
+                  {header.nav2}
                 </NavLink>
               </li>
               <li>
@@ -50,7 +50,7 @@ const Header = () => {
                   to="/merawat"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
-                  Merawat
+                  {header.nav3}
                 </NavLink>
               </li>
               <li>
@@ -58,7 +58,7 @@ const Header = () => {
                   to="/penyakit"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
-                  Penyakit
+                  {header.nav4}
                 </NavLink>
               </li>
               <li>
@@ -66,7 +66,7 @@ const Header = () => {
                   to="/hama"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
-                  Hama
+                  {header.nav5}
                 </NavLink>
               </li>
             </ul>
