@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Hama = [
   {
@@ -46,82 +46,58 @@ const Hama = [
 ];
 
 const HamaComponent = () => {
-  const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setScrollToTopVisible(true);
-      } else {
-        setScrollToTopVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <div className="container">
       {/* Header Section */}
-      <section className="hero-header">
-        <div className="hero-content">
-          <h1>HAMA PADA TUMBUHAN TOMAT</h1>
-          <p>
-            Tanaman tomat sangat rentan terhadap serangan hama. Berikut ini
-            adalah daftar beberapa hama yang sering menyerang tanaman tomat.
-            Mengetahui ciri-ciri dan cara penanganannya dapat membantu petani
-            untuk melindungi tanaman tomat dari kerusakan yang parah.
-          </p>
-        </div>
+      <div className="main-header">
+        <h1 className="title">HAMA PADA TUMBUHAN TOMAT</h1>
+      </div>
+
+      {/* Introduction Section */}
+      <section className="introduction">
+        <p className="intro-text">
+          Tanaman tomat sangat rentan terhadap serangan hama. Berikut ini adalah
+          daftar beberapa hama yang sering menyerang tanaman tomat. Mengetahui
+          ciri-ciri dan cara penanganannya dapat membantu petani untuk
+          melindungi tanaman tomat dari kerusakan yang parah.
+        </p>
       </section>
 
-      {/* Card Grid Section */}
-      <section className="benefits-section">
-        <div className="container">
-          <h2 className="text-center mb-5">Hama yang Sering Menyerang Tomat</h2>
-          <div className="row g-4">
-            {Hama.map((pest) => (
-              <div className="col-md-6" key={pest.id}>
-                <div className="card-horizontal">
-                  <img
-                    src={pest.image}
-                    alt={pest.title}
-                    className="card-image img-fluid rounded"
-                    loading="lazy"
-                  />
-                  <div className="card-content">
-                    <h3>{pest.title}</h3>
-                    <p>{pest.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+      {/* Card Grid */}
+      <div className="card-grid">
+        {Hama.map((pest) => (
+          <div key={pest.id} className="card">
+            <img
+              src={pest.image}
+              alt={`Gambar ${pest.title}`}
+              className="card-image"
+            />
+            <div className="card-content">
+              <h2 className="card-title">{pest.title}</h2>
+              <p className="card-description">{pest.description}</p>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Scroll to Top Button */}
-      {scrollToTopVisible && (
-        <button onClick={scrollToTop} className="scroll-to-top">
-          ↑
-        </button>
-      )}
+        ))}
+      </div>
 
       <style jsx>{`
-        .hero-header {
-          position: relative;
-          height: 100vh;
-          background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-            url(https://via.placeholder.com/1920x300) no-repeat center
-              center/cover;
+        /* Global Styles */
+        body,
+        html {
+          margin: 0;
+          padding: 0;
+          font-family: "Montserrat", sans-serif;
+          background-color: #f9f9f9;
+          color: #333;
+        }
+
+        /* Main Header */
+        .main-header {
+          height: 500px;
+          background-image: url("https://via.placeholder.com/1920x300"); /* Ganti dengan gambar Anda */
+          background-size: 100% 100%; /* Mengisi lebar dan tinggi dengan gambar */
+          background-position: center center; /* Gambar tetap terpusat */
+          background-repeat: no-repeat; /* Gambar tidak terulang */
           display: flex;
           align-items: center;
           justify-content: center;
@@ -129,78 +105,133 @@ const HamaComponent = () => {
           color: white;
         }
 
-        .hero-content {
-          max-width: 800px;
-        }
-
-        .hero-header h1 {
-          font-size: 3em;
-          font-weight: bold;
-        }
-
-        .hero-header p {
-          font-size: 1.2em;
-          margin-top: 20px;
-        }
-
-        .benefits-section {
-          background-color: #f4f4f4;
-          padding: 40px 0;
-        }
-
-        .benefits-section h2 {
-          font-size: 2.5em;
-          font-weight: bold;
-          color: #b22222;
-        }
-
-        .card-horizontal {
+        /* Main Header */
+        .main-header {
+          height: 500px;
+          background-image: linear-gradient(
+              120deg,
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.3)
+            ),
+            url("https://via.placeholder.com/1920x300"); /* Gradient + Gambar */
+          background-size: cover;
+          background-position: center;
           display: flex;
-          gap: 15px;
-          background-color: white;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          color: white;
+          position: relative; /* Agar teks berada di atas overlay */
+        }
+
+        .title {
+          font-size: 48px; /* Ukuran teks lebih besar */
+          font-weight: 700;
+          font-family: "Poppins", sans-serif; /* Font lebih modern */
+          background-color: rgba(0, 0, 0, 0.6); /* Transparansi untuk teks */
+          padding: 15px 25px;
+          border-radius: 12px;
+          letter-spacing: 1.5px;
+          animation: fadeIn 1s ease-out; /* Animasi Fade-in */
+        }
+
+        /* Animasi Teks */
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .title {
+          font-size: 42px;
+          font-weight: bold;
+          background-color: rgba(0, 0, 0, 0.5); /* Transparansi untuk teks */
+          padding: 10px 20px;
+          border-radius: 8px;
+        }
+
+        /* Introduction Section */
+        .introduction {
+          text-align: center;
+          padding: 20px 40px;
+          max-width: 900px;
+          margin: 20px auto;
+        }
+
+        .intro-text {
+          font-size: 18px;
+          color: #555;
+          line-height: 1.8;
+        }
+
+        /* Card Grid */
+        .container {
           padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          margin-bottom: 20px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .card-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr); /* Dua kolom */
+          gap: 30px; /* Jarak antar kartu */
+        }
+
+        /* Card */
+        .card {
+          background-color: #ffffff;
+          border-radius: 12px;
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card-horizontal:hover {
-          transform: scale(1.05);
-          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .card-image {
-          width: 150px;
-          height: auto;
-          border-radius: 10px;
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
         }
 
-        .card-content h3 {
-          font-size: 1.2em;
+        .card-content {
+          padding: 20px;
+        }
+
+        .card-title {
+          font-size: 20px;
+          font-weight: bold;
+          color: #ff6347;
           margin-bottom: 10px;
-          color: #333;
         }
 
-        .card-content p {
-          font-size: 1em;
+        .card-description {
+          font-size: 16px;
           color: #555;
+          line-height: 1.6;
         }
 
-        .scroll-to-top {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          background-color: #ff4500;
-          color: white;
-          border: none;
-          padding: 10px 15px;
-          border-radius: 50%;
-          cursor: pointer;
-        }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+          .card-grid {
+            grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+          }
 
-        .scroll-to-top:hover {
-          background-color: #45a049;
+          .card-title {
+            font-size: 18px;
+          }
+
+          .card-description {
+            font-size: 14px;
+          }
         }
       `}</style>
     </div>
