@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Hama = [
   {
@@ -6,188 +6,201 @@ const Hama = [
     title: "Kutu Daun Thrips Tomat",
     description:
       "Ciri-ciri kutu daun thrips adalah panjangnya 1 mm dan berwarna hitam. Kutu daun thrips ini menyerang...",
+    image: "https://via.placeholder.com/300x200?text=Kutu+Daun",
   },
   {
     id: 2,
     title: "Ulat Buah Tomat",
     description:
       "Umumnya ulat buah tomat ini menyerang daun, bunga dan buah tanaman tomat. Ciri-ciri hama ulat...",
+    image: "https://via.placeholder.com/300x200?text=Ulat+Buah",
   },
   {
     id: 3,
     title: "Kutu Daun Aphis Hijau Pada Tomat",
     description:
-      "Aphis hijau lebih sering di sebut kutu daun hijau. Ciri-ciri aphis hijau adalah...",
+      "Aphis hijau lebih sering disebut kutu daun hijau. Ciri-ciri aphis hijau adalah...",
+    image: "https://via.placeholder.com/300x200?text=Kutu+Aphis",
   },
   {
     id: 4,
     title: "Cacing Tanah",
     description:
-      "Serangan hama ini pada tanaman tomat di tandai dengan terpotongnya tanaman pada pangkal...",
+      "Serangan hama ini pada tanaman tomat ditandai dengan terpotongnya tanaman pada pangkal...",
+    image: "https://via.placeholder.com/300x200?text=Cacing+Tanah",
   },
   {
     id: 5,
     title: "Lalat Buah",
     description:
       "Ukuran hama ini sekitar 8 mm dengan warna tubuh hitam kehijauan dan sayap transparan...",
+    image: "https://via.placeholder.com/300x200?text=Lalat+Buah",
   },
   {
     id: 6,
     title: "Kutu Kebul",
     description:
       "Hama kutu daun bersayap putih ini menjadi salah satu hama paling berbahaya dalam budidaya tanaman...",
+    image: "https://via.placeholder.com/300x200?text=Kutu+Kebul",
   },
 ];
 
 const HamaComponent = () => {
-  return (
-    <div className="pest-list">
-      <header className="header">
-        <h1>Hama pada Tanaman Tomat</h1>
-      </header>
+  const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
 
-      <section className="introduction">
-        <p className="intro-text">
-          Hama adalah organisme yang dapat merusak tanaman tomat dan mengganggu
-          pertumbuhannya. Mereka dapat menyerang bagian-bagian penting tanaman,
-          seperti daun, bunga, dan buah. Mengidentifikasi dan menangani hama
-          dengan tepat adalah langkah penting untuk menjaga kesehatan tanaman
-          tomat.
-        </p>
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setScrollToTopVisible(true);
+      } else {
+        setScrollToTopVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <div className="container">
+      {/* Header Section */}
+      <section className="hero-header">
+        <div className="hero-content">
+          <h1>HAMA PADA TUMBUHAN TOMAT</h1>
+          <p>
+            Tanaman tomat sangat rentan terhadap serangan hama. Berikut ini
+            adalah daftar beberapa hama yang sering menyerang tanaman tomat.
+            Mengetahui ciri-ciri dan cara penanganannya dapat membantu petani
+            untuk melindungi tanaman tomat dari kerusakan yang parah.
+          </p>
+        </div>
       </section>
 
-      {Hama.map((pest) => (
-        <div key={pest.id} className="pest-item">
-          <div className="pest-info">
-            <h2 className="pest-title">{pest.title}</h2>
-            <p className="pest-description">{pest.description}</p>
+      {/* Card Grid Section */}
+      <section className="benefits-section">
+        <div className="container">
+          <h2 className="text-center mb-5">Hama yang Sering Menyerang Tomat</h2>
+          <div className="row g-4">
+            {Hama.map((pest) => (
+              <div className="col-md-6" key={pest.id}>
+                <div className="card-horizontal">
+                  <img
+                    src={pest.image}
+                    alt={pest.title}
+                    className="card-image img-fluid rounded"
+                    loading="lazy"
+                  />
+                  <div className="card-content">
+                    <h3>{pest.title}</h3>
+                    <p>{pest.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-          <button className="details-button">ℹ️</button>
         </div>
-      ))}
+      </section>
+
+      {/* Scroll to Top Button */}
+      {scrollToTopVisible && (
+        <button onClick={scrollToTop} className="scroll-to-top">
+          ↑
+        </button>
+      )}
 
       <style jsx>{`
-        /* Global Styles */
-        body,
-        html {
-          margin: 0;
-          padding: 0;
-          font-family: "Montserrat", sans-serif;
-          background-color: #f1f1f1;
-          color: #333;
-          height: 100%;
-        }
-
-        /* Header Styling */
-        .header {
-          background: linear-gradient(145deg, #4caf50, #2e7d32);
-          color: white;
-          padding: 60px 20px;
-          text-align: center;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-          font-size: 40px;
-          font-weight: 700;
-          margin: 0;
-          letter-spacing: 2px;
-        }
-
-        /* Introduction Styling */
-        .introduction {
-          padding: 40px 20px;
-          background-color: #ffffff;
-          text-align: center;
-          margin: 20px 0;
-          border-radius: 12px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .intro-text {
-          font-size: 20px;
-          max-width: 900px;
-          margin: 0 auto;
-          line-height: 1.8;
-          color: #555;
-        }
-
-        /* Pest List Container */
-        .pest-list {
-          padding: 40px;
-          display: flex;
-          flex-direction: column;
-          gap: 30px;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        /* Pest Item Styling */
-        .pest-item {
-          display: flex;
-          background-color: #ffffff;
-          border-radius: 12px;
-          padding: 20px;
-          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
-          align-items: flex-start;
-          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-          cursor: pointer;
-        }
-
-        .pest-item:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .pest-info {
-          flex: 1;
-          margin-right: 20px;
-        }
-
-        .pest-title {
-          font-size: 28px;
-          color: #4caf50;
-          font-weight: 600;
-          margin-bottom: 12px;
-        }
-
-        .pest-description {
-          font-size: 16px;
-          color: #666;
-          line-height: 1.7;
-        }
-
-        /* Details Button Styling */
-        .details-button {
-          font-size: 22px;
-          background-color: #ffcc00;
-          color: #333;
-          border: none;
-          border-radius: 50%;
-          width: 55px;
-          height: 55px;
-          cursor: pointer;
+        .hero-header {
+          position: relative;
+          height: 100vh;
+          background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+            url(https://via.placeholder.com/1920x300) no-repeat center
+              center/cover;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: background-color 0.3s ease, transform 0.3s ease;
+          text-align: center;
+          color: white;
         }
 
-        .details-button:hover {
-          background-color: #f7b800;
-          transform: scale(1.1);
+        .hero-content {
+          max-width: 800px;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-          .pest-item {
-            flex-direction: column;
-            text-align: center;
-          }
+        .hero-header h1 {
+          font-size: 3em;
+          font-weight: bold;
+        }
 
-          .details-button {
-            margin-top: 15px;
-          }
+        .hero-header p {
+          font-size: 1.2em;
+          margin-top: 20px;
+        }
+
+        .benefits-section {
+          background-color: #f4f4f4;
+          padding: 40px 0;
+        }
+
+        .benefits-section h2 {
+          font-size: 2.5em;
+          font-weight: bold;
+          color: #b22222;
+        }
+
+        .card-horizontal {
+          display: flex;
+          gap: 15px;
+          background-color: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          margin-bottom: 20px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-horizontal:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+          width: 150px;
+          height: auto;
+          border-radius: 10px;
+        }
+
+        .card-content h3 {
+          font-size: 1.2em;
+          margin-bottom: 10px;
+          color: #333;
+        }
+
+        .card-content p {
+          font-size: 1em;
+          color: #555;
+        }
+
+        .scroll-to-top {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #ff4500;
+          color: white;
+          border: none;
+          padding: 10px 15px;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+
+        .scroll-to-top:hover {
+          background-color: #45a049;
         }
       `}</style>
     </div>
