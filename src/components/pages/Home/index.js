@@ -20,19 +20,16 @@ const Home = () => {
 
   const faqs = [
     {
-      question: "Apa manfaat utama dari tomat?",
-      answer:
-        "Tomat kaya akan vitamin C, likopen, dan antioksidan yang dapat membantu meningkatkan kekebalan tubuh dan menjaga kesehatan kulit.",
+      question: home.q1,
+      answer: home.a1,
     },
     {
-      question: "Bagaimana cara merawat tanaman tomat?",
-      answer:
-        "Tanaman tomat membutuhkan cahaya matahari yang cukup, penyiraman yang teratur, dan pemupukan organik untuk hasil terbaik.",
+      question: home.q2,
+      answer: home.a2,
     },
     {
-      question: "Kapan waktu terbaik untuk memanen tomat?",
-      answer:
-        "Tomat sebaiknya dipanen ketika sudah matang sempurna dengan warna yang merata, tergantung pada varietasnya.",
+      question: home.q3,
+      answer: home.a3,
     },
   ];
 
@@ -181,7 +178,7 @@ const Home = () => {
           <div className="row g-4">
             <div className="col-md-4">
               <img
-                src="img/tomatroma.jpeg"
+                src={`data:image/jpeg;base64, ${home.roma}`}
                 alt="Tomat Roma"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -191,7 +188,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatbeefsteak.jpeg"
+                src={`data:image/jpeg;base64, ${home.beefsteak}`}
                 alt="BeefSteak tomat"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -201,7 +198,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatjepang.jpeg"
+                src={`data:image/jpeg;base64, ${home.jepang}`}
                 alt="Tomat Cerry Jepang"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -211,7 +208,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatmarzano.jpeg"
+                src={`data:image/jpeg;base64, ${home.marzano}`}
                 alt="Tomat Marzano"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -221,7 +218,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatceryprancis.jpeg"
+                src={`data:image/jpeg;base64, ${home.prancis}`}
                 alt="Tomat Cerry Prancis"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -231,7 +228,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatkumato.jpeg"
+                src={`data:image/jpeg;base64, ${home.kumato}`}
                 alt="Tomat Kumato"
                 className="img-fluid rounded"
                 loading="lazy"

@@ -35,6 +35,8 @@ const Manfaat = () => {
     };
   }, []);
 
+  
+
   return (
     <main>
       <section className="hero-header">
@@ -56,7 +58,7 @@ const Manfaat = () => {
       <div className="container-manfaat">
         <section id="kaya-akan-nutrisi" className="manfaat-section">
           <img
-            src="/img/gambar1.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar1}`}
             alt="Kaya Akan Nutrisi"
             className="manfaat-image"
           />
@@ -68,7 +70,7 @@ const Manfaat = () => {
 
         <section id="antioksidan-tinggi" className="manfaat-section">
           <img
-            src="/img/gambar2.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar2}`}
             alt="Antioksidan Tinggi"
             className="manfaat-image"
           />
@@ -80,7 +82,7 @@ const Manfaat = () => {
 
         <section id="kesehatan-jantung" className="manfaat-section">
           <img
-            src="/img/gambar3.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar3}`}
             alt="Menjaga Kesehatan Jantung"
             className="manfaat-image"
           />
@@ -92,7 +94,7 @@ const Manfaat = () => {
 
         <section id="kesehatan-kulit" className="manfaat-section">
           <img
-            src="/img/gambar4.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar4}`}
             alt="Meningkatkan Kesehatan Kulit"
             className="manfaat-image"
           />
@@ -104,7 +106,7 @@ const Manfaat = () => {
 
         <section id="penglihatan" className="manfaat-section">
           <img
-            src="/img/gambar5.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar5}`}
             alt="Meningkatkan Penglihatan"
             className="manfaat-image"
           />
@@ -116,7 +118,7 @@ const Manfaat = () => {
 
         <section id="pencernaan" className="manfaat-section">
           <img
-            src="/img/gambar6.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar6}`}
             alt="Membantu Pencernaan"
             className="manfaat-image"
           />
