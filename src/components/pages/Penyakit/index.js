@@ -108,19 +108,13 @@ const Penyakit = () => {
               className="penyakit-image"
             />
             <div className="penyakit-content">
-              <h1 className="penyakit-title">BUAH BUSUK</h1>
-              <h2 className="penyakit-description">
-                Buah Busuk disebabkan oleh infeksi jamur atau bakteri yang
-                menyebabkan buah membusuk sebelum matang.
-              </h2>
-              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <h1 className="penyakit-title">{penyakit.title5}</h1>
+              <h2 className="penyakit-description">{penyakit.titledes5}</h2>
+              <h3 className="penyakit-treatment">{penyakit.buahbusuk}</h3>
               <ul className="penyakit-steps">
-                <li>Jaga kebersihan area sekitar tanaman.</li>
-                <li>Buang buah yang terinfeksi untuk mencegah penyebaran.</li>
-                <li>
-                  Gunakan fungisida seperti chlorothalonil atau propiconazole
-                  untuk mencegah infeksi.
-                </li>
+                <li>{penyakit.stepbb1}</li>
+                <li>{penyakit.stepbb2}</li>
+                <li>{penyakit.stepbb3}</li>
               </ul>
             </div>
           </div>
@@ -132,16 +126,13 @@ const Penyakit = () => {
               className="penyakit-image"
             />
             <div className="penyakit-content">
-              <h1 className="penyakit-title">BUSUK DAUN</h1>
-              <h2 className="penyakit-description">
-                Busuk Daun disebabkan oleh jamur yang menyebabkan daun membusuk,
-                menguning, dan rontok.
-              </h2>
-              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <h1 className="penyakit-title">{penyakit.title6}</h1>
+              <h2 className="penyakit-description">{penyakit.titledes6}</h2>
+              <h3 className="penyakit-treatment">{penyakit.busukdaun}</h3>
               <ul className="penyakit-steps">
-                <li>Jaga sirkulasi udara yang baik di sekitar tanaman.</li>
-                <li>Hindari kelembapan berlebih pada tanaman.</li>
-                <li>Gunakan fungisida seperti metalaxyl atau propamocarb.</li>
+                <li>{penyakit.stepbd1}</li>
+                <li>{penyakit.stepbd2}</li>
+                <li>{penyakit.stepbd3}</li>
               </ul>
             </div>
           </div>
