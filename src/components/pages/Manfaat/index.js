@@ -1,5 +1,5 @@
 import { getDatabase, ref, onValue } from "firebase/database";
-import { useEffect, useState, CSSProperties, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Manfaat = () => {
   const [manfaat, setManfaat] = useState({});
@@ -12,47 +12,9 @@ const Manfaat = () => {
       setManfaat(data);
     });
   }, []);
+
   const [inView, setInView] = useState(false);
   const aboutSectionRef = useRef(null);
-
-  const benefitData = [
-    {
-      title: "Kaya Akan Nutrisi",
-      description:
-        "Tomat mengandung banyak vitamin dan mineral penting seperti vitamin C, vitamin K, kalium, dan folat.",
-      image: "/img/gambar1.jpg",
-    },
-    {
-      title: "Antioksidan Tinggi",
-      description:
-        "Tomat kaya akan antioksidan seperti likopen, yang dapat membantu melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.",
-      image: "/img/gambar2.jpg",
-    },
-    {
-      title: "Menjaga Kesehatan Jantung",
-      description:
-        "Konsumsi tomat secara teratur dapat membantu menurunkan kadar kolesterol dan tekanan darah.",
-      image: "/img/gambar3.jpg",
-    },
-    {
-      title: "Meningkatkan Kesehatan Kulit",
-      description:
-        "Kandungan vitamin C dan antioksidan dalam tomat dapat membantu menjaga kulit tetap sehat, mencegah penuaan dini, dan melindungi kulit dari kerusakan akibat sinar matahari.",
-      image: "/img/gambar4.jpg",
-    },
-    {
-      title: "Meningkatkan Penglihatan",
-      description:
-        "Tomat kaya akan vitamin A, yang penting untuk menjaga kesehatan mata dan penglihatan yang baik.",
-      image: "/img/gambar5.jpg",
-    },
-    {
-      title: "Membantu Pencernaan",
-      description:
-        "Tomat tinggi serat, yang dapat membantu mempromosikan pencernaan yang sehat dan mencegah sembelit.",
-      image: "/img/gambar6.jpg",
-    },
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,48 +52,123 @@ const Manfaat = () => {
       <section className="about py-5" id="about" ref={aboutSectionRef}>
         <div className="container">
           <h1 className="about-section-title">{manfaat.abouttitle}</h1>
-          <div className="list">
-            {benefitData.map((benefit, index) => (
-              <div
-                className={`card-horizontal ${inView ? "fadeIn" : ""}`}
-                key={index}
-              >
-                <div className="card-visual">
-                  <img
-                    src={benefit.image}
-                    alt={benefit.title}
-                    className="card-image"
-                  />
-                </div>
-                <div className="card-content">
-                  <h2>{benefit.title}</h2>
-                  <p>{benefit.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="gallery py-5" id="gallery">
-        <div className="container">
-          <h3 className="text-center mb-4">{manfaat.galerysub}</h3>
-          <div className="row g-4">
-            <div className="col-md-4">
-              <h5 className="text-center mt-2">{manfaat.g1title}</h5>
-              <p className="text-center">{manfaat.g1sub}</p>
-            </div>
-            <div className="col-md-4">
-              <h5 className="text-center mt-2">{manfaat.g2title}</h5>
-              <p className="text-center">{manfaat.g2sub}</p>
-            </div>
-            <div className="col-md-4">
-              <h5 className="text-center mt-2">{manfaat.g3title}</h5>
-              <p className="text-center">{manfaat.g3sub}</p>
+      {/* Container Manfaat Section */}
+      <div className="container-manfaat">
+        {/* Individual Manfaat Sections */}
+        <section id="kaya-akan-nutrisi" className="manfaat-section">
+          <img
+            src="/img/gambar1.jpg"
+            alt="Kaya Akan Nutrisi"
+            className="manfaat-image"
+          />
+          <div className="manfaat-content">
+            <h2 className="manfaat-title">Kaya Akan Nutrisi</h2>
+            <p className="manfaat-description">
+              Tomat mengandung banyak vitamin dan mineral penting seperti
+              vitamin C, vitamin K, kalium, dan folat.
+            </p>
+          </div>
+        </section>
+
+        <section id="antioksidan-tinggi" className="manfaat-section">
+          <img
+            src="/img/gambar2.jpg"
+            alt="Antioksidan Tinggi"
+            className="manfaat-image"
+          />
+          <div className="manfaat-content">
+            <h2 className="manfaat-title">Antioksidan Tinggi</h2>
+            <p className="manfaat-description">
+              Tomat kaya akan antioksidan seperti likopen, yang dapat membantu
+              melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.
+            </p>
+          </div>
+        </section>
+
+        <section id="kesehatan-jantung" className="manfaat-section">
+          <img
+            src="/img/gambar3.jpg"
+            alt="Menjaga Kesehatan Jantung"
+            className="manfaat-image"
+          />
+          <div className="manfaat-content">
+            <h2 className="manfaat-title">Menjaga Kesehatan Jantung</h2>
+            <p className="manfaat-description">
+              Konsumsi tomat secara teratur dapat membantu menurunkan kadar
+              kolesterol dan tekanan darah.
+            </p>
+          </div>
+        </section>
+
+        <section id="kesehatan-kulit" className="manfaat-section">
+          <img
+            src="/img/gambar4.jpg"
+            alt="Meningkatkan Kesehatan Kulit"
+            className="manfaat-image"
+          />
+          <div className="manfaat-content">
+            <h2 className="manfaat-title">Meningkatkan Kesehatan Kulit</h2>
+            <p className="manfaat-description">
+              Kandungan vitamin C dan antioksidan dalam tomat dapat membantu
+              menjaga kulit tetap sehat, mencegah penuaan dini, dan melindungi
+              kulit dari kerusakan akibat sinar matahari
+            </p>
+          </div>
+        </section>
+
+        <section id="penglihatan" className="manfaat-section">
+          <img
+            src="/img/gambar5.jpg"
+            alt="Meningkatkan Penglihatan"
+            className="manfaat-image"
+          />
+          <div className="manfaat-content">
+            <h2 className="manfaat-title">Meningkatkan Penglihatan</h2>
+            <p className="manfaat-description">
+              Tomat kaya akan vitamin A, yang penting untuk menjaga kesehatan
+              mata dan penglihatan yang baik.
+            </p>
+          </div>
+        </section>
+
+        <section id="pencernaan" className="manfaat-section">
+          <img
+            src="/img/gambar6.jpg"
+            alt="Membantu Pencernaan"
+            className="manfaat-image"
+          />
+          <div className="manfaat-content">
+            <h2 className="manfaat-title">Membantu Pencernaan</h2>
+            <p className="manfaat-description">
+              Tomat tinggi serat, yang dapat membantu mempromosikan pencernaan
+              yang sehat dan mencegah sembelit.
+            </p>
+          </div>
+        </section>
+
+        <section className="gallery py-5" id="gallery">
+          <div className="container">
+            <h3 className="text-center mb-4">{manfaat.galerysub}</h3>
+            <div className="row g-4">
+              <div className="col-md-4">
+                <h5 className="text-center mt-2">{manfaat.g1title}</h5>
+                <p className="text-center">{manfaat.g1sub}</p>
+              </div>
+              <div className="col-md-4">
+                <h5 className="text-center mt-2">{manfaat.g2title}</h5>
+                <p className="text-center">{manfaat.g2sub}</p>
+              </div>
+              <div className="col-md-4">
+                <h5 className="text-center mt-2">{manfaat.g3title}</h5>
+                <p className="text-center">{manfaat.g3sub}</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* Styles */}
       <style jsx>{`
@@ -142,11 +179,12 @@ const Manfaat = () => {
         }
 
         body {
-          font-family: "Poppins", sans-serif; /* Gunakan font modern */
-          background-color: #f8f9fa; /* Warna latar belakang netral */
-          color: #333; /* Warna teks default */
+          font-family: "Roboto", sans-serif;
+          background-color: #f7f7f7;
+          color: #333;
           line-height: 1.6;
           font-size: 16px;
+          overflow-x: hidden;
         }
 
         a {
@@ -161,97 +199,156 @@ const Manfaat = () => {
 
         /* Hero Section */
         .hero-header {
-          background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+          background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
             url("/img/bg3.jpg") no-repeat center center/cover;
           color: #fff;
           text-align: center;
-          padding: 150px 20px;
+          padding: 120px 20px;
           height: 100vh;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          transition: background 0.3s ease-in-out;
+          position: relative;
+        }
+
+        .hero-header::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.3);
+          z-index: 1;
+        }
+
+        .hero-content {
+          z-index: 2;
         }
 
         .hero-content h1 {
-          font-size: 3rem;
+          font-size: 3.5rem;
           font-weight: 700;
           margin-bottom: 20px;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-content p {
-          font-size: 1.2rem;
+          font-size: 1.25rem;
           font-weight: 300;
+          text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         /* About Section */
         .about {
-          padding: 60px 0;
+          padding: 80px 20px;
           background-color: #fff;
+          position: relative;
         }
 
         .about-section-title {
-          font-size: 2rem;
+          font-size: 2.5rem;
           font-weight: 600;
           text-align: center;
           margin-bottom: 40px;
           color: #444;
+          text-transform: uppercase;
+          letter-spacing: 1px;
         }
 
-        .list {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 20px;
+        .about::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 20px;
+          width: 80px;
+          height: 5px;
+          background-color: #f2a900;
+          transform: translateX(-50%);
         }
 
-        .card-horizontal {
-          background-color: #fff;
-          border-radius: 10px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-          overflow: hidden;
+        /* Container Manfaat Section */
+        .container-manfaat {
+          padding: 60px 20px;
+          background-color: #f1f1f1;
+        }
+
+        .manfaat-section {
           display: flex;
-          flex-direction: column;
+          align-items: center;
+          margin-bottom: 50px;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
+          background-color: #fff;
         }
 
-        .card-horizontal:hover {
+        .manfaat-section:hover {
           transform: translateY(-5px);
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .card-visual img {
+        .manfaat-image {
           width: 100%;
-          height: 200px;
+          height: 320px;
           object-fit: cover;
+          max-width: 450px;
+          transition: transform 0.3s ease-in-out;
         }
 
-        .card-content {
-          padding: 20px;
+        .manfaat-image:hover {
+          transform: scale(1.05);
         }
 
-        .card-content h2 {
-          font-size: 1.5rem;
+        .manfaat-content {
+          padding: 30px;
+          max-width: 650px;
+          text-align: left;
+          position: relative;
+        }
+
+        .manfaat-title {
+          font-size: 2.2rem;
+          font-weight: 600;
           color: #333;
-          margin-bottom: 10px;
+          margin-bottom: 20px;
+          text-transform: capitalize;
+          position: relative;
         }
 
-        .card-content p {
-          font-size: 1rem;
+        .manfaat-title::before {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 50px;
+          height: 3px;
+          background-color: #f2a900;
+        }
+
+        .manfaat-description {
+          font-size: 1.1rem;
           color: #666;
+          line-height: 1.7;
+          font-weight: 400;
         }
 
         /* Gallery Section */
         .gallery {
-          padding: 60px 0;
+          padding: 80px 20px;
           background-color: #f9f9f9;
+          position: relative;
         }
 
         .gallery h3 {
-          font-size: 1.8rem;
+          font-size: 2rem;
           font-weight: 500;
           text-align: center;
           color: #333;
-          margin-bottom: 40px;
+          margin-bottom: 50px;
         }
 
         .row {
@@ -264,28 +361,159 @@ const Manfaat = () => {
         .col-md-4 {
           flex: 1 1 30%;
           background-color: #fff;
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          padding: 25px;
+          border-radius: 12px;
+          box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
           text-align: center;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .col-md-4:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          transform: translateY(-7px);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
         .col-md-4 h5 {
-          font-size: 1.2rem;
+          font-size: 1.3rem;
           font-weight: 600;
           color: #444;
-          margin-bottom: 10px;
+          margin-bottom: 15px;
+          text-transform: uppercase;
         }
 
         .col-md-4 p {
           font-size: 1rem;
           color: #777;
+          margin-bottom: 20px;
+          transition: color 0.3s ease;
+        }
+
+        .col-md-4 p:hover {
+          color: #f2a900;
+        }
+
+        /* Hover & Animation Effects */
+        .manfaat-section,
+        .col-md-4 {
+          transition: transform 0.3s ease, box-shadow 0.3s ease,
+            background-color 0.3s ease;
+        }
+
+        .manfaat-section:hover,
+        .col-md-4:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .manfaat-title,
+        .col-md-4 h5 {
+          color: #333;
+          transition: color 0.3s ease-in-out;
+        }
+
+        .manfaat-title:hover,
+        .col-md-4 h5:hover {
+          color: #f2a900;
+        }
+
+        .manfaat-description {
+          transition: color 0.3s ease-in-out;
+        }
+
+        .manfaat-description:hover {
+          color: #f2a900;
+        }
+
+        /* Global Buttons */
+        button,
+        .btn {
+          font-family: "Roboto", sans-serif;
+          font-size: 1rem;
+          padding: 12px 25px;
+          background-color: #f2a900;
+          border: none;
+          color: white;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: inline-block;
+        }
+
+        button:hover,
+        .btn:hover {
+          background-color: #e49b00;
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        button:focus,
+        .btn:focus {
+          outline: none;
+        }
+
+        /* Footer Section */
+        footer {
+          background-color: #333;
+          color: #fff;
+          padding: 40px 20px;
+          text-align: center;
+          position: relative;
+        }
+
+        footer a {
+          color: #fff;
+          font-size: 1.2rem;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+          color: #f2a900;
+        }
+
+        footer .social-links {
+          margin: 20px 0;
+        }
+
+        footer .social-links a {
+          margin: 0 10px;
+          font-size: 2rem;
+          transition: transform 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+          transform: translateY(-5px);
+          color: #f2a900;
+        }
+
+        /* Scroll Animations */
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        .fade-in {
+          animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .manfaat-section,
+        .col-md-4 {
+          opacity: 0;
+          animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        .manfaat-section:nth-child(odd),
+        .col-md-4:nth-child(odd) {
+          animation-delay: 0.3s;
+        }
+
+        .manfaat-section:nth-child(even),
+        .col-md-4:nth-child(even) {
+          animation-delay: 0.5s;
         }
       `}</style>
     </main>
