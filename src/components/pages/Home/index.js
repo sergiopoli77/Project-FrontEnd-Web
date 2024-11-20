@@ -267,34 +267,26 @@ const Home = () => {
         <div class="col-md-6">
           <h5>{home.info}</h5>
           <p>
-            <strong>Sergio : </strong>{" "}
-            <a href="https://github.com/sergiopoli77">
-              https://github.com/sergiopoli77
-            </a>
+            <strong>{home.sergio} </strong>{" "}
+            <a href="https://github.com/sergiopoli77">{home.sergiogit}</a>
           </p>
           <p>
-            <strong>Gloria : </strong>{" "}
-            <a href="https://github.com/Gloriaamandagii">
-              https://github.com/Gloriaamandagii
-            </a>
+            <strong>{home.gloria} </strong>{" "}
+            <a href="https://github.com/Gloriaamandagii">{home.gloriagit}</a>
           </p>
           <p>
-            <strong>Josua : </strong>{" "}
+            <strong>{home.josua} </strong>{" "}
             <a href="https://github.com/Joshuatandilobo-unklab">
-              https://github.com/Joshuatandilobo-unklab
+              {home.josuagit}
             </a>
           </p>
           <p>
-            <strong>Grivin : </strong>{" "}
-            <a href="https://github.com/grivin1028">
-              https://github.com/grivin1028
-            </a>
+            <strong>{home.grivin} </strong>{" "}
+            <a href="https://github.com/grivin1028">{home.grivingit}</a>
           </p>
           <p>
-            <strong>Jonald : </strong>{" "}
-            <a href="https://github.com/Jonald2004">
-              https://github.com/Jonald2004
-            </a>
+            <strong>{home.jonald} </strong>{" "}
+            <a href="https://github.com/Jonald2004">{home.jonaldgit}</a>
           </p>
         </div>
       </section>
