@@ -103,7 +103,6 @@ const HamaComponent = () => {
           </p>
         </div>
       </section>
-
       {/* Hero Section */}
       <section id="hero" className="section-hero">
         <h1>Daftar Hama Utama</h1>
