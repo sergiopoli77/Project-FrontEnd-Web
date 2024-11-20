@@ -1,239 +1,189 @@
 import React from "react";
 
-const Hama = [
-  {
-    id: 1,
-    title: "Kutu Daun Thrips Tomat",
-    description:
-      "Ciri-ciri kutu daun thrips adalah panjangnya 1 mm dan berwarna hitam. Kutu daun thrips ini menyerang...",
-    image: "/img/kutudaunthrips.jpeg",
-  },
-  {
-    id: 2,
-    title: "Ulat Buah Tomat",
-    description:
-      "Umumnya ulat buah tomat ini menyerang daun, bunga dan buah tanaman tomat. Ciri-ciri hama ulat...",
-    image: "img/ulat.jpeg",
-  },
-  {
-    id: 3,
-    title: "Kutu Daun Aphis Hijau Pada Tomat",
-    description:
-      "Aphis hijau lebih sering disebut kutu daun hijau. Ciri-ciri aphis hijau adalah...",
-    image: "img/kutudaunapis.jpeg",
-  },
-  {
-    id: 4,
-    title: "Cacing Tanah",
-    description:
-      "Serangan hama ini pada tanaman tomat ditandai dengan terpotongnya tanaman pada pangkal...",
-    image: "img/cacing.jpeg",
-  },
-  {
-    id: 5,
-    title: "Lalat Buah",
-    description:
-      "Ukuran hama ini sekitar 8 mm dengan warna tubuh hitam kehijauan dan sayap transparan...",
-    image: "img/lalat.jpeg",
-  },
-  {
-    id: 6,
-    title: "Kutu Kebul",
-    description:
-      "Hama kutu daun bersayap putih ini menjadi salah satu hama paling berbahaya dalam budidaya tanaman...",
-    image: "https://via.placeholder.com/300x200?text=Kutu+Kebul",
-  },
-];
-
 const HamaComponent = () => {
   return (
-    <div className="container">
-      <div className="main-header">
-        <h1 className="title">HAMA PADA TUMBUHAN TOMAT</h1>
-       
-      </div>
+    <main className="hama-container">
+      {/* Hero Header Section */}
+      <section className="hero-header">
+        <div className="hero-content">
+          <h1>Hama Pada Tumbuhan Tomat</h1>
+          <p>
+            Temukan informasi lengkap tentang hama yang sering menyerang tanaman
+            tomat dan cara mengatasinya.
+          </p>
+        </div>
+      </section>
 
-      {/* Introduction Section */}
-      <section className="introduction">
-        <p className="intro-text">
+      {/* Header Section */}
+      <section id="header" className="section-header">
+        <h1>Daftar Hama Utama</h1>
+        <p>
           Tanaman tomat sangat rentan terhadap serangan hama. Berikut ini adalah
-          daftar beberapa hama yang sering menyerang tanaman tomat. Mengetahui
-          ciri-ciri dan cara penanganannya dapat membantu petani untuk
-          melindungi tanaman tomat dari kerusakan yang parah.
+          daftar beberapa hama yang sering menyerang tanaman tomat.
         </p>
       </section>
 
-      <div className="card-grid">
-        {Hama.map((pest) => (
-          <div key={pest.id} className="card">
-            <img
-              src={pest.image}
-              alt={`Gambar ${pest.title}`}
-              className="card-image"
-            />
-            <div className="card-content">
-              <h2 className="card-title">{pest.title}</h2>
-              <p className="card-description">{pest.description}</p>
-            </div>
+      {/* Container Hama Section */}
+      <div className="container-hama">
+        {/* Individual Hama Sections */}
+        <section id="kutu-daun-thrips" className="hama-section">
+          <img
+            src="/img/kutudaunthrips.jpeg"
+            alt="Gambar Kutu Daun Thrips Tomat"
+            className="hama-image"
+          />
+          <div className="hama-content">
+            <h2 className="hama-title">Kutu Daun Thrips Tomat</h2>
+            <p className="hama-description">
+              Ciri-ciri kutu daun thrips adalah panjangnya 1 mm dan berwarna
+              hitam. Kutu daun thrips ini menyerang bagian daun dan bunga,
+              menyebabkan daun keriput dan bunga gugur.
+            </p>
           </div>
-        ))}
+        </section>
+
+        <section id="ulat-buah" className="hama-section">
+          <img
+            src="/img/ulat.jpeg"
+            alt="Gambar Ulat Buah Tomat"
+            className="hama-image"
+          />
+          <div className="hama-content">
+            <h2 className="hama-title">Ulat Buah Tomat</h2>
+            <p className="hama-description">
+              Umumnya ulat buah tomat ini menyerang daun, bunga, dan buah
+              tanaman tomat. Ulat ini menyebabkan kerusakan dengan memakan
+              bagian tanaman dan dapat meninggalkan lubang di buah tomat.
+            </p>
+          </div>
+        </section>
+
+        {/* Tambahkan hama lainnya dengan struktur yang sama */}
       </div>
 
+      {/* Tambahan CSS */}
       <style jsx>{`
-        /* Global Styles */
-        body,
-        html {
-          margin: 0;
-          padding: 0;
-          font-family: "Montserrat", sans-serif;
-          background-color: #f9f9f9;
-          color: #333;
-        }
-
-        /* Main Header */
-        .main-header {
-          height: 500px;
-          background-image: image("img/gambarhama.jpg"); /* Ganti dengan gambar Anda */
-          background-size: 100% 100%; /* Mengisi lebar dan tinggi dengan gambar */
-          background-position: center center; /* Gambar tetap terpusat */
-          background-repeat: no-repeat; /* Gambar tidak terulang */
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          color: white;
-        }
-
-        /* Main Header */
-        .main-header {
-          height: 500px;
-          background-image: linear-gradient(
-              120deg,
-              rgba(0, 0, 0, 0.5),
+        main.hama-container {
+          background: linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0.7),
               rgba(0, 0, 0, 0.3)
             ),
-            url("https://via.placeholder.com/1920x300"); /* Gradient + Gambar */
-          background-size: cover;
-          background-position: center;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+            url("/img/gbmanfaat1.jpg") no-repeat center center/cover;
+        }
+
+        /* Hero Header Section */
+        .hero-header {
+          background-color: #000000;
+          padding: 100px 40px;
+          color: #fff;
           text-align: center;
-          color: white;
-          position: relative; /* Agar teks berada di atas overlay */
+          position: relative;
+          
         }
 
-        .title {
-          font-size: 48px; /* Ukuran teks lebih besar */
-          font-weight: 700;
-          font-family: "Poppins", sans-serif; /* Font lebih modern */
-          background-color: rgba(0, 0, 0, 0.6); /* Transparansi untuk teks */
-          padding: 15px 25px;
-          border-radius: 12px;
-          letter-spacing: 1.5px;
-          animation: fadeIn 1s ease-out; /* Animasi Fade-in */
-        }
-
-        /* Animasi Teks */
-        @keyframes fadeIn {
-          0% {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .title {
-          font-size: 42px;
+        .hero-content h1 {
+          font-size: 40px;
           font-weight: bold;
-          background-color: rgba(0, 0, 0, 0.5); /* Transparansi untuk teks */
-          padding: 10px 20px;
-          border-radius: 8px;
+          margin-bottom: 10px;
         }
 
-        /* Introduction Section */
-        .introduction {
-          text-align: center;
-          padding: 20px 40px;
-          max-width: 900px;
-          margin: 20px auto;
-        }
-
-        .intro-text {
+        .hero-content p {
           font-size: 18px;
-          color: #555;
-          line-height: 1.8;
+          line-height: 1.6;
+          margin-top: 10px;
         }
 
-        /* Card Grid */
-        .container {
-          padding: 20px;
-          max-width: 1200px;
-          margin: 0 auto;
+        /* Header Section */
+        .section-header {
+          color: #fff;
+          text-align: center;
+          padding: 50px 20px;
         }
 
-        .card-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr); /* Dua kolom */
-          gap: 30px; /* Jarak antar kartu */
+        .section-header h1 {
+          font-size: 36px;
+          font-weight: 700;
         }
 
-        /* Card */
-        .card {
-          background-color: #ffffff;
-          border-radius: 12px;
-          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-          overflow: hidden;
+        .section-header p {
+          font-size: 18px;
+          line-height: 1.6;
+          margin-top: 10px;
+        }
+
+        /* Container Hama */
+        .container-hama {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        /* Hama Section */
+        .hama-section {
+          display: flex;
+          align-items: flex-start;
+          gap: 20px;
+          background: #ffffff;
+          border-radius: 16px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          padding: 30px;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card:hover {
+        .hama-section:hover {
           transform: translateY(-5px);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .card-image {
-          width: 100%;
-          height: 200px;
+        .hama-image {
+          width: 150px;
+          height: 150px;
           object-fit: cover;
+          border-radius: 16px;
+          border: 4px solid #ff6347;
         }
 
-        .card-content {
-          padding: 20px;
+        .hama-content {
+          flex: 1;
         }
 
-        .card-title {
-          font-size: 20px;
-          font-weight: bold;
+        .hama-title {
+          font-size: 22px;
+          font-weight: 600;
           color: #ff6347;
           margin-bottom: 10px;
         }
 
-        .card-description {
+        .hama-description {
           font-size: 16px;
-          color: #555;
           line-height: 1.6;
+          color: #333;
         }
 
-        /* Responsive Adjustments */
+        /* Responsiveness */
         @media (max-width: 768px) {
-          .card-grid {
-            grid-template-columns: 1fr; /* Satu kolom di layar kecil */
+          .hama-section {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
           }
 
-          .card-title {
-            font-size: 18px;
+          .hama-image {
+            width: 120px;
+            height: 120px;
           }
 
-          .card-description {
+          .hama-title {
+            font-size: 20px;
+          }
+
+          .hama-description {
             font-size: 14px;
           }
         }
       `}</style>
-    </div>
+    </main>
   );
 };
 

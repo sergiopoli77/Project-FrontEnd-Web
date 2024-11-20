@@ -167,7 +167,7 @@ const Merawat = () => {
           position: relative;
           height: 100vh;
           background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-            url(./img/kumpulan.jfif) no-repeat center center/cover;
+            url(./img/bg5.jpeg) no-repeat center center/cover;
           display: flex;
           align-items: center;
           justify-content: center;

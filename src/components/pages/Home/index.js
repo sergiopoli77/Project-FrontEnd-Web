@@ -310,10 +310,11 @@ const Home = () => {
           position: relative;
           height: 100vh;
           background: linear-gradient(
-              rgba(0, 0, 0, 0.603),
-              rgba(0, 0, 0, 0.616)
+              to bottom,
+              rgba(0, 0, 0, 0.7),
+              rgba(0, 0, 0, 0.3)
             ),
-            url(./img/bg1.jpg) no-repeat center center/cover;
+            url(./img/bg4.jpeg) no-repeat center center/cover;
           display: flex;
           align-items: center;
           justify-content: left;
