@@ -1,6 +1,17 @@
-import React, { useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect, useState, CSSProperties, useRef } from "react";
 
 const HamaComponent = () => {
+  const [hama, setHamaComponent] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const hamaRef = ref(db, "hama");
+    onValue(hamaRef, (snapshot) => {
+      const data = snapshot.val();
+      setHamaComponent(data);
+    });
+  }, []);
+
   const [selectedHama, setSelectedHama] = useState(null);
 
   const hamaDetails = [
@@ -90,30 +101,21 @@ const HamaComponent = () => {
 
   return (
     <main>
-      {/* Hero Section */}
       <section className="hero-header">
         <div className="hero-content">
           <h1>
             <br />
-            Hama Pada Tumbuhan Tomat
+            {hama.title}
           </h1>
-          <p>
-            Temukan informasi lengkap tentang hama yang sering menyerang tanaman
-            tomat dan cara mengatasinya.
-          </p>
+          <p>{hama.subtitle}</p>
         </div>
       </section>
 
-      {/* Hero Section */}
       <section id="hero" className="section-hero">
-        <h1>Daftar Hama Utama</h1>
-        <p>
-          Tanaman tomat sangat rentan terhadap serangan hama. Berikut ini adalah
-          daftar beberapa hama yang sering menyerang tanaman tomat.
-        </p>
+        <h1>{hama.herotitle}</h1>
+        <p>{hama.herosub}</p>
       </section>
 
-      {/* Container Hama Section */}
       <div className="container-hama">
         {hamaDetails.map((hama, index) => (
           <section key={index} className="hama-section">
@@ -145,7 +147,7 @@ const HamaComponent = () => {
                 />
                 <div className="modal-text">
                   <p>{selectedHama.extendedDescription}</p>
-                  <h3>Cara Mengatasi:</h3>
+                  <h3>{hama.solve}</h3>
                   <ul>
                     {selectedHama.treatment.map((item, index) => (
                       <li key={index}>{item}</li>
@@ -154,7 +156,7 @@ const HamaComponent = () => {
                 </div>
               </div>
               <button className="back-button" onClick={handleCloseModal}>
-                Kembali
+                {hama.backbutton}
               </button>
             </div>
           </div>
