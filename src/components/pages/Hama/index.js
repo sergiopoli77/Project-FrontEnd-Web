@@ -151,6 +151,9 @@ const HamaComponent = () => {
         .hero-header {
           background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
             url("/img/bg3.jpg") no-repeat center center/cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
           color: #fff;
           text-align: center;
           padding: 120px 20px;
@@ -190,7 +193,7 @@ const HamaComponent = () => {
           font-weight: 300;
           text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        
+
         .section-hero {
           text-align: center;
           padding: 60px 20px;

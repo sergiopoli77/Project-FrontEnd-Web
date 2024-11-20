@@ -315,6 +315,9 @@ const Home = () => {
               rgba(0, 0, 0, 0.3)
             ),
             url(./img/bg4.jpeg) no-repeat center center/cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
           display: flex;
           align-items: center;
           justify-content: left;

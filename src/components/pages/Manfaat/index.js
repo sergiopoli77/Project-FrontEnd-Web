@@ -178,6 +178,9 @@ const Manfaat = () => {
         .hero-header {
           background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
             url("/img/bg3.jpg") no-repeat center center/cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
           color: #fff;
           text-align: center;
           padding: 120px 20px;
