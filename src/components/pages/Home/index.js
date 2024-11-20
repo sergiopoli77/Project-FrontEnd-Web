@@ -267,22 +267,26 @@ const Home = () => {
         <div class="col-md-6">
           <h5>{home.info}</h5>
           <p>
-            <strong>{home.email}</strong>{" "}
-            <a href="email:support@tomatik.com">{home.email2}</a>
+            <strong>{home.sergio} </strong>{" "}
+            <a href="https://github.com/sergiopoli77">{home.sergiogit}</a>
           </p>
           <p>
-            <strong>{home.telepon}</strong> {home.telepon2}
+            <strong>{home.gloria} </strong>{" "}
+            <a href="https://github.com/Gloriaamandagii">{home.gloriagit}</a>
           </p>
           <p>
-            <strong>{home.obrolan}</strong> {home.obrolan2}
+            <strong>{home.josua} </strong>{" "}
+            <a href="https://github.com/Joshuatandilobo-unklab">
+              {home.josuagit}
+            </a>
           </p>
           <p>
-            <strong>
-              {home.faqsupport}{" "}
-              <a href="#faq" class="btn-link">
-                {home.faqsupport1}
-              </a>
-            </strong>
+            <strong>{home.grivin} </strong>{" "}
+            <a href="https://github.com/grivin1028">{home.grivingit}</a>
+          </p>
+          <p>
+            <strong>{home.jonald} </strong>{" "}
+            <a href="https://github.com/Jonald2004">{home.jonaldgit}</a>
           </p>
         </div>
       </section>
@@ -315,6 +319,9 @@ const Home = () => {
               rgba(0, 0, 0, 0.3)
             ),
             url(./img/bg4.jpeg) no-repeat center center/cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
           display: flex;
           align-items: center;
           justify-content: left;
@@ -621,17 +628,22 @@ const Home = () => {
         /* Section Support Styling */
 
         .support-section {
-          background-color: #f9f9f9;
           margin-top: 40px;
         }
 
         /* Header Styling */
-        .support-section h3,
+        .support-section h3 {
+          font-family: "Arial", sans-serif;
+          font-weight: 600;
+          color: #333;
+          text-align: center !important;
+        }
+
         .support-section h4 {
           font-family: "Arial", sans-serif;
           font-weight: 600;
           color: #333;
-          text-align: left !important;
+          text-align: center !important;
         }
 
         /* Contact Information Styling */

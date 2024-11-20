@@ -173,6 +173,9 @@ const Merawat = () => {
           justify-content: center;
           text-align: center;
           color: white;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
         }
         .hero-content {
           max-width: 800px;
