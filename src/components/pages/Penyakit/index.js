@@ -14,7 +14,6 @@ const Penyakit = () => {
 
   return (
     <main>
-      {/* Hero Section */}
       <section className="hero-header">
         <div className="hero-content">
           <h1>
@@ -25,12 +24,11 @@ const Penyakit = () => {
         </div>
       </section>
 
-      {/* Penyakit List Section */}
       <section className="penyakit-list">
         <div className="penyakit-container">
           <div className="penyakit-item">
             <img
-              src="img/P5fusarium.PNG"
+              src={`data:image/jpeg;base64, ${penyakit.fusarium}`}
               alt="Layu Fusarium"
               className="penyakit-image"
             />
@@ -49,7 +47,7 @@ const Penyakit = () => {
 
           <div className="penyakit-item">
             <img
-              src="img/P2bercak.PNG"
+              src={`data:image/jpeg;base64, ${penyakit.bercak}`}
               alt="Bercak Daun"
               className="penyakit-image"
             />
@@ -67,7 +65,7 @@ const Penyakit = () => {
 
           <div className="penyakit-item">
             <img
-              src="img/P1bakteri.PNG"
+              src={`data:image/jpeg;base64, ${penyakit.bakteri}`}
               alt="Layu Bakteri"
               className="penyakit-image"
             />
@@ -85,7 +83,7 @@ const Penyakit = () => {
 
           <div className="penyakit-item">
             <img
-              src="img/P6mosaik.PNG"
+              src={`data:image/jpeg;base64, ${penyakit.mosaiktomat}`}
               alt="Mosaik"
               className="penyakit-image"
             />
@@ -103,7 +101,7 @@ const Penyakit = () => {
 
           <div className="penyakit-item">
             <img
-              src="img/P4busuktomat.PNG"
+              src={`data:image/jpeg;base64, ${penyakit.tomat}`}
               alt="Buah Busuk"
               className="penyakit-image"
             />
@@ -121,7 +119,8 @@ const Penyakit = () => {
 
           <div className="penyakit-item">
             <img
-              src="img/P3busukdaun.PNG"
+              src={`data:image/jpeg;base64, ${penyakit.busuk}`}
+              x
               alt="Busuk Daun"
               className="penyakit-image"
             />

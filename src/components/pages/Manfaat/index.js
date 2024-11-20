@@ -35,6 +35,8 @@ const Manfaat = () => {
     };
   }, []);
 
+  
+
   return (
     <main>
       <section className="hero-header">
