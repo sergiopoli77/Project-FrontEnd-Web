@@ -35,23 +35,14 @@ const Penyakit = () => {
               className="penyakit-image"
             />
             <div className="penyakit-content">
-              <h1 className="penyakit-title">LAYU FUSARIUM</h1>
-              <h2 className="penyakit-description">
-                Layu Fusarium disebabkan oleh jamur Fusarium oxysporum, yang
-                menyebabkan tanaman layu dan kerdil.
-              </h2>
-              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <h1 className="penyakit-title">{penyakit.title1}</h1>
+              <h2 className="penyakit-description">{penyakit.titledes1}</h2>
+              <h3 className="penyakit-treatment">{penyakit.treatment}</h3>
               <ul className="penyakit-steps">
-                <li>Gunakan varietas tahan fusarium.</li>
-                <li>
-                  Rotasi tanaman dengan tanaman non-solanaceae (bukan keluarga
-                  terong-terongan).
-                </li>
-                <li>Sterilisasi media tanam sebelum digunakan.</li>
-                <li>
-                  Gunakan fungisida berbahan aktif seperti mancozeb atau
-                  trifloxystrobin.
-                </li>
+                <li>{penyakit.stepdes1}</li>
+                <li>{penyakit.stepdes4}</li>
+                <li>{penyakit.stepdes2}</li>
+                <li>{penyakit.stepdes3}</li>
               </ul>
             </div>
           </div>
@@ -63,19 +54,13 @@ const Penyakit = () => {
               className="penyakit-image"
             />
             <div className="penyakit-content">
-              <h1 className="penyakit-title">BERCAK DAUN</h1>
-              <h2 className="penyakit-description">
-                Bercak Daun disebabkan oleh jamur atau bakteri yang menyebabkan
-                bercak hitam atau coklat pada daun tanaman.
-              </h2>
-              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <h1 className="penyakit-title">{penyakit.title2}</h1>
+              <h2 className="penyakit-description">{penyakit.titledes2}</h2>
+              <h3 className="penyakit-treatment">{penyakit.bercakdaun}</h3>
               <ul className="penyakit-steps">
-                <li>Hindari penyiraman dari atas agar daun tidak basah.</li>
-                <li>Buang daun yang terinfeksi.</li>
-                <li>
-                  Semprotkan fungisida berbahan aktif seperti chlorothalonil
-                  atau copper hydroxide.
-                </li>
+                <li>{penyakit.stepbd1}</li>
+                <li>{penyakit.stepbd2}</li>
+                <li>{penyakit.stepbd3}</li>
               </ul>
             </div>
           </div>
@@ -87,25 +72,13 @@ const Penyakit = () => {
               className="penyakit-image"
             />
             <div className="penyakit-content">
-              <h1 className="penyakit-title">LAYU BAKTERI</h1>
-              <h2 className="penyakit-description">
-                Layu Bakteri disebabkan oleh infeksi bakteri yang menyebabkan
-                tanaman layu mendadak dan daunnya menguning.
-              </h2>
-              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <h1 className="penyakit-title">{penyakit.title3}</h1>
+              <h2 className="penyakit-description">{penyakit.subdes1}</h2>
+              <h3 className="penyakit-treatment">{penyakit.layubakteri}</h3>
               <ul className="penyakit-steps">
-                <li>
-                  Lakukan rotasi tanaman selama 2-3 tahun dengan tanaman bukan
-                  keluarga solanaceae.
-                </li>
-                <li>
-                  Gunakan pupuk organik yang matang untuk meningkatkan
-                  mikroorganisme baik.
-                </li>
-                <li>
-                  Aplikasi bakterisida berbahan aktif seperti streptomycin
-                  sulfate.
-                </li>
+                <li>{penyakit.treatmentdes1}</li>
+                <li>{penyakit.treatmentdes2}</li>
+                <li>{penyakit.treatment3}</li>
               </ul>
             </div>
           </div>
@@ -117,22 +90,13 @@ const Penyakit = () => {
               className="penyakit-image"
             />
             <div className="penyakit-content">
-              <h1 className="penyakit-title">MOSAIK</h1>
-              <h2 className="penyakit-description">
-                Mosaik adalah penyakit tanaman yang disebabkan oleh virus,
-                menyebabkan daun berubah bentuk dan warna.
-              </h2>
-              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <h1 className="penyakit-title">{penyakit.title4}</h1>
+              <h2 className="penyakit-description">{penyakit.subdes2}</h2>
+              <h3 className="penyakit-treatment">{penyakit.mosaik}</h3>
               <ul className="penyakit-steps">
-                <li>
-                  Hancurkan tanaman yang terinfeksi berat untuk mencegah
-                  penyebaran.
-                </li>
-                <li>Gunakan benih bersertifikat yang bebas virus.</li>
-                <li>
-                  Semprotkan pestisida nabati atau kimia untuk mengendalikan
-                  vektor seperti kutu daun.
-                </li>
+                <li>{penyakit.treatmentdes2}</li>
+                <li>{penyakit.lanjutandes1}</li>
+                <li>{penyakit.lanjutandes2}</li>
               </ul>
             </div>
           </div>
