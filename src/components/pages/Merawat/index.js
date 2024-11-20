@@ -1,6 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect, useState, CSSProperties, useRef } from "react";
 
 const Merawat = () => {
+  const [merawat, setMerawat] = useState({});
+
+  useEffect(() => {
+    const db = getDatabase();
+    const merawatRef = ref(db, "merawat");
+    onValue(merawatRef, (snapshot) => {
+      const data = snapshot.val();
+      setMerawat(data);
+    });
+  }, []);
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
 
   useEffect(() => {
@@ -40,50 +51,44 @@ const Merawat = () => {
 
   const benefitData = [
     {
-      title: "1. Pemilihan Lokasi",
-      description:
-        "Tanaman tomat membutuhkan sinar matahari penuh, minimal 6-8 jam per hari. Pastikan tanah memiliki drainase yang baik dan kaya akan bahan organik.",
-      image: "/img/tanah.jfif",
+      title: merawat.datatitle1,
+      description: merawat.datades1,
+      image: `data:image/jpeg;base64, ${merawat.tanah}`,
     },
     {
-      title: "2. Persiapan Tanah",
-      description:
-        "Gemburkan tanah dan campurkan pupuk kompos untuk meningkatkan kesuburan tanah.",
-      image: "/img/persiapan.jfif",
+      title: merawat.datatitle2,
+      description: merawat.datades2,
+      image: `data:image/jpeg;base64, ${merawat.persiapan}`,
     },
     {
-      title: "3. Pemilihan Bibit",
-      description:
-        "Pilih bibit tomat yang sehat dan tanam pada kedalaman yang sesuai.",
-      image: "/img/biji.jfif",
+      title: merawat.datatitle3,
+      description: merawat.datades3,
+      image: `data:image/jpeg;base64, ${merawat.biji}`,
     },
     {
-      title: "4. Penyiraman",
-      description: "Siram tanaman secara teratur, terutama pada musim panas.",
-      image: "/img/siram.jfif",
+      title: merawat.datatitle4,
+      description: merawat.datades4,
+      image: `data:image/jpeg;base64, ${merawat.siram}`,
     },
     {
-      title: "5. Pemupukan",
-      description:
-        "Berikan pupuk dasar saat penanaman dan pupuk tambahan saat berbunga.",
-      image: "/img/pemupukan.jfif",
+      title: merawat.datatitle5,
+      description: merawat.datades5,
+      image: `data:image/jpeg;base64, ${merawat.pemupukan}`,
     },
     {
-      title: "6. Penyangga Tanaman",
-      description:
-        "Gunakan tiang atau ajir untuk menopang tanaman agar tidak roboh.",
-      image: "/img/penyangga.jfif",
+      title: merawat.datatitle6,
+      description: merawat.datades6,
+      image: `data:image/jpeg;base64, ${merawat.penyangga}`,
     },
     {
-      title: "7. Pengendalian Hama dan Penyakit",
-      description:
-        "Periksa tanaman secara rutin dan gunakan insektisida alami untuk mengatasi hama.",
-      image: "/img/obat.jfif",
+      title: merawat.datatitle7,
+      description: merawat.datades7,
+      image: `data:image/jpeg;base64, ${merawat.obat}`,
     },
     {
-      title: "8. Panen",
-      description: "Panen saat tomat berwarna cerah dan terasa kenyal.",
-      image: "/img/panen.jfif",
+      title: merawat.datatitle8,
+      description: merawat.datades8,
+      image: `data:image/jpeg;base64, ${merawat.panen}`,
     },
   ];
 
@@ -91,17 +96,14 @@ const Merawat = () => {
     <main>
       <section className="hero-header">
         <div className="hero-content">
-          <h1>Proses Merawat Tomat</h1>
-          <p>
-            Dapatkan panduan langkah demi langkah untuk merawat tanaman tomat
-            hingga panen yang sempurna.
-          </p>
+          <h1>{merawat.title}</h1>
+          <p>{merawat.subtitle}</p>
         </div>
       </section>
 
       <section className="benefits-section py-5" id="benefits">
         <div className="container">
-          <h2 className="text-center mb-5">Langkah-Langkah Merawat Tomat</h2>
+          <h2 className="text-center mb-5">{merawat.subtitle2}</h2>
           <div className="row g-4">
             {benefitData.map((benefit, index) => (
               <div className="col-md-6" key={index}>
@@ -123,23 +125,15 @@ const Merawat = () => {
         </div>
       </section>
 
-      {/* Tambahan Section Tips & Informasi Perawatan */}
       <section className="tips-section py-5" id="tips">
         <div className="container">
-          <h2 className="text-center mb-5">
-            Tips Tambahan dalam Merawat Tomat
-          </h2>
+          <h2 className="text-center mb-5">{merawat.tipstitle}</h2>
           <div className="row">
             <div className="col-md-6">
               <div className="card">
                 <div className="card-body">
-                  <h3 className="card-title">Mengatasi Penyakit Tanaman</h3>
-                  <p className="card-text">
-                    Tomat rentan terhadap beberapa penyakit seperti jamur dan
-                    bakteri. Gunakan fungisida organik dan lakukan rotasi
-                    tanaman untuk menghindari penyakit berulang. Pastikan juga
-                    untuk membersihkan daun yang terinfeksi.
-                  </p>
+                  <h3 className="card-title">{merawat.tips1}</h3>
+                  <p className="card-text">{merawat.tips1title}</p>
                 </div>
               </div>
             </div>
@@ -147,13 +141,8 @@ const Merawat = () => {
             <div className="col-md-6">
               <div className="card">
                 <div className="card-body">
-                  <h3 className="card-title">Menjaga Kelembapan Tanah</h3>
-                  <p className="card-text">
-                    Tanaman tomat membutuhkan kelembapan yang stabil. Pastikan
-                    tanah selalu lembap, namun tidak tergenang air. Gunakan
-                    mulsa untuk menjaga kelembapan dan mencegah pertumbuhan
-                    gulma.
-                  </p>
+                  <h3 className="card-title">{merawat.tips2}</h3>
+                  <p className="card-text">{merawat.tips2title}</p>
                 </div>
               </div>
             </div>
@@ -172,12 +161,15 @@ const Merawat = () => {
           position: relative;
           height: 100vh;
           background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-            url(./img/kumpulan.jfif) no-repeat center center/cover;
+            url(./img/bg5.jpeg) no-repeat center center/cover;
           display: flex;
           align-items: center;
           justify-content: center;
           text-align: center;
           color: white;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
         }
         .hero-content {
           max-width: 800px;
