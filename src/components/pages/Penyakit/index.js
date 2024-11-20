@@ -40,6 +40,19 @@ const Penyakit = () => {
                 Layu Fusarium disebabkan oleh jamur Fusarium oxysporum, yang
                 menyebabkan tanaman layu dan kerdil.
               </h2>
+              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <ul className="penyakit-steps">
+                <li>Gunakan varietas tahan fusarium.</li>
+                <li>
+                  Rotasi tanaman dengan tanaman non-solanaceae (bukan keluarga
+                  terong-terongan).
+                </li>
+                <li>Sterilisasi media tanam sebelum digunakan.</li>
+                <li>
+                  Gunakan fungisida berbahan aktif seperti mancozeb atau
+                  trifloxystrobin.
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -55,6 +68,15 @@ const Penyakit = () => {
                 Bercak Daun disebabkan oleh jamur atau bakteri yang menyebabkan
                 bercak hitam atau coklat pada daun tanaman.
               </h2>
+              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <ul className="penyakit-steps">
+                <li>Hindari penyiraman dari atas agar daun tidak basah.</li>
+                <li>Buang daun yang terinfeksi.</li>
+                <li>
+                  Semprotkan fungisida berbahan aktif seperti chlorothalonil
+                  atau copper hydroxide.
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -70,6 +92,21 @@ const Penyakit = () => {
                 Layu Bakteri disebabkan oleh infeksi bakteri yang menyebabkan
                 tanaman layu mendadak dan daunnya menguning.
               </h2>
+              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <ul className="penyakit-steps">
+                <li>
+                  Lakukan rotasi tanaman selama 2-3 tahun dengan tanaman bukan
+                  keluarga solanaceae.
+                </li>
+                <li>
+                  Gunakan pupuk organik yang matang untuk meningkatkan
+                  mikroorganisme baik.
+                </li>
+                <li>
+                  Aplikasi bakterisida berbahan aktif seperti streptomycin
+                  sulfate.
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -85,6 +122,18 @@ const Penyakit = () => {
                 Mosaik adalah penyakit tanaman yang disebabkan oleh virus,
                 menyebabkan daun berubah bentuk dan warna.
               </h2>
+              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <ul className="penyakit-steps">
+                <li>
+                  Hancurkan tanaman yang terinfeksi berat untuk mencegah
+                  penyebaran.
+                </li>
+                <li>Gunakan benih bersertifikat yang bebas virus.</li>
+                <li>
+                  Semprotkan pestisida nabati atau kimia untuk mengendalikan
+                  vektor seperti kutu daun.
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -100,6 +149,15 @@ const Penyakit = () => {
                 Buah Busuk disebabkan oleh infeksi jamur atau bakteri yang
                 menyebabkan buah membusuk sebelum matang.
               </h2>
+              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <ul className="penyakit-steps">
+                <li>Jaga kebersihan area sekitar tanaman.</li>
+                <li>Buang buah yang terinfeksi untuk mencegah penyebaran.</li>
+                <li>
+                  Gunakan fungisida seperti chlorothalonil atau propiconazole
+                  untuk mencegah infeksi.
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -115,6 +173,12 @@ const Penyakit = () => {
                 Busuk Daun disebabkan oleh jamur yang menyebabkan daun membusuk,
                 menguning, dan rontok.
               </h2>
+              <h3 className="penyakit-treatment">Cara Mengobati:</h3>
+              <ul className="penyakit-steps">
+                <li>Jaga sirkulasi udara yang baik di sekitar tanaman.</li>
+                <li>Hindari kelembapan berlebih pada tanaman.</li>
+                <li>Gunakan fungisida seperti metalaxyl atau propamocarb.</li>
+              </ul>
             </div>
           </div>
         </div>
