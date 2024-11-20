@@ -124,7 +124,7 @@ const Home = () => {
                     className={`img-fluid rounded w-100 ${
                       inView ? "slideInLeft" : ""
                     }`}
-                    src="img/tomat1.jpg"
+                    src={`data:image/jpeg;base64, ${home.tomat1}`}
                     alt="Tomat 1"
                     loading="lazy"
                   />
@@ -134,7 +134,7 @@ const Home = () => {
                     className={`img-fluid rounded w-75 ${
                       inView ? "slideInLeft" : ""
                     }`}
-                    src="img/tomat2.jpg"
+                    src={`data:image/jpeg;base64, ${home.tomat2}`}
                     alt="Tomat 2"
                     style={{ marginTop: "25%" }}
                     loading="lazy"
@@ -145,7 +145,7 @@ const Home = () => {
                     className={`img-fluid rounded w-75 ${
                       inView ? "slideInRight" : ""
                     }`}
-                    src="img/tomat3.jpeg"
+                    src={`data:image/jpeg;base64, ${home.tomat3}`}
                     alt="Tomat 3"
                     loading="lazy"
                   />
@@ -155,7 +155,7 @@ const Home = () => {
                     className={`img-fluid rounded w-100 ${
                       inView ? "slideInRight" : ""
                     }`}
-                    src="img/tomat4.jpg"
+                    src={`data:image/jpeg;base64, ${home.tomat4}`} //perbaiki gambar yang tidak full di firebase sergio
                     alt="Tomat 4"
                     loading="lazy"
                   />
