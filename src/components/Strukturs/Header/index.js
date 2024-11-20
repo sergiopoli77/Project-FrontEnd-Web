@@ -1,40 +1,73 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom"; // Menggunakan NavLink untuk routing selain Sign Up
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect, useState, CSSProperties } from "react";
 
 const Header = () => {
+  const [header, setHeader] = useState({});
+
+  useEffect(() => {
+    const db = getDatabase();
+    const headerRef = ref(db, "header");
+    onValue(headerRef, (snapshot) => {
+      const data = snapshot.val();
+      setHeader(data);
+    });
+  }, []);
+
   return (
     <header className="site-header">
       <div className="container">
         <div className="site-header-inner">
           <div className="brand">
             <h1 className="m-0">
-              <Link to="/" className="brand-link">
-                Tomatik
-              </Link>
+              <NavLink to="/" className="brand-link">
+                {header.title}
+              </NavLink>
             </h1>
           </div>
 
           <nav className="header-nav">
             <ul className="list-reset">
               <li>
-                <Link to="/">Home</Link>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                >
+                  {header.nav1}
+                </NavLink>
               </li>
               <li>
-                <Link to="/manfaat">Manfaat</Link>
+                <NavLink
+                  to="/manfaat"
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                >
+                  {header.nav2}
+                </NavLink>
               </li>
               <li>
-                <Link to="/merawat">Merawat</Link>
+                <NavLink
+                  to="/merawat"
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                >
+                  {header.nav3}
+                </NavLink>
               </li>
               <li>
-                <Link to="/penyakit">Penyakit</Link>
+                <NavLink
+                  to="/penyakit"
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                >
+                  {header.nav4}
+                </NavLink>
               </li>
               <li>
-                <Link to="/hama">Hama</Link>
-              </li>
-              <li>
-                <Link to="/signup" className="button">
-                  Sign up
-                </Link>
+                <NavLink
+                  to="/hama"
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                >
+                  {header.nav5}
+                </NavLink>
               </li>
             </ul>
           </nav>
