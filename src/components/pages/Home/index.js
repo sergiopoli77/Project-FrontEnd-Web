@@ -20,19 +20,16 @@ const Home = () => {
 
   const faqs = [
     {
-      question: "Apa manfaat utama dari tomat?",
-      answer:
-        "Tomat kaya akan vitamin C, likopen, dan antioksidan yang dapat membantu meningkatkan kekebalan tubuh dan menjaga kesehatan kulit.",
+      question: home.q1,
+      answer: home.a1,
     },
     {
-      question: "Bagaimana cara merawat tanaman tomat?",
-      answer:
-        "Tanaman tomat membutuhkan cahaya matahari yang cukup, penyiraman yang teratur, dan pemupukan organik untuk hasil terbaik.",
+      question: home.q2,
+      answer: home.a2,
     },
     {
-      question: "Kapan waktu terbaik untuk memanen tomat?",
-      answer:
-        "Tomat sebaiknya dipanen ketika sudah matang sempurna dengan warna yang merata, tergantung pada varietasnya.",
+      question: home.q3,
+      answer: home.a3,
     },
   ];
 

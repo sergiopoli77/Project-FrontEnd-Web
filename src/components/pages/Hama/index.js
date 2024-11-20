@@ -16,7 +16,7 @@ const HamaComponent = () => {
 
   const hamaDetails = [
     {
-      title: "Kutu Daun Thrips Tomat",
+      title: hama.datatitle1,
       image: "/img/kututhrips.jpeg",
       description:
         "Ciri-ciri kutu daun thrip adalah panjangnya 1 mm dan berwarna hitam. Kutu daun thrips ini menye...",
