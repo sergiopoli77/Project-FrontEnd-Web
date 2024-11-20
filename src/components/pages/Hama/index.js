@@ -46,7 +46,7 @@ const HamaComponent = () => {
 
         <section id="hama-kedua" className="hama-section">
           <img
-            src="/img/ulatbuah.jpeg"
+            src="/img/lalatbuah.jpeg"
             alt="Hama Kedua"
             className="hama-image"
           />
