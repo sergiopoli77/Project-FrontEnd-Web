@@ -181,7 +181,7 @@ const Home = () => {
           <div className="row g-4">
             <div className="col-md-4">
               <img
-                src="img/tomatroma.jpeg"
+                src={`data:image/jpeg;base64, ${home.roma}`}
                 alt="Tomat Roma"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -191,7 +191,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatbeefsteak.jpeg"
+                src={`data:image/jpeg;base64, ${home.beefsteak}`}
                 alt="BeefSteak tomat"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -201,7 +201,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatjepang.jpeg"
+                src={`data:image/jpeg;base64, ${home.jepang}`}
                 alt="Tomat Cerry Jepang"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -211,7 +211,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatmarzano.jpeg"
+                src={`data:image/jpeg;base64, ${home.marzano}`}
                 alt="Tomat Marzano"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -221,7 +221,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatceryprancis.jpeg"
+                src={`data:image/jpeg;base64, ${home.prancis}`}
                 alt="Tomat Cerry Prancis"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -231,7 +231,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatkumato.jpeg"
+                src={`data:image/jpeg;base64, ${home.kumato}`}
                 alt="Tomat Kumato"
                 className="img-fluid rounded"
                 loading="lazy"
