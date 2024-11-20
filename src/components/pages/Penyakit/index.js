@@ -1,129 +1,155 @@
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect, useState, CSSProperties } from "react";
 const Penyakit = () => {
+  const [penyakit, setPenyakit] = useState({});
+
+  useEffect(() => {
+    const db = getDatabase();
+    const penyakitRef = ref(db, "penyakit");
+    onValue(penyakitRef, (snapshot) => {
+      const data = snapshot.val();
+      setPenyakit(data);
+    });
+  }, []);
+
   return (
-    <div className="penyakit-container">
-      <button className="btn-treatment">Cara Pengobatan</button>
-      <div className="penyakit-item">
-        <img
-          src="img/P5fusarium.PNG"
-          alt="Layu Fusarium"
-          className="penyakit-image"
-        />
-        <div className="penyakit-content">
-          <h1 className="penyakit-title">LAYU FUSARIUM</h1>
-          <h2 className="penyakit-description">
-            Layu Fusarium disebabkan oleh jamur Fusarium oxysporum, yang
-            menyebabkan tanaman layu dan kerdil.
-          </h2>
+    <main>
+      {/* Hero Section */}
+      <section className="hero-header">
+        <div className="hero-content">
+          <h1>
+            <br />
+            {penyakit.title}
+          </h1>
+          <p>{penyakit.subtitle}</p>
         </div>
-      </div>
+      </section>
 
-      <div className="penyakit-item">
-        <img
-          src="img/P2bercak.PNG"
-          alt="Bercak Daun"
-          className="penyakit-image"
-        />
-        <div className="penyakit-content">
-          <h1 className="penyakit-title">BERCAK DAUN</h1>
-          <h2 className="penyakit-description">
-            Bercak Daun disebabkan oleh jamur atau bakteri yang menyebabkan
-            bercak hitam atau coklat pada daun tanaman.
-          </h2>
-        </div>
-      </div>
+      {/* Penyakit List Section */}
+      <section className="penyakit-list">
+        <div className="penyakit-container">
+          <div className="penyakit-item">
+            <img
+              src="img/P5fusarium.PNG"
+              alt="Layu Fusarium"
+              className="penyakit-image"
+            />
+            <div className="penyakit-content">
+              <h1 className="penyakit-title">LAYU FUSARIUM</h1>
+              <h2 className="penyakit-description">
+                Layu Fusarium disebabkan oleh jamur Fusarium oxysporum, yang
+                menyebabkan tanaman layu dan kerdil.
+              </h2>
+            </div>
+          </div>
 
-      <div className="penyakit-item">
-        <img
-          src="img/P1bakteri.PNG"
-          alt="Layu Bakteri"
-          className="penyakit-image"
-        />
-        <div className="penyakit-content">
-          <h1 className="penyakit-title">LAYU BAKTERI</h1>
-          <h2 className="penyakit-description">
-            Layu Bakteri disebabkan oleh infeksi bakteri yang menyebabkan
-            tanaman layu mendadak dan daunnya menguning.
-          </h2>
-        </div>
-      </div>
+          <div className="penyakit-item">
+            <img
+              src="img/P2bercak.PNG"
+              alt="Bercak Daun"
+              className="penyakit-image"
+            />
+            <div className="penyakit-content">
+              <h1 className="penyakit-title">BERCAK DAUN</h1>
+              <h2 className="penyakit-description">
+                Bercak Daun disebabkan oleh jamur atau bakteri yang menyebabkan
+                bercak hitam atau coklat pada daun tanaman.
+              </h2>
+            </div>
+          </div>
 
-      <div className="penyakit-item">
-        <img src="img/P6mosaik.PNG" alt="Mosaik" className="penyakit-image" />
-        <div className="penyakit-content">
-          <h1 className="penyakit-title">MOSAIK</h1>
-          <h2 className="penyakit-description">
-            Mosaik adalah penyakit tanaman yang disebabkan oleh virus,
-            menyebabkan daun berubah bentuk dan warna.
-          </h2>
-        </div>
-      </div>
+          <div className="penyakit-item">
+            <img
+              src="img/P1bakteri.PNG"
+              alt="Layu Bakteri"
+              className="penyakit-image"
+            />
+            <div className="penyakit-content">
+              <h1 className="penyakit-title">LAYU BAKTERI</h1>
+              <h2 className="penyakit-description">
+                Layu Bakteri disebabkan oleh infeksi bakteri yang menyebabkan
+                tanaman layu mendadak dan daunnya menguning.
+              </h2>
+            </div>
+          </div>
 
-      <div className="penyakit-item">
-        <img
-          src="img/P4busuktomat.PNG"
-          alt="Buah Busuk"
-          className="penyakit-image"
-        />
-        <div className="penyakit-content">
-          <h1 className="penyakit-title">BUAH BUSUK</h1>
-          <h2 className="penyakit-description">
-            Buah Busuk disebabkan oleh infeksi jamur atau bakteri yang
-            menyebabkan buah membusuk sebelum matang.
-          </h2>
-        </div>
-      </div>
+          <div className="penyakit-item">
+            <img
+              src="img/P6mosaik.PNG"
+              alt="Mosaik"
+              className="penyakit-image"
+            />
+            <div className="penyakit-content">
+              <h1 className="penyakit-title">MOSAIK</h1>
+              <h2 className="penyakit-description">
+                Mosaik adalah penyakit tanaman yang disebabkan oleh virus,
+                menyebabkan daun berubah bentuk dan warna.
+              </h2>
+            </div>
+          </div>
 
-      <div className="penyakit-item">
-        <img
-          src="img/P3busukdaun.PNG"
-          alt="Busuk Daun"
-          className="penyakit-image"
-        />
-        <div className="penyakit-content">
-          <h1 className="penyakit-title">BUSUK DAUN</h1>
-          <h2 className="penyakit-description">
-            Busuk Daun disebabkan oleh jamur yang menyebabkan daun membusuk,
-            menguning, dan rontok.
-          </h2>
+          <div className="penyakit-item">
+            <img
+              src="img/P4busuktomat.PNG"
+              alt="Buah Busuk"
+              className="penyakit-image"
+            />
+            <div className="penyakit-content">
+              <h1 className="penyakit-title">BUAH BUSUK</h1>
+              <h2 className="penyakit-description">
+                Buah Busuk disebabkan oleh infeksi jamur atau bakteri yang
+                menyebabkan buah membusuk sebelum matang.
+              </h2>
+            </div>
+          </div>
+
+          <div className="penyakit-item">
+            <img
+              src="img/P3busukdaun.PNG"
+              alt="Busuk Daun"
+              className="penyakit-image"
+            />
+            <div className="penyakit-content">
+              <h1 className="penyakit-title">BUSUK DAUN</h1>
+              <h2 className="penyakit-description">
+                Busuk Daun disebabkan oleh jamur yang menyebabkan daun membusuk,
+                menguning, dan rontok.
+              </h2>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
       <style jsx>{`
         body {
-          background-image: url("img/P7kebuntomat.JPG"); /* Ganti dengan path gambar Anda */
-          background-size: cover; /* Membuat gambar menyesuaikan ukuran layar */
-          background-position: center; /* Posisi gambar di tengah */
-          background-repeat: no-repeat; /* Mencegah pengulangan gambar */
           margin: 0;
-          font-family: "Poppins", sans-serif; /* Font default */
+          font-family: "Poppins", sans-serif;
         }
 
-        /* Latar Belakang */
         .penyakit-container {
           font-family: "Poppins", sans-serif;
           padding: 30px;
           border-radius: 15px;
-          max-width: 900px;
+          max-width: 1500px;
           margin: 40px auto;
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-          background: rgba(255, 99, 71, 0.8); /* Tomato dengan opacity */
+          background: rgba(255, 99, 71, 0.8);
           position: relative;
           overflow: hidden;
         }
 
-        /* Efek Lingkaran Hias */
         .penyakit-container::before,
         .penyakit-container::after {
           content: "";
           position: absolute;
-          border-radius: 50%;
+          border-radius: 70%;
           animation: float 6s ease-in-out infinite;
         }
 
         .penyakit-container::before {
           top: -50px;
           left: -50px;
-          width: 200px;
+          width: 250px;
           height: 200px;
           background: rgba(255, 255, 255, 0.6);
         }
@@ -136,10 +162,9 @@ const Penyakit = () => {
           background: rgba(255, 255, 255, 0.3);
         }
 
-        /* Item Penyakit */
         .penyakit-item {
           display: flex;
-          align-items: center;
+          align-items: left;
           margin-bottom: 40px;
           padding: 20px;
           background-color: rgba(255, 255, 255, 0.9);
@@ -153,7 +178,6 @@ const Penyakit = () => {
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* Gambar Penyakit */
         .penyakit-image {
           width: 150px;
           height: 150px;
@@ -169,7 +193,6 @@ const Penyakit = () => {
           border-color: #ff5722;
         }
 
-        /* Konten Penyakit */
         .penyakit-content {
           flex: 1;
         }
@@ -188,48 +211,6 @@ const Penyakit = () => {
           line-height: 1.6;
         }
 
-        /* Tombol Treatment di posisi kanan bawah */
-        .btn-treatment {
-          position: absolute;
-          bottom: 10px;
-          right: 30px;
-          padding: 12px 24px;
-          background: linear-gradient(135deg, #1de9b6, #1dc4e9);
-          color: white;
-          font-size: 16px;
-          font-weight: bold;
-          border: none;
-          border-radius: 50px;
-          cursor: pointer;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-          transition: all 0.3s ease-in-out;
-          overflow: hidden;
-        }
-
-        .btn-treatment::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(255, 255, 255, 0.3);
-          border-radius: 50px;
-          transform: scale(0);
-          transition: transform 0.3s ease-in-out;
-          z-index: 1;
-        }
-
-        .btn-treatment:hover::before {
-          transform: scale(1.3);
-        }
-
-        .btn-treatment:hover {
-          background: linear-gradient(135deg, #1dc4e9, #1de9b6);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Animasi Lingkaran */
         @keyframes float {
           0% {
             transform: translateY(0);
@@ -241,20 +222,8 @@ const Penyakit = () => {
             transform: translateY(0);
           }
         }
-
-        /* Responsif */
-        @media (max-width: 600px) {
-          .penyakit-item {
-            flex-direction: column;
-            text-align: center;
-          }
-
-          .penyakit-image {
-            margin: 0 0 20px 0;
-          }
-        }
       `}</style>
-    </div>
+    </main>
   );
 };
 
