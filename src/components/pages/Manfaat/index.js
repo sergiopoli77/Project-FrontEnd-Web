@@ -55,11 +55,7 @@ const Manfaat = () => {
 
       <div className="container-manfaat">
         <section id="kaya-akan-nutrisi" className="manfaat-section">
-          <img
-            src="/img/gambar1.jpg"
-            alt="Kaya Akan Nutrisi"
-            className="manfaat-image"
-          />
+          <img alt="Kaya Akan Nutrisi" className="manfaat-image" />
           <div className="manfaat-content">
             <h2 className="manfaat-title">{manfaat.galerytitle}</h2>
             <p className="manfaat-description">{manfaat.des1}</p>
