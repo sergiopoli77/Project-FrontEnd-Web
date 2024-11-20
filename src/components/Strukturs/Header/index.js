@@ -1,7 +1,20 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom"; // Menggunakan NavLink untuk routing selain Sign Up
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect, useState, CSSProperties } from "react";
 
 const Header = () => {
+  const [header, setHeader] = useState({});
+
+  useEffect(() => {
+    const db = getDatabase();
+    const headerRef = ref(db, "header");
+    onValue(headerRef, (snapshot) => {
+      const data = snapshot.val();
+      setHeader(data);
+    });
+  }, []);
+
   return (
     <header className="site-header">
       <div className="container">
@@ -9,7 +22,7 @@ const Header = () => {
           <div className="brand">
             <h1 className="m-0">
               <NavLink to="/" className="brand-link">
-                Tomatik
+                {header.title}
               </NavLink>
             </h1>
           </div>
@@ -21,7 +34,7 @@ const Header = () => {
                   to="/"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
-                  Home
+                  {header.nav1}
                 </NavLink>
               </li>
               <li>
@@ -29,7 +42,7 @@ const Header = () => {
                   to="/manfaat"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
-                  Manfaat
+                  {header.nav2}
                 </NavLink>
               </li>
               <li>
@@ -37,7 +50,7 @@ const Header = () => {
                   to="/merawat"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
-                  Merawat
+                  {header.nav3}
                 </NavLink>
               </li>
               <li>
@@ -45,7 +58,7 @@ const Header = () => {
                   to="/penyakit"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
-                  Penyakit
+                  {header.nav4}
                 </NavLink>
               </li>
               <li>
@@ -53,14 +66,8 @@ const Header = () => {
                   to="/hama"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
-                  Hama
+                  {header.nav5}
                 </NavLink>
-              </li>
-              {/* Tombol Sign Up tetap menggunakan Link */}
-              <li>
-                <Link to="/signup" className="button">
-                  Sign up
-                </Link>
               </li>
             </ul>
           </nav>
