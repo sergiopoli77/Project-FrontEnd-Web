@@ -37,7 +37,6 @@ const Manfaat = () => {
 
   return (
     <main>
-      {/* Hero Section */}
       <section className="hero-header">
         <div className="hero-content">
           <h1>
@@ -48,16 +47,13 @@ const Manfaat = () => {
         </div>
       </section>
 
-      {/* About Section */}
       <section className="about py-5" id="about" ref={aboutSectionRef}>
         <div className="container">
           <h1 className="about-section-title">{manfaat.abouttitle}</h1>
         </div>
       </section>
 
-      {/* Container Manfaat Section */}
       <div className="container-manfaat">
-        {/* Individual Manfaat Sections */}
         <section id="kaya-akan-nutrisi" className="manfaat-section">
           <img
             src="/img/gambar1.jpg"
