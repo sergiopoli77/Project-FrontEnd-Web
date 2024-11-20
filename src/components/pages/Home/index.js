@@ -267,22 +267,34 @@ const Home = () => {
         <div class="col-md-6">
           <h5>{home.info}</h5>
           <p>
-            <strong>{home.email}</strong>{" "}
-            <a href="email:support@tomatik.com">{home.email2}</a>
+            <strong>Sergio : </strong>{" "}
+            <a href="https://github.com/sergiopoli77">
+              https://github.com/sergiopoli77
+            </a>
           </p>
           <p>
-            <strong>{home.telepon}</strong> {home.telepon2}
+            <strong>Gloria : </strong>{" "}
+            <a href="https://github.com/Gloriaamandagii">
+              https://github.com/Gloriaamandagii
+            </a>
           </p>
           <p>
-            <strong>{home.obrolan}</strong> {home.obrolan2}
+            <strong>Josua : </strong>{" "}
+            <a href="https://github.com/Joshuatandilobo-unklab">
+              https://github.com/Joshuatandilobo-unklab
+            </a>
           </p>
           <p>
-            <strong>
-              {home.faqsupport}{" "}
-              <a href="#faq" class="btn-link">
-                {home.faqsupport1}
-              </a>
-            </strong>
+            <strong>Grivin : </strong>{" "}
+            <a href="https://github.com/grivin1028">
+              https://github.com/grivin1028
+            </a>
+          </p>
+          <p>
+            <strong>Jonald : </strong>{" "}
+            <a href="https://github.com/Jonald2004">
+              https://github.com/Jonald2004
+            </a>
           </p>
         </div>
       </section>
@@ -624,17 +636,22 @@ const Home = () => {
         /* Section Support Styling */
 
         .support-section {
-          background-color: #f9f9f9;
           margin-top: 40px;
         }
 
         /* Header Styling */
-        .support-section h3,
+        .support-section h3 {
+          font-family: "Arial", sans-serif;
+          font-weight: 600;
+          color: #333;
+          text-align: center !important;
+        }
+
         .support-section h4 {
           font-family: "Arial", sans-serif;
           font-weight: 600;
           color: #333;
-          text-align: left !important;
+          text-align: center !important;
         }
 
         /* Contact Information Styling */
