@@ -20,19 +20,16 @@ const Home = () => {
 
   const faqs = [
     {
-      question: "Apa manfaat utama dari tomat?",
-      answer:
-        "Tomat kaya akan vitamin C, likopen, dan antioksidan yang dapat membantu meningkatkan kekebalan tubuh dan menjaga kesehatan kulit.",
+      question: home.q1,
+      answer: home.a1,
     },
     {
-      question: "Bagaimana cara merawat tanaman tomat?",
-      answer:
-        "Tanaman tomat membutuhkan cahaya matahari yang cukup, penyiraman yang teratur, dan pemupukan organik untuk hasil terbaik.",
+      question: home.q2,
+      answer: home.a2,
     },
     {
-      question: "Kapan waktu terbaik untuk memanen tomat?",
-      answer:
-        "Tomat sebaiknya dipanen ketika sudah matang sempurna dengan warna yang merata, tergantung pada varietasnya.",
+      question: home.q3,
+      answer: home.a3,
     },
   ];
 
@@ -124,7 +121,7 @@ const Home = () => {
                     className={`img-fluid rounded w-100 ${
                       inView ? "slideInLeft" : ""
                     }`}
-                    src="img/tomat1.jpg"
+                    src={`data:image/jpeg;base64, ${home.tomat1}`}
                     alt="Tomat 1"
                     loading="lazy"
                   />
@@ -134,7 +131,7 @@ const Home = () => {
                     className={`img-fluid rounded w-75 ${
                       inView ? "slideInLeft" : ""
                     }`}
-                    src="img/tomat2.jpg"
+                    src={`data:image/jpeg;base64, ${home.tomat2}`}
                     alt="Tomat 2"
                     style={{ marginTop: "25%" }}
                     loading="lazy"
@@ -145,7 +142,7 @@ const Home = () => {
                     className={`img-fluid rounded w-75 ${
                       inView ? "slideInRight" : ""
                     }`}
-                    src="img/tomat3.jpeg"
+                    src={`data:image/jpeg;base64, ${home.tomat3}`}
                     alt="Tomat 3"
                     loading="lazy"
                   />
@@ -155,7 +152,7 @@ const Home = () => {
                     className={`img-fluid rounded w-100 ${
                       inView ? "slideInRight" : ""
                     }`}
-                    src="img/tomat4.jpg"
+                    src={`data:image/jpeg;base64, ${home.tomat4}`} //perbaiki gambar yang tidak full di firebase sergio
                     alt="Tomat 4"
                     loading="lazy"
                   />
@@ -181,7 +178,7 @@ const Home = () => {
           <div className="row g-4">
             <div className="col-md-4">
               <img
-                src="img/tomatroma.jpeg"
+                src={`data:image/jpeg;base64, ${home.roma}`}
                 alt="Tomat Roma"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -191,7 +188,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatbeefsteak.jpeg"
+                src={`data:image/jpeg;base64, ${home.beefsteak}`}
                 alt="BeefSteak tomat"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -201,7 +198,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatjepang.jpeg"
+                src={`data:image/jpeg;base64, ${home.jepang}`}
                 alt="Tomat Cerry Jepang"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -211,7 +208,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatmarzano.jpeg"
+                src={`data:image/jpeg;base64, ${home.marzano}`}
                 alt="Tomat Marzano"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -221,7 +218,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatceryprancis.jpeg"
+                src={`data:image/jpeg;base64, ${home.prancis}`}
                 alt="Tomat Cerry Prancis"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -231,7 +228,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <img
-                src="img/tomatkumato.jpeg"
+                src={`data:image/jpeg;base64, ${home.kumato}`}
                 alt="Tomat Kumato"
                 className="img-fluid rounded"
                 loading="lazy"
@@ -267,22 +264,26 @@ const Home = () => {
         <div class="col-md-6">
           <h5>{home.info}</h5>
           <p>
-            <strong>{home.email}</strong>{" "}
-            <a href="email:support@tomatik.com">{home.email2}</a>
+            <strong>{home.sergio} </strong>{" "}
+            <a href="https://github.com/sergiopoli77">{home.sergiogit}</a>
           </p>
           <p>
-            <strong>{home.telepon}</strong> {home.telepon2}
+            <strong>{home.gloria} </strong>{" "}
+            <a href="https://github.com/Gloriaamandagii">{home.gloriagit}</a>
           </p>
           <p>
-            <strong>{home.obrolan}</strong> {home.obrolan2}
+            <strong>{home.josua} </strong>{" "}
+            <a href="https://github.com/Joshuatandilobo-unklab">
+              {home.josuagit}
+            </a>
           </p>
           <p>
-            <strong>
-              {home.faqsupport}{" "}
-              <a href="#faq" class="btn-link">
-                {home.faqsupport1}
-              </a>
-            </strong>
+            <strong>{home.grivin} </strong>{" "}
+            <a href="https://github.com/grivin1028">{home.grivingit}</a>
+          </p>
+          <p>
+            <strong>{home.jonald} </strong>{" "}
+            <a href="https://github.com/Jonald2004">{home.jonaldgit}</a>
           </p>
         </div>
       </section>
@@ -315,6 +316,9 @@ const Home = () => {
               rgba(0, 0, 0, 0.3)
             ),
             url(./img/bg4.jpeg) no-repeat center center/cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
           display: flex;
           align-items: center;
           justify-content: left;
@@ -621,17 +625,22 @@ const Home = () => {
         /* Section Support Styling */
 
         .support-section {
-          background-color: #f9f9f9;
           margin-top: 40px;
         }
 
         /* Header Styling */
-        .support-section h3,
+        .support-section h3 {
+          font-family: "Arial", sans-serif;
+          font-weight: 600;
+          color: #333;
+          text-align: center !important;
+        }
+
         .support-section h4 {
           font-family: "Arial", sans-serif;
           font-weight: 600;
           color: #333;
-          text-align: left !important;
+          text-align: center !important;
         }
 
         /* Contact Information Styling */

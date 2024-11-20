@@ -35,9 +35,10 @@ const Manfaat = () => {
     };
   }, []);
 
+  
+
   return (
     <main>
-      {/* Hero Section */}
       <section className="hero-header">
         <div className="hero-content">
           <h1>
@@ -48,104 +49,82 @@ const Manfaat = () => {
         </div>
       </section>
 
-      {/* About Section */}
       <section className="about py-5" id="about" ref={aboutSectionRef}>
         <div className="container">
           <h1 className="about-section-title">{manfaat.abouttitle}</h1>
         </div>
       </section>
 
-      {/* Container Manfaat Section */}
       <div className="container-manfaat">
-        {/* Individual Manfaat Sections */}
         <section id="kaya-akan-nutrisi" className="manfaat-section">
           <img
-            src="/img/gambar1.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar1}`}
             alt="Kaya Akan Nutrisi"
             className="manfaat-image"
           />
           <div className="manfaat-content">
-            <h2 className="manfaat-title">Kaya Akan Nutrisi</h2>
-            <p className="manfaat-description">
-              Tomat mengandung banyak vitamin dan mineral penting seperti
-              vitamin C, vitamin K, kalium, dan folat.
-            </p>
+            <h2 className="manfaat-title">{manfaat.galerytitle}</h2>
+            <p className="manfaat-description">{manfaat.des1}</p>
           </div>
         </section>
 
         <section id="antioksidan-tinggi" className="manfaat-section">
           <img
-            src="/img/gambar2.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar2}`}
             alt="Antioksidan Tinggi"
             className="manfaat-image"
           />
           <div className="manfaat-content">
-            <h2 className="manfaat-title">Antioksidan Tinggi</h2>
-            <p className="manfaat-description">
-              Tomat kaya akan antioksidan seperti likopen, yang dapat membantu
-              melindungi sel-sel tubuh dari kerusakan akibat radikal bebas.
-            </p>
+            <h2 className="manfaat-title">{manfaat.j1}</h2>
+            <p className="manfaat-description">{manfaat.des}</p>
           </div>
         </section>
 
         <section id="kesehatan-jantung" className="manfaat-section">
           <img
-            src="/img/gambar3.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar3}`}
             alt="Menjaga Kesehatan Jantung"
             className="manfaat-image"
           />
           <div className="manfaat-content">
-            <h2 className="manfaat-title">Menjaga Kesehatan Jantung</h2>
-            <p className="manfaat-description">
-              Konsumsi tomat secara teratur dapat membantu menurunkan kadar
-              kolesterol dan tekanan darah.
-            </p>
+            <h2 className="manfaat-title">{manfaat.j2}</h2>
+            <p className="manfaat-description">{manfaat.des2}</p>
           </div>
         </section>
 
         <section id="kesehatan-kulit" className="manfaat-section">
           <img
-            src="/img/gambar4.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar4}`}
             alt="Meningkatkan Kesehatan Kulit"
             className="manfaat-image"
           />
           <div className="manfaat-content">
-            <h2 className="manfaat-title">Meningkatkan Kesehatan Kulit</h2>
-            <p className="manfaat-description">
-              Kandungan vitamin C dan antioksidan dalam tomat dapat membantu
-              menjaga kulit tetap sehat, mencegah penuaan dini, dan melindungi
-              kulit dari kerusakan akibat sinar matahari
-            </p>
+            <h2 className="manfaat-title">{manfaat.j3}</h2>
+            <p className="manfaat-description">{manfaat.des3}</p>
           </div>
         </section>
 
         <section id="penglihatan" className="manfaat-section">
           <img
-            src="/img/gambar5.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar5}`}
             alt="Meningkatkan Penglihatan"
             className="manfaat-image"
           />
           <div className="manfaat-content">
-            <h2 className="manfaat-title">Meningkatkan Penglihatan</h2>
-            <p className="manfaat-description">
-              Tomat kaya akan vitamin A, yang penting untuk menjaga kesehatan
-              mata dan penglihatan yang baik.
-            </p>
+            <h2 className="manfaat-title">{manfaat.j4}</h2>
+            <p className="manfaat-description">{manfaat.des4}</p>
           </div>
         </section>
 
         <section id="pencernaan" className="manfaat-section">
           <img
-            src="/img/gambar6.jpg"
+            src={`data:image/jpeg;base64, ${manfaat.gambar6}`}
             alt="Membantu Pencernaan"
             className="manfaat-image"
           />
           <div className="manfaat-content">
-            <h2 className="manfaat-title">Membantu Pencernaan</h2>
-            <p className="manfaat-description">
-              Tomat tinggi serat, yang dapat membantu mempromosikan pencernaan
-              yang sehat dan mencegah sembelit.
-            </p>
+            <h2 className="manfaat-title">{manfaat.j5}</h2>
+            <p className="manfaat-description">{manfaat.des5}</p>
           </div>
         </section>
 
@@ -201,6 +180,9 @@ const Manfaat = () => {
         .hero-header {
           background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
             url("/img/bg3.jpg") no-repeat center center/cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
           color: #fff;
           text-align: center;
           padding: 120px 20px;

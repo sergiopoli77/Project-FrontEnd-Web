@@ -1,123 +1,166 @@
-import React from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect, useState, CSSProperties, useRef } from "react";
 
 const HamaComponent = () => {
+  const [hama, setHamaComponent] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const hamaRef = ref(db, "hama");
+    onValue(hamaRef, (snapshot) => {
+      const data = snapshot.val();
+      setHamaComponent(data);
+    });
+  }, []);
+
+  const [selectedHama, setSelectedHama] = useState(null);
+
+  const hamaDetails = [
+    {
+      title: hama.datatitle1,
+      image: "/img/kututhrips.jpeg",
+      description:
+        "Ciri-ciri kutu daun thrip adalah panjangnya 1 mm dan berwarna hitam. Kutu daun thrips ini menye...",
+      extendedDescription:
+        "Ciri-ciri kutu daun thrip adalah panjangnya 1 mm dan berwarna hitam. Kutu daun thrips ini menyebabkan kerusakan pada daun, bunga, dan buah. Untuk mengatasi hama ini, dapat digunakan insektisida berbahan aktif seperti abamektin atau imidakloprid.",
+      treatment: [
+        "Gunakan insektisida berbahan aktif seperti abamektin atau imidakloprid.",
+        "Pasang perangkap kuning untuk menarik thrips.",
+      ],
+    },
+    {
+      title: "Ulat Buah Tomat",
+      image: "/img/ulatbuah.jpeg",
+      description:
+        "Ulat buah tomat ini menyerang daun, bunga, dan buah tanaman tomat. Ciri ciri hama ulat",
+      extendedDescription:
+        "Ulat buah tomat ini menyerang daun, bunga, dan buah tanaman tomat. Ciri ciri hama ulat dapat menyebabkan kerusakan besar pada tanaman tomat. Semprotkan insektisida untuk mengatasinya.",
+      treatment: [
+        "Semprotkan insektisida untuk membasmi ulat.",
+        "Gunakan perangkap feromon untuk mengontrol ulat.",
+      ],
+    },
+    {
+      title: "Kutu Daun Aphis Hijau",
+      image: "/img/kutuaphis.jpeg",
+      description:
+        "Aphis hijau lebih sering disebut kutu daun hijau. Ciri ciri aphis hijau ada...",
+      extendedDescription:
+        "Aphis hijau sering ditemukan pada bagian bawah daun tomat dan dapat menyebabkan daun menggulung. Untuk mengatasi, gunakan insektisida sistemik atau pestisida alami.",
+      treatment: [
+        "Gunakan insektisida sistemik berbahan aktif seperti imidakloprid.",
+        "Semprotkan pestisida alami seperti sabun insektisida atau minyak neem.",
+      ],
+    },
+    {
+      title: "Cacing Tanah",
+      image: "/img/cacingtanah.jpeg",
+      description:
+        "Serangan hama ini pada tanaman tomat ditandai dengan terpotong tanaman pada pang..",
+      extendedDescription:
+        "Cacing tanah sering merusak akar tanaman tomat, menyebabkan tanaman layu dan mati. Pengendalian dapat dilakukan dengan rotasi tanaman atau menggunakan nematisida.",
+      treatment: [
+        "Lakukan rotasi tanaman untuk mengurangi keberadaan cacing tanah.",
+        "Gunakan nematisida untuk membasmi cacing tanah.",
+      ],
+    },
+    {
+      title: "Lalat Buah",
+      image: "/img/lalatbuah.jpeg",
+      description:
+        "Ukuran hama ini sekitar 8 mm dengan warna tubuh hitam kehijauan dan sayap transparan...",
+      extendedDescription:
+        "Lalat buah menginfeksi buah tomat yang masih muda dengan cara meletakkan telurnya di dalam buah. Semprotkan insektisida berbahan aktif malathion atau diazinon untuk mengendalikannya.",
+      treatment: [
+        "Semprotkan insektisida malathion atau diazinon.",
+        "Gunakan perangkap lalat buah atau perangkap feromon.",
+      ],
+    },
+    {
+      title: "Kutu Kebul",
+      image: "/img/kutukebul.jpeg",
+      description:
+        "Hama kutu daun bersayap putih ini merupakan salah hama paling berbahaya dalam budidaya tanam...",
+      extendedDescription:
+        "Kutu kebul menyebarkan virus tanaman dan dapat menyebabkan kerusakan pada daun, batang, dan bunga. Gunakan insektisida berbahan aktif seperti pirimicarb untuk pengendalian.",
+      treatment: [
+        "Gunakan insektisida pirimicarb atau insektisida berbahan alami.",
+        "Pasang perangkap kuning untuk menarik kutu kebul.",
+      ],
+    },
+  ];
+
+  const handleSeeMore = (hama) => {
+    setSelectedHama(hama);
+    document.body.style.overflow = "hidden"; // Menyembunyikan scroll di body saat modal aktif
+  };
+
+  const handleCloseModal = () => {
+    setSelectedHama(null);
+    document.body.style.overflow = "auto"; // Mengembalikan scroll di body saat modal ditutup
+  };
+
   return (
     <main>
-      {/* Hero Section */}
       <section className="hero-header">
         <div className="hero-content">
           <h1>
             <br />
-            Hama Pada Tumbuhan Tomat
+            {hama.title}
           </h1>
-          <p>
-            Temukan informasi lengkap tentang hama yang sering menyerang tanaman
-            tomat dan cara mengatasinya.
-          </p>
+          <p>{hama.subtitle}</p>
         </div>
       </section>
 
-      {/* hero Section */}
       <section id="hero" className="section-hero">
-        <h1>Daftar Hama Utama</h1>
-        <p>
-          Tanaman tomat sangat rentan terhadap serangan hama. Berikut ini adalah
-          daftar beberapa hama yang sering menyerang tanaman tomat.
-        </p>
+        <h1>{hama.herotitle}</h1>
+        <p>{hama.herosub}</p>
       </section>
 
-      {/* Container Hama Section */}
       <div className="container-hama">
-        {/* Individual Hama Sections */}
-        <section id="hama-pertama" className="hama-section">
-          <img
-            src="/img/kututhrips.jpeg"
-            alt="Hama Pertama"
-            className="hama-image"
-          />
-          <div className="hama-content">
-            <h2 className="hama-title">Kutu Daun Thrips Tomat</h2>
-            <p className="hama-description">
-              Ciri-ciri kutu daun thrip adalah panjangnya 1 mm dan berwarna
-              hitam. Kutu daun thrips ini menye...
-            </p>
-          </div>
-        </section>
+        {hamaDetails.map((hama, index) => (
+          <section key={index} className="hama-section">
+            <img src={hama.image} alt={hama.title} className="hama-image" />
+            <div className="hama-content">
+              <h2 className="hama-title">{hama.title}</h2>
+              <p className="hama-description">
+                {hama.description.substring(0, 100)}...
+              </p>
+              <button
+                className="more-info-button"
+                onClick={() => handleSeeMore(hama)}
+              >
+                Lihat Selengkapnya
+              </button>
+            </div>
+          </section>
+        ))}
 
-        <section id="hama-kedua" className="hama-section">
-          <img
-            src="/img/lalatbuah.jpeg"
-            alt="Hama Kedua"
-            className="hama-image"
-          />
-          <div className="hama-content">
-            <h2 className="hama-title">Ulat Buah Tomat</h2>
-            <p className="hama-description">
-              Umumnya ulat buah tomat ini menyerang daun, bunga, dan buah
-              tanaman tomat. Ciri ciri hama ulat...
-            </p>
+        {selectedHama && (
+          <div className="modal">
+            <div className="modal-content">
+              <h2>{selectedHama.title}</h2>
+              <div className="modal-body">
+                <img
+                  src={selectedHama.image}
+                  alt={selectedHama.title}
+                  className="modal-image"
+                />
+                <div className="modal-text">
+                  <p>{selectedHama.extendedDescription}</p>
+                  <h3>{hama.solve}</h3>
+                  <ul>
+                    {selectedHama.treatment.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <button className="back-button" onClick={handleCloseModal}>
+                {hama.backbutton}
+              </button>
+            </div>
           </div>
-        </section>
-
-        <section id="hama-ketiga" className="hama-section">
-          <img
-            src="/img/kutuaphis.jpeg"
-            alt="Hama Ketiga"
-            className="hama-image"
-          />
-          <div className="hama-content">
-            <h2 className="hama-title">Kutu Daun Aphis Hijau</h2>
-            <p className="hama-description">
-              Aphis hijau lebih sering disebut kutu daun hijau. Ciri ciri aphis
-              hijau ada...
-            </p>
-          </div>
-        </section>
-
-        <section id="hama-keempat" className="hama-section">
-          <img
-            src="/img/cacingtanah.jpeg"
-            alt="Hama Keempat"
-            className="hama-image"
-          />
-          <div className="hama-content">
-            <h2 className="hama-title">Cacing Tanah</h2>
-            <p className="hama-description">
-              Serangan hama ini pada tanaman tomat ditandai dengan terpotong
-              tanaman pada pang..
-            </p>
-          </div>
-        </section>
-
-        <section id="hama-lima" className="hama-section">
-          <img
-            src="/img/lalatbuah.jpeg"
-            alt="Hama Lima"
-            className="hama-image"
-          />
-          <div className="hama-content">
-            <h2 className="hama-title">Lalat Buah</h2>
-            <p className="hama-description">
-              Ukuran hama ini sekitar 8 mm dengan warna tubuh hitam kehijauan
-              dan sayap transparan...
-            </p>
-          </div>
-        </section>
-
-        <section id="hama-enam" className="hama-section">
-          <img
-            src="/img/kutukebul.jpeg"
-            alt="Hama Enam"
-            className="hama-image"
-          />
-          <div className="hama-content">
-            <h2 className="hama-title">Kutu kebul</h2>
-            <p className="hama-description">
-              Hama kutu daun bersayap putih ini merupakan salah hama paling
-              berbahaya dalam budidaya tanam...
-            </p>
-          </div>
-        </section>
+        )}
       </div>
 
       {/* Styles */}
@@ -151,6 +194,9 @@ const HamaComponent = () => {
         .hero-header {
           background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
             url("/img/bg3.jpg") no-repeat center center/cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
           color: #fff;
           text-align: center;
           padding: 120px 20px;
@@ -190,7 +236,7 @@ const HamaComponent = () => {
           font-weight: 300;
           text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        
+
         .section-hero {
           text-align: center;
           padding: 60px 20px;
@@ -274,6 +320,84 @@ const HamaComponent = () => {
           color: #666;
           line-height: 1.7;
           font-weight: 400;
+        }
+
+        .more-info-button {
+          margin-top: 20px;
+          padding: 10px 20px;
+          background-color: #f2a900;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 1rem;
+        }
+
+        .more-info-button:hover {
+          background-color: #d18a00;
+        }
+
+        /* Modal Styles */
+        .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+        }
+
+        .modal-content {
+          background-color: #fff;
+          padding: 30px;
+          border-radius: 10px;
+          max-width: 800px;
+          width: 100%;
+          text-align: left;
+        }
+
+        .modal-body {
+          display: flex;
+        }
+
+        .modal-image {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          margin-right: 20px;
+        }
+
+        .modal-text {
+          max-width: 600px;
+        }
+
+        .close-button {
+          font-size: 1.5rem;
+          background: none;
+          border: none;
+          color: #333;
+          cursor: pointer;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+
+        .back-button {
+          margin-top: 20px;
+          padding: 10px 20px;
+          background-color: #f2a900;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+
+        .back-button:hover {
+          background-color: #d18a00;
         }
       `}</style>
     </main>
