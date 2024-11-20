@@ -14,7 +14,6 @@ const Penyakit = () => {
 
   return (
     <main>
-      {/* Hero Section */}
       <section className="hero-header">
         <div className="hero-content">
           <h1>
@@ -25,7 +24,6 @@ const Penyakit = () => {
         </div>
       </section>
 
-      {/* Penyakit List Section */}
       <section className="penyakit-list">
         <div className="penyakit-container">
           <div className="penyakit-item">
