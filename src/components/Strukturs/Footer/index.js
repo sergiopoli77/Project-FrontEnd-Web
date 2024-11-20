@@ -1,4 +1,17 @@
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect, useState, CSSProperties } from "react";
+
 const Footer = () => {
+  const [footer, setFooter] = useState({});
+
+  useEffect(() => {
+    const db = getDatabase();
+    const footerRef = ref(db, "footer");
+    onValue(footerRef, (snapshot) => {
+      const data = snapshot.val();
+      setFooter(data);
+    });
+  }, []);
   return (
     <footer className="site-footer">
       <div className="container">
@@ -8,16 +21,16 @@ const Footer = () => {
             <nav className="footer-nav">
               <ul>
                 <li>
-                  <a href="#">Tentang Kami</a>
+                  <a href="#">{footer.f1}</a>
                 </li>
                 <li>
-                  <a href="#">Gallery</a>
+                  <a href="#">{footer.f2}</a>
                 </li>
                 <li>
-                  <a href="#">FAQ's</a>
+                  <a href="#">{footer.f3}</a>
                 </li>
                 <li>
-                  <a href="#">Dukungan</a>
+                  <a href="#">{footer.f4}</a>
                 </li>
               </ul>
             </nav>

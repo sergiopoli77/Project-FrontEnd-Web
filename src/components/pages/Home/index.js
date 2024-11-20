@@ -1,5 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+import { useEffect, useState, CSSProperties, useRef } from "react";
+
 const Home = () => {
+  const [home, setHome] = useState({});
+
+  useEffect(() => {
+    const db = getDatabase();
+    const homeRef = ref(db, "home");
+    onValue(homeRef, (snapshot) => {
+      const data = snapshot.val();
+      setHome(data);
+    });
+  }, []);
   const [inView, setInView] = useState(false);
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -94,15 +106,11 @@ const Home = () => {
       <section className="hero-header">
         <div className="hero-content">
           <h1>
-            Panduan Lengkap
+            {home.title1}
             <br />
-            Manfaat dan Perawatan Tomat
+            {home.title2}
           </h1>
-          <p>
-            Mulai dari kandungan antioksidan hingga vitamin, tomat memiliki
-            segudang manfaat. Ketahui juga cara merawatnya agar tanaman tomat
-            Anda tumbuh subur.
-          </p>
+          <p>{home.subtitle}</p>
         </div>
       </section>
 
@@ -116,7 +124,7 @@ const Home = () => {
                     className={`img-fluid rounded w-100 ${
                       inView ? "slideInLeft" : ""
                     }`}
-                    src="img/tomat1.jpg"
+                    src={`data:image/jpeg;base64, ${home.tomat1}`}
                     alt="Tomat 1"
                     loading="lazy"
                   />
@@ -126,7 +134,7 @@ const Home = () => {
                     className={`img-fluid rounded w-75 ${
                       inView ? "slideInLeft" : ""
                     }`}
-                    src="img/tomat2.jpg"
+                    src={`data:image/jpeg;base64, ${home.tomat2}`}
                     alt="Tomat 2"
                     style={{ marginTop: "25%" }}
                     loading="lazy"
@@ -137,7 +145,7 @@ const Home = () => {
                     className={`img-fluid rounded w-75 ${
                       inView ? "slideInRight" : ""
                     }`}
-                    src="img/tomat3.jpeg"
+                    src={`data:image/jpeg;base64, ${home.tomat3}`}
                     alt="Tomat 3"
                     loading="lazy"
                   />
@@ -147,7 +155,7 @@ const Home = () => {
                     className={`img-fluid rounded w-100 ${
                       inView ? "slideInRight" : ""
                     }`}
-                    src="img/tomat4.jpg"
+                    src={`data:image/jpeg;base64, ${home.tomat4}`} //perbaiki gambar yang tidak full di firebase sergio
                     alt="Tomat 4"
                     loading="lazy"
                   />
@@ -156,20 +164,11 @@ const Home = () => {
             </div>
             <div className="col-lg-6">
               <h5 className="about-section-title ff-secondary text-start text-primary fw-normal">
-                Tentang Kami
+                {home.about}
               </h5>
-              <h1 className="mb-4">Welcome to Tomatik</h1>
-              <p className="mb-4">
-                Tomatik hadir untuk memberikan Anda informasi lengkap tentang
-                manfaat kesehatan dari tomat. Dari meningkatkan daya tahan tubuh
-                hingga mendukung kesehatan kulit, tomat adalah buah yang kaya
-                akan manfaat yang baik untuk kesehatan Anda.
-              </p>
-              <p className="mb-4">
-                Menyediakan panduan perawatan tomat yang praktis dan mudah. Baik
-                Anda seorang pemula ataupun penghobi tanaman, panduan kami akan
-                membantu Anda menumbuhkan tomat yang sehat dan subur di rumah.
-              </p>
+              <h1 className="mb-4">{home.abouttitle}</h1>
+              <p className="mb-4">{home.aboutsub1}</p>
+              <p className="mb-4">{home.aboutsub2}</p>
             </div>
           </div>
         </div>
@@ -177,10 +176,8 @@ const Home = () => {
 
       <section className="gallery py-5" id="gallery">
         <div className="container">
-          <h2 className="text-center mb-4">Gallery Tomat</h2>
-          <h3 className="text-center mb-4">
-            Tomat yang populer di berbagai negara
-          </h3>
+          <h2 className="text-center mb-4">{home.galery}</h2>
+          <h3 className="text-center mb-4">{home.galerytitle}</h3>
           <div className="row g-4">
             <div className="col-md-4">
               <img
@@ -189,11 +186,8 @@ const Home = () => {
                 className="img-fluid rounded"
                 loading="lazy"
               />
-              <h5 className="text-center mt-2">Tomat Roma (Italia)</h5>
-              <p className="text-center">
-                Tomat Roma, terkenal di Italia, sering digunakan untuk membuat
-                saus dan pasta.
-              </p>
+              <h5 className="text-center mt-2">{home.g1}</h5>
+              <p className="text-center">{home.g1title}</p>
             </div>
             <div className="col-md-4">
               <img
@@ -202,13 +196,8 @@ const Home = () => {
                 className="img-fluid rounded"
                 loading="lazy"
               />
-              <h5 className="text-center mt-2">
-                Tomat Beefsteak (Amerika Serikat)
-              </h5>
-              <p className="text-center">
-                Tomat Beefsteak, asal Amerika Serikat, dikenal dengan ukurannya
-                yang besar dan dagingnya yang padat.
-              </p>
+              <h5 className="text-center mt-2">{home.g2}</h5>
+              <p className="text-center">{home.g2title}</p>
             </div>
             <div className="col-md-4">
               <img
@@ -217,11 +206,8 @@ const Home = () => {
                 className="img-fluid rounded"
                 loading="lazy"
               />
-              <h5 className="text-center mt-2">Tomat Ceri (Jepang)</h5>
-              <p className="text-center">
-                Tomat ceri, populer di Jepang, memiliki rasa manis dan sering
-                digunakan dalam salad atau sebagai camilan.
-              </p>
+              <h5 className="text-center mt-2">{home.g3}</h5>
+              <p className="text-center">{home.g3title}</p>
             </div>
             <div className="col-md-4">
               <img
@@ -230,11 +216,8 @@ const Home = () => {
                 className="img-fluid rounded"
                 loading="lazy"
               />
-              <h5 className="text-center mt-2">Tomat San Marzano (Italia)</h5>
-              <p className="text-center">
-                Tomat San Marzano, berasal dari Italia, terkenal dengan rasa
-                manis dan rendah keasamannya, cocok untuk saus tomat.
-              </p>
+              <h5 className="text-center mt-2">{home.g4}</h5>
+              <p className="text-center">{home.g4title}</p>
             </div>
             <div className="col-md-4">
               <img
@@ -243,11 +226,8 @@ const Home = () => {
                 className="img-fluid rounded"
                 loading="lazy"
               />
-              <h5 className="text-center mt-2">Tomat Cherry (Prancis)</h5>
-              <p className="text-center">
-                Tomat cherry, yang banyak ditemukan di Prancis, sangat manis dan
-                sering digunakan dalam salad segar.
-              </p>
+              <h5 className="text-center mt-2">{home.g5}</h5>
+              <p className="text-center">{home.g5title}</p>
             </div>
             <div className="col-md-4">
               <img
@@ -256,11 +236,8 @@ const Home = () => {
                 className="img-fluid rounded"
                 loading="lazy"
               />
-              <h5 className="text-center mt-2">Tomat Kumato (Spanyol)</h5>
-              <p className="text-center">
-                Tomat Kumato, khas dari Spanyol, memiliki warna coklat gelap
-                dengan rasa yang lebih manis dan kaya.
-              </p>
+              <h5 className="text-center mt-2">{home.g6}</h5>
+              <p className="text-center">{home.g6title}</p>
             </div>
           </div>
         </div>
@@ -268,7 +245,7 @@ const Home = () => {
 
       <section className="faq-section py-5">
         <div className="container">
-          <h2 className="text-center mb-4">FAQ's</h2>
+          <h2 className="text-center mb-4">{home.faq}</h2>
           <div className="faq-list">
             {faqs.map((faq, index) => (
               <div className="faq-item" key={index}>
@@ -283,31 +260,33 @@ const Home = () => {
 
       <section id="support" class="support-section py-5">
         <div class="container">
-          <h3 class="text-center mb-4">Dukungan</h3>
-          <h4 class="text-center mb-4">Kami disini untuk membantu anda!</h4>
+          <h3 class="text-center mb-4">{home.suptitle}</h3>
+          <h4 class="text-center mb-4">{home.supsubtitle}</h4>
         </div>
 
         <div class="col-md-6">
-          <h5>Informasi Kontak</h5>
+          <h5>{home.info}</h5>
           <p>
-            <strong>Email Support:</strong>{" "}
-            <a href="email:support@tomatik.com">support@tomatik.com</a>
+            <strong>{home.sergio} </strong>{" "}
+            <a href="https://github.com/sergiopoli77">{home.sergiogit}</a>
           </p>
           <p>
-            <strong>Telepon:</strong> +62 811 2345
+            <strong>{home.gloria} </strong>{" "}
+            <a href="https://github.com/Gloriaamandagii">{home.gloriagit}</a>
           </p>
           <p>
-            <strong>Obrolan Langsung:</strong> Tersedia 9 AM - 6 PM
-            (Senin-Jumat)
+            <strong>{home.josua} </strong>{" "}
+            <a href="https://github.com/Joshuatandilobo-unklab">
+              {home.josuagit}
+            </a>
           </p>
           <p>
-            <strong>
-              Untuk masalah mendesak, silahkan lihat{" "}
-              <a href="#faq" class="btn-link">
-                FAQ section
-              </a>
-              .
-            </strong>
+            <strong>{home.grivin} </strong>{" "}
+            <a href="https://github.com/grivin1028">{home.grivingit}</a>
+          </p>
+          <p>
+            <strong>{home.jonald} </strong>{" "}
+            <a href="https://github.com/Jonald2004">{home.jonaldgit}</a>
           </p>
         </div>
       </section>
@@ -318,7 +297,7 @@ const Home = () => {
             <span className="close" onClick={closeModal}>
               &times;
             </span>
-            <h2>Jawaban</h2>
+            <h2>{home.jawaban}</h2>
             <p>{modalContent}</p>
           </div>
         </div>
@@ -335,10 +314,14 @@ const Home = () => {
           position: relative;
           height: 100vh;
           background: linear-gradient(
-              rgba(0, 0, 0, 0.603),
-              rgba(0, 0, 0, 0.616)
+              to bottom,
+              rgba(0, 0, 0, 0.7),
+              rgba(0, 0, 0, 0.3)
             ),
-            url(./img/bg1.jpg) no-repeat center center/cover;
+            url(./img/bg4.jpeg) no-repeat center center/cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
           display: flex;
           align-items: center;
           justify-content: left;
@@ -645,17 +628,22 @@ const Home = () => {
         /* Section Support Styling */
 
         .support-section {
-          background-color: #f9f9f9;
           margin-top: 40px;
         }
 
         /* Header Styling */
-        .support-section h3,
+        .support-section h3 {
+          font-family: "Arial", sans-serif;
+          font-weight: 600;
+          color: #333;
+          text-align: center !important;
+        }
+
         .support-section h4 {
           font-family: "Arial", sans-serif;
           font-weight: 600;
           color: #333;
-          text-align: left !important;
+          text-align: center !important;
         }
 
         /* Contact Information Styling */
